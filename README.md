@@ -20,6 +20,7 @@ Cloudflare Pages와 연결되어 있어, 이 저장소의 파일을 수정하면
 ```
 ├── index.html              홈
 ├── about.html              회사소개
+├── leadership.html         대표 소개 (대표 이상민)
 ├── solutions.html          솔루션 허브
 │   ├── solution-transaction.html    거래 자문
 │   ├── solution-strategy.html       전략·기획
@@ -58,6 +59,8 @@ Cloudflare Pages와 연결되어 있어, 이 저장소의 파일을 수정하면
 | 대표 이메일, 카카오톡 채널, 분석 도구 ID | `app.js` 맨 윗부분 `window.ORBIS = { ... }` |
 | 전화번호·주소·등록번호 | 각 HTML 파일 (전체 찾아 바꾸기 권장) |
 | 색상·글꼴·여백 | `styles.css` 맨 위 `:root { ... }` |
+| 대표 인사말·약력 수정 | `leadership.html` |
+| 대표 사진 교체 | `assets/leader-lee.jpg` (3:4 비율 권장) |
 | 매물 카드 추가 | `properties.html` |
 | 사례 추가 | `projects.html` (카드) + `case-*.html` 복제 |
 | 아티클 추가 | `insights.html` (카드) + `insight-*.html` 복제 |
