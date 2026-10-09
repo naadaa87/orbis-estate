@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://orbisestate.pages.dev/sitemap.xml
+Sitemap: https://orbis-estate.com/sitemap.xml
