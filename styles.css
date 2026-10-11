@@ -1010,3 +1010,22 @@ a.tb .v:after{content:" →";font-weight:700;color:var(--gold-t)}
 @media(max-width:600px){.note{flex-direction:column;gap:6px}.note .nk{min-width:0}}
 /* 가로 넘침 방지는 유지하면서 sticky 요소가 동작하도록 (지원 브라우저는 clip 사용) */
 html,body{overflow-x:hidden;overflow-x:clip}
+
+/* 자주 묻는 질문 (홈·상권분석) */
+.faq-grid{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:56px;align-items:start}
+.faq-head .sec-sub{margin-top:14px}
+.faq-list{border-top:1px solid var(--line2)}
+.faq-item{border-bottom:1px solid var(--line2);background:transparent}
+.faq-item summary{list-style:none;cursor:pointer;display:flex;align-items:flex-start;gap:14px;padding:20px 4px;font-size:16.5px;font-weight:700;color:var(--navy);line-height:1.5}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:"";flex:none;width:9px;height:9px;margin:7px 4px 0 auto;border-right:2px solid var(--gold-d);border-bottom:2px solid var(--gold-d);transform:rotate(45deg);transition:transform .2s ease}
+.faq-item[open] summary::after{transform:rotate(-135deg);margin-top:11px}
+.faq-item summary:hover .faq-t{color:var(--navy3)}
+.faq-q{flex:none;font-family:var(--serif);font-weight:600;color:var(--gold-t);font-size:17px;line-height:1.45}
+.faq-t{flex:1 1 auto;min-width:0}
+.faq-a{padding:0 30px 22px 31px}
+.faq-a p{font-size:15px;color:var(--slate);line-height:1.78}
+.faq-a a{color:var(--gold-t);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:920px){.faq-grid{grid-template-columns:1fr;gap:26px}}
+@media(max-width:600px){.faq-item summary{font-size:15.5px;padding:17px 2px}.faq-a{padding:0 4px 20px 29px}.faq-a p{font-size:14.5px}}
+@media print{.faq-item .faq-a{display:block}}

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>오르비스중개법인 소식</title>
+    <link>https://orbis-estate.com/</link>
+    <description>강남 부동산 중개법인 오르비스의 상권분석·점포개발·공실·빌딩 거래 가이드와 서비스 소식</description>
+    <language>ko</language>
+    <lastBuildDate>Sun, 11 Oct 2026 09:00:00 +0900</lastBuildDate>
+    <atom:link href="https://orbis-estate.com/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>무료 상권분석 시스템 · 창업 입지 분석</title>
+      <link>https://orbis-estate.com/analysis</link>
+      <guid isPermaLink="true">https://orbis-estate.com/analysis</guid>
+      <pubDate>Sat, 10 Oct 2026 09:00:00 +0900</pubDate>
+      <category>서비스 소식</category>
+      <description>주소 하나로 반경 상권의 점포 구성과 업종 경쟁, 층별 임대료, 주변 실거래를 확인하고 서울은 유동·배후 인구까지 비교합니다. 회원가입 없이 무료로 쓰는 오르비스 상권분석 시스템입니다.</description>
+    </item>
+    <item>
+      <title>상가 공실이 길어지는 7가지 원인 진단표</title>
+      <link>https://orbis-estate.com/insight-vacancy</link>
+      <guid isPermaLink="true">https://orbis-estate.com/insight-vacancy</guid>
+      <pubDate>Tue, 14 Jul 2026 09:00:00 +0900</pubDate>
+      <category>공실·MD</category>
+      <description>임대료를 내리기 전에 먼저 확인해야 할 상가·빌딩 공실의 구조적 원인 7가지와 원인별 점검 질문을 정리했습니다. 건물주가 직접 점검해 볼 수 있는 진단표입니다.</description>
+    </item>
+  </channel>
+</rss>

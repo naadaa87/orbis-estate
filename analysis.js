@@ -104,7 +104,7 @@
   function empty(title, text, icon) {
     return '<div class="az-empty"><span class="ic">' + (ICON[icon] || ICON.info) + '</span><div><b>' + title + '</b><p>' + text + '</p></div></div>';
   }
-  var CONSULT = '<a href="contact.html?type=analysis" data-az-consult>상권분석 상담</a>';
+  var CONSULT = '<a href="contact?type=analysis" data-az-consult>상권분석 상담</a>';
 
   /* ───────────── 상태 ───────────── */
   var S = {
@@ -330,7 +330,7 @@
       setBusy(false);
       if (!items.length) {
         if (!S.kakao && !ready('geocodeServer') && !S.seoulIdx) {
-          heroMsg('지금은 주소 검색 연결을 준비하고 있습니다. 분석을 원하시는 주소를 남겨 주시면 담당자가 정리해 연락드립니다. <a href="contact.html?type=analysis" data-az-consult>상권분석 상담 신청</a>', true);
+          heroMsg('지금은 주소 검색 연결을 준비하고 있습니다. 분석을 원하시는 주소를 남겨 주시면 담당자가 정리해 연락드립니다. <a href="contact?type=analysis" data-az-consult>상권분석 상담 신청</a>', true);
           stash({ text: '검토 주소: ' + q });
         } else showSugg([], q);
         return;

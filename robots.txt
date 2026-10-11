@@ -1,4 +1,8 @@
+# 오르비스중개법인 robots.txt
 User-agent: *
 Allow: /
+Disallow: /api/
 
 Sitemap: https://orbis-estate.com/sitemap.xml
+
+# 다음(Daum) 웹마스터도구 인증 줄은 이 아래에 붙여 넣으세요. 예) #DaumWebMasterTool:발급받은코드
