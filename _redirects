@@ -3,3 +3,6 @@
 /assets/map2.jpg / 301
 /assets/thumb-sitemap1.jpg / 301
 /assets/thumb-sitemap2.jpg / 301
+/scripts/* / 301
+/functions/* / 301
+/.github/* / 301
