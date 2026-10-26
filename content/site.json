@@ -1,0 +1,186 @@
+{
+  "_설명": "사이트맵·RSS에 넣을 고정 페이지 목록과 예전 글 정보입니다. 새 고정 페이지를 만들면 static에 추가하세요.",
+  "layoutFrom": "insights.html",
+  "static": [
+    {
+      "path": "/",
+      "lastmod": "2026-10-11",
+      "changefreq": "weekly",
+      "priority": "1.0"
+    },
+    {
+      "path": "/about",
+      "lastmod": "2026-10-11",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "path": "/leadership",
+      "lastmod": "2026-10-11",
+      "changefreq": "monthly",
+      "priority": "0.6"
+    },
+    {
+      "path": "/solutions",
+      "lastmod": "2026-10-11",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "path": "/solution-transaction",
+      "lastmod": "2026-10-11",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "path": "/solution-strategy",
+      "lastmod": "2026-10-11",
+      "changefreq": "monthly",
+      "priority": "0.7"
+    },
+    {
+      "path": "/solution-execution",
+      "lastmod": "2026-10-11",
+      "changefreq": "monthly",
+      "priority": "0.7"
+    },
+    {
+      "path": "/solution-value",
+      "lastmod": "2026-10-11",
+      "changefreq": "monthly",
+      "priority": "0.7"
+    },
+    {
+      "path": "/analysis",
+      "lastmod": "2026-10-11",
+      "changefreq": "monthly",
+      "priority": "0.9"
+    },
+    {
+      "path": "/analysis-tool",
+      "lastmod": "2026-10-11",
+      "changefreq": "weekly",
+      "priority": "0.9"
+    },
+    {
+      "path": "/strategy",
+      "lastmod": "2026-10-11",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "path": "/analysis-data",
+      "lastmod": "2026-10-11",
+      "changefreq": "monthly",
+      "priority": "0.6"
+    },
+    {
+      "path": "/partners",
+      "lastmod": "2026-10-11",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "path": "/partner-loungex",
+      "lastmod": "2026-10-11",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "path": "/solution-franchise",
+      "lastmod": "2026-10-11",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "path": "/properties",
+      "lastmod": "2026-10-11",
+      "changefreq": "weekly",
+      "priority": "0.8"
+    },
+    {
+      "path": "/projects",
+      "lastmod": "2026-10-11",
+      "changefreq": "monthly",
+      "priority": "0.6"
+    },
+    {
+      "path": "/case-sinchon",
+      "lastmod": "2026-10-11",
+      "changefreq": "monthly",
+      "priority": "0.6"
+    },
+    {
+      "path": "/case-hwagok",
+      "lastmod": "2026-10-11",
+      "changefreq": "monthly",
+      "priority": "0.6"
+    },
+    {
+      "path": "/insights",
+      "lastmod": "2026-10-11",
+      "changefreq": "weekly",
+      "priority": "0.7"
+    },
+    {
+      "path": "/owners",
+      "lastmod": "2026-10-11",
+      "changefreq": "monthly",
+      "priority": "0.9"
+    },
+    {
+      "path": "/contact",
+      "lastmod": "2026-10-11",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "path": "/privacy",
+      "lastmod": "2026-10-10",
+      "changefreq": "yearly",
+      "priority": "0.3"
+    },
+    {
+      "path": "/terms",
+      "lastmod": "2026-10-10",
+      "changefreq": "yearly",
+      "priority": "0.3"
+    },
+    {
+      "path": "/ad-notice",
+      "lastmod": "2026-10-08",
+      "changefreq": "yearly",
+      "priority": "0.3"
+    },
+    {
+      "path": "/disclaimer",
+      "lastmod": "2026-10-10",
+      "changefreq": "yearly",
+      "priority": "0.3"
+    }
+  ],
+  "pagesLastmod": {
+    "glossary": "2026-10-26",
+    "faq": "2026-10-26"
+  },
+  "legacyPosts": [
+    {
+      "slug": "insight-vacancy",
+      "url": "/insight-vacancy",
+      "title": "공실이 길어지는 7가지 원인 진단표",
+      "description": "임대료를 내리기 전에 먼저 확인해야 할 상가·빌딩 공실의 구조적 원인 7가지와 원인별 점검 질문을 정리했습니다. 건물주가 직접 점검해 볼 수 있는 진단표입니다.",
+      "category": "asset",
+      "date": "2026-07-14 09:00",
+      "readMin": 6
+    }
+  ],
+  "rssExtra": [
+    {
+      "title": "무료 상권분석 시스템 · 창업 입지 분석",
+      "link": "https://orbis-estate.com/analysis",
+      "date": "2026-10-10 09:00",
+      "category": "서비스 소식",
+      "description": "주소 하나로 반경 상권의 점포 구성과 업종 경쟁, 층별 임대료, 주변 실거래를 확인하고 서울은 유동·배후 인구까지 비교합니다. 회원가입 없이 무료로 쓰는 오르비스 상권분석 시스템입니다."
+    }
+  ]
+}

@@ -16,6 +16,8 @@ window.ORBIS = {
   /* GA4 측정 ID (예: "G-XXXXXXXXXX") — 입력 시 자동 로드 */
   GA_ID: ""
 };
+/* 사이트 상단 공지 띠 — 관리자 화면(설정)에서 바꿉니다 */
+/* NOTICE:START */window.ORBIS_NOTICE=null;/* NOTICE:END */
 
 /* ---------- analytics ---------- */
 window.dataLayer = window.dataLayer || [];
@@ -42,6 +44,18 @@ function track(ev, params){
   document.querySelectorAll('.cfg-email-link').forEach(function(a){ if(email) a.setAttribute('href','mailto:'+email); });
   if(!email){ document.querySelectorAll('.em-wrap').forEach(function(w){ w.hidden = true; }); }
   if(!ORBIS.KAKAO_CHANNEL){ document.documentElement.classList.add('no-kakao'); }
+})();
+
+/* ---------- 상단 공지 띠 ---------- */
+(function(){
+  var n=window.ORBIS_NOTICE; if(!n||!n.text) return;
+  try{ if(sessionStorage.getItem('orbis-notice-x')===n.text) return; }catch(e){}
+  var bar=document.createElement('div'); bar.className='notice-bar'; bar.setAttribute('role','region'); bar.setAttribute('aria-label','공지');
+  var t=document.createElement(n.link?'a':'span'); t.className='nb-t'; t.textContent=n.text; if(n.link){t.href=n.link;}
+  var x=document.createElement('button'); x.type='button'; x.className='nb-x'; x.setAttribute('aria-label','공지 닫기'); x.innerHTML='&times;';
+  x.onclick=function(){bar.remove(); document.documentElement.classList.remove('has-notice'); try{sessionStorage.setItem('orbis-notice-x',n.text);}catch(e){}};
+  bar.appendChild(t); bar.appendChild(x); document.body.insertBefore(bar, document.body.firstChild); document.documentElement.classList.add('has-notice');
+  function fit(){ document.documentElement.style.setProperty('--nb-h', bar.offsetHeight+'px'); } fit(); window.addEventListener('resize', fit);
 })();
 
 /* ---------- nav · drawer ---------- */

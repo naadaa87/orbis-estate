@@ -1,0 +1,345 @@
+{
+  "generatedAt": "2026-10-26T22:09:00+09:00",
+  "posts": [
+    {
+      "slug": "commercial-lease-checklist",
+      "title": "상가 임대차 계약 전 확인할 10가지",
+      "category": "legal",
+      "status": "published",
+      "url": "/insights/commercial-lease-checklist",
+      "date": "2026-10-26T20:40:00+09:00",
+      "updated": null,
+      "description": "상가 임대차 계약 전에 등기부와 건축물대장, 환산보증금 계산, 대항력과 확정일자, 계약갱신요구권 10년, 차임 증액 5% 상한, 권리금·원상복구·관리비 특약까지 서명 순서대로 점검합니다. 기준금액 초과 임대차에 적용되는 조항도 표로 정리했습니다.",
+      "keywords": [
+        "상가 임대차 계약",
+        "상가건물 임대차보호법",
+        "계약갱신요구권",
+        "환산보증금",
+        "상가 계약 체크리스트"
+      ],
+      "readMin": 8,
+      "warnings": [],
+      "errors": []
+    },
+    {
+      "slug": "trade-area-analysis-basics",
+      "title": "상권분석 처음 하는 법: 배후수요·유동인구·경쟁을 보는 순서",
+      "category": "area",
+      "status": "published",
+      "url": "/insights/trade-area-analysis-basics",
+      "date": "2026-10-26T20:30:00+09:00",
+      "updated": null,
+      "description": "상권분석 하는 법을 업종·타깃 정의부터 상권 범위, 배후수요, 유동인구, 집객시설, 경쟁, 임대료 부담, 현장 임장까지 8단계로 정리했습니다. 단계마다 볼 지표와 공공 데이터 확인처, 흔한 오해를 함께 적었습니다.",
+      "keywords": [
+        "상권분석 방법",
+        "상권분석 하는 법",
+        "창업 입지 분석",
+        "유동인구 분석",
+        "배후수요"
+      ],
+      "readMin": 7,
+      "warnings": [],
+      "errors": []
+    },
+    {
+      "slug": "commercial-yield-calculation",
+      "title": "상가·빌딩 수익률 계산법: 표면수익률과 실질수익률의 차이",
+      "category": "invest",
+      "status": "published",
+      "url": "/insights/commercial-yield-calculation",
+      "date": "2026-10-26T20:20:00+09:00",
+      "updated": null,
+      "description": "상가 수익률 계산을 표면수익률, 보증금 차감 수익률, 순영업소득(NOI)과 캡레이트, 취득 비용, 대출 레버리지, 렌트프리 실효 임대료 순서로 하나의 계산 예시(가정)에 적용해 보여 주고, 수익률을 부풀리는 다섯 가지 함정을 정리합니다.",
+      "keywords": [
+        "상가 수익률 계산",
+        "빌딩 수익률",
+        "실질수익률",
+        "캡레이트",
+        "순영업소득"
+      ],
+      "readMin": 7,
+      "warnings": [],
+      "errors": []
+    },
+    {
+      "slug": "commercial-market-indicators",
+      "title": "중소형 빌딩·상가 시장을 읽는 6가지 지표와 확인하는 곳",
+      "category": "market",
+      "status": "published",
+      "url": "/insights/commercial-market-indicators",
+      "date": "2026-10-26T20:10:00+09:00",
+      "updated": null,
+      "description": "기준금리·대출금리, 한국부동산원 공실률·임대가격지수·투자수익률, 상업업무용 실거래, 상권 개·폐업과 추정매출, 오피스 통계, 건축 인허가를 어디서 언제 확인하고 어떻게 해석하는지 표와 점검 질문으로 정리했습니다.",
+      "keywords": [
+        "상가 시장 동향",
+        "빌딩 시장 전망",
+        "상업용부동산 임대동향",
+        "상가 공실률",
+        "부동산 시장 지표"
+      ],
+      "readMin": 7,
+      "warnings": [],
+      "errors": []
+    },
+    {
+      "slug": "franchise-site-criteria",
+      "title": "프랜차이즈 출점기준 만드는 법: 점포개발 체크리스트",
+      "category": "brand",
+      "status": "published",
+      "url": "/insights/franchise-site-criteria",
+      "date": "2026-10-26T20:00:00+09:00",
+      "updated": null,
+      "description": "프랜차이즈 출점 전략의 기준이 되는 출점기준표를 상권 유형, 배후수요, 경쟁 거리, 점포 조건, 점유비용 상한으로 나눠 만드는 법과 가맹사업법상 영업지역 설정 의무, 후보지 스코어카드, 가맹 희망 입지 검토 순서를 정리했습니다.",
+      "keywords": [
+        "프랜차이즈 출점 전략",
+        "출점기준",
+        "점포개발",
+        "가맹점 입지",
+        "점포개발 체크리스트"
+      ],
+      "readMin": 7,
+      "warnings": [],
+      "errors": []
+    },
+    {
+      "slug": "tenant-mix-md-strategy",
+      "title": "임차인 구성(MD)으로 건물 가치를 지키는 법",
+      "category": "asset",
+      "status": "published",
+      "url": "/insights/tenant-mix-md-strategy",
+      "date": "2026-10-26T19:50:00+09:00",
+      "updated": null,
+      "description": "상가 MD 구성은 빈 층을 채우는 일이 아니라 층마다 역할을 나누는 일입니다. 앵커·체류·생활편의·목적형 업종의 역할, 층별 배치, 영업시간 보완, 충돌 업종, 임대료 구조, 공실 층 유치 순서를 표와 체크리스트로 정리했습니다.",
+      "keywords": [
+        "상가 MD 구성",
+        "건물 임차인 구성",
+        "테넌트 믹스",
+        "상가 업종 구성",
+        "건물 가치"
+      ],
+      "readMin": 7,
+      "warnings": [],
+      "errors": []
+    },
+    {
+      "slug": "brokerage-fee-guide",
+      "title": "부동산 중개보수 계산법: 주택·오피스텔·상가 상한과 협의 방법",
+      "category": "legal",
+      "status": "published",
+      "url": "/insights/brokerage-fee-guide",
+      "date": "2026-10-26T19:40:00+09:00",
+      "updated": null,
+      "description": "주택 매매·임대차 중개보수 상한요율표, 주거용 오피스텔 요건과 요율, 상가·토지 0.9% 이내 협의 기준, 월세 거래금액 환산식, 부가세와 지급 시기까지 2026년 10월 현행 법령으로 정리하고 계산 예시를 붙였습니다.",
+      "keywords": [
+        "부동산 중개수수료",
+        "중개보수 요율",
+        "상가 중개보수",
+        "오피스텔 중개수수료",
+        "중개보수 계산"
+      ],
+      "readMin": 6,
+      "warnings": [],
+      "errors": []
+    },
+    {
+      "slug": "small-building-due-diligence",
+      "title": "꼬마빌딩 매입 전 확인할 12가지 실사 체크리스트",
+      "category": "invest",
+      "status": "published",
+      "url": "/insights/small-building-due-diligence",
+      "date": "2026-10-26T19:30:00+09:00",
+      "updated": null,
+      "description": "꼬마빌딩 매입 전 빌딩 실사에서 볼 12가지를 권리·공법·임대·물리·재무로 나눠 확인 자료와 받는 곳, 위험 신호를 표로 정리했습니다. 렌트롤 검증법과 비주택 취득세 기준(2026년 10월)도 함께 담았습니다.",
+      "keywords": [
+        "꼬마빌딩 매입",
+        "빌딩 실사",
+        "건물 매매 체크리스트",
+        "꼬마빌딩 투자",
+        "빌딩 매입 주의사항"
+      ],
+      "readMin": 6,
+      "warnings": [],
+      "errors": []
+    },
+    {
+      "slug": "first-floor-retail-location",
+      "title": "1층 상가 입지 고르는 법: 가시성·동선·전면을 숫자로 보기",
+      "category": "area",
+      "status": "published",
+      "url": "/insights/first-floor-retail-location",
+      "date": "2026-10-26T19:20:00+09:00",
+      "updated": null,
+      "description": "1층 상가 입지를 고를 때 가시성(전면 폭·간판·시야 차단물), 동선(주동선·횡단보도·출구 방향), 접근성, 코너 자리의 장단점을 숫자로 기록하는 방법과 업종별 조건표, 시간대별 현장 관찰 양식을 정리했습니다.",
+      "keywords": [
+        "1층 상가 입지",
+        "상가 입지 조건",
+        "점포 입지 선정",
+        "상가 가시성",
+        "코너 상가"
+      ],
+      "readMin": 7,
+      "warnings": [],
+      "errors": []
+    },
+    {
+      "slug": "key-money-protection",
+      "title": "상가 권리금, 법이 보호하는 범위와 계약서에 남길 것",
+      "category": "legal",
+      "status": "published",
+      "url": "/insights/key-money-protection",
+      "date": "2026-10-26T19:10:00+09:00",
+      "updated": null,
+      "description": "상가건물 임대차보호법 제10조의3부터 제10조의7을 기준으로 권리금 회수기회 보호 기간, 임대인의 방해행위와 정당한 거절 사유, 손해배상 한도와 3년 청구 기간, 적용 제외 상가, 표준권리금계약서에 남길 항목을 정리했습니다.",
+      "keywords": [
+        "상가 권리금",
+        "권리금 회수기회 보호",
+        "권리금 계약서",
+        "권리금 손해배상",
+        "표준권리금계약서"
+      ],
+      "readMin": 7,
+      "warnings": [],
+      "errors": []
+    },
+    {
+      "slug": "flagship-store-location-strategy",
+      "title": "브랜드 첫 매장 입지 전략: 테스트 매장과 상징 매장은 기준이 다르다",
+      "category": "brand",
+      "status": "published",
+      "url": "/insights/flagship-store-location-strategy",
+      "date": "2026-10-26T19:00:00+09:00",
+      "updated": null,
+      "description": "브랜드 첫 매장을 테스트 매장, 플래그십 스토어, 수익 기반 매장 중 무엇으로 여느냐에 따라 입지 기준과 계약 기간·중도해지·원상복구 조건, 성공 지표가 달라집니다. 팝업스토어 검증과 두 번째 매장 판단 기준까지 정리했습니다.",
+      "keywords": [
+        "브랜드 첫 매장",
+        "플래그십 스토어 입지",
+        "매장 오픈 전략",
+        "팝업스토어",
+        "브랜드 입지 전략"
+      ],
+      "readMin": 7,
+      "warnings": [],
+      "errors": []
+    },
+    {
+      "slug": "sell-lease-or-develop",
+      "title": "보유 건물, 매각·임대·개발 중 무엇을 먼저 검토할까",
+      "category": "invest",
+      "status": "published",
+      "url": "/insights/sell-lease-or-develop",
+      "date": "2026-10-26T18:50:00+09:00",
+      "updated": null,
+      "description": "건물 매각 시기와 빌딩 매각 전략을 정하기 전에 보유 목적, 자산 상태, 용도지역·용적률과 용도변경, 시장 국면, 세금·비용, 실행 역량 순서로 점검하는 방법과 네 가지 선택지 비교표, 결정 전 점검 질문 10개를 정리했습니다.",
+      "keywords": [
+        "건물 매각 시기",
+        "빌딩 매각 전략",
+        "건물 리모델링",
+        "용도변경",
+        "건물 활용 방안"
+      ],
+      "readMin": 7,
+      "warnings": [],
+      "errors": []
+    },
+    {
+      "slug": "gangnam-office-lease-guide",
+      "title": "강남 사무실 임대, 테헤란로 오피스 고를 때 비교할 조건",
+      "category": "market",
+      "status": "published",
+      "url": "/insights/gangnam-office-lease-guide",
+      "date": "2026-10-26T18:40:00+09:00",
+      "updated": null,
+      "description": "강남 사무실 임대 전에 비교할 전용률, 임대료·관리비 포함 항목, 보증금과 렌트프리, 시간외 냉난방, 주차, 원상복구, 중도해지, 상가건물 임대차보호법 적용 기준을 정리하고 후보 A·B·C 비교표 양식을 제공합니다.",
+      "keywords": [
+        "강남 사무실 임대",
+        "테헤란로 사무실",
+        "오피스 임대 조건",
+        "사무실 관리비",
+        "전용률"
+      ],
+      "readMin": 7,
+      "warnings": [],
+      "errors": []
+    },
+    {
+      "slug": "registry-reading-guide",
+      "title": "등기부등본 읽는 법: 갑구·을구에서 꼭 확인할 것",
+      "category": "legal",
+      "status": "published",
+      "url": "/insights/registry-reading-guide",
+      "date": "2026-10-26T18:30:00+09:00",
+      "updated": null,
+      "description": "등기부등본(등기사항전부증명서)의 표제부·갑구·을구 구성과 가압류·가처분·신탁·근저당 채권최고액의 의미, 인터넷등기소 발급 방법과 수수료, 건축물대장과 함께 볼 항목을 기재별 확인표로 정리하고 잔금 전 재확인 순서까지 담았습니다.",
+      "keywords": [
+        "등기부등본 보는 법",
+        "등기사항전부증명서",
+        "갑구 을구",
+        "근저당 확인",
+        "등기부등본 발급"
+      ],
+      "readMin": 6,
+      "warnings": [],
+      "errors": []
+    },
+    {
+      "slug": "rent-free-ti-negotiation",
+      "title": "렌트프리·인테리어 지원(TI) 협상의 기준",
+      "category": "asset",
+      "status": "published",
+      "url": "/insights/rent-free-ti-negotiation",
+      "date": "2026-10-26T18:20:00+09:00",
+      "updated": null,
+      "description": "렌트프리와 인테리어 지원(TI)을 실효임대료로 환산해 비교하는 계산식과 예시, TI 지원 방식별 차이, 원상복구·중도해지 반환 특약, 임대인과 임차인이 각각 지키려는 것, 계약서 특약 문구 예시를 정리했습니다.",
+      "keywords": [
+        "렌트프리",
+        "렌트프리 협상",
+        "인테리어 지원",
+        "실효임대료",
+        "임대 조건 협상"
+      ],
+      "readMin": 6,
+      "warnings": [],
+      "errors": []
+    },
+    {
+      "slug": "data-room-checklist-before-sale",
+      "title": "건물 매각 전 준비하는 데이터룸 체크리스트",
+      "category": "asset",
+      "status": "published",
+      "url": "/insights/data-room-checklist-before-sale",
+      "date": "2026-10-26T18:10:00+09:00",
+      "updated": null,
+      "description": "빌딩 매각 준비 단계에서 매수자 실사에 대비해 권리·공부 서류, 임대차, 운영, 시설 법정 점검, 인허가·위반 여부, 개발 검토, 분쟁·민원 자료를 정리하는 방법과 공개 시점별 데이터룸 폴더 구조를 체크리스트로 제시합니다.",
+      "keywords": [
+        "빌딩 매각 준비",
+        "건물 매각 서류",
+        "데이터룸",
+        "매각 자료",
+        "실사 자료"
+      ],
+      "readMin": 7,
+      "warnings": [],
+      "errors": []
+    },
+    {
+      "slug": "unmanned-store-building-conditions",
+      "title": "무인·자동화 매장 입점 전 확인할 건물 조건",
+      "category": "brand",
+      "status": "published",
+      "url": "/insights/unmanned-store-building-conditions",
+      "date": "2026-10-26T18:00:00+09:00",
+      "updated": null,
+      "description": "무인매장 창업이나 로봇카페 입점 전에 건물에서 확인할 조건을 정리했습니다. 건축물 용도와 영업신고, 전기 용량, 통신, 급배수·배기, 바닥 하중, CCTV 안내판, 24시간 운영 규정, 소방, 임대차 특약까지 한 번에 점검할 수 있습니다.",
+      "keywords": [
+        "무인매장 창업",
+        "무인점포 입지",
+        "로봇카페 입점 조건",
+        "무인매장 건물 조건",
+        "24시간 매장"
+      ],
+      "readMin": 8,
+      "warnings": [],
+      "errors": []
+    }
+  ]
+}

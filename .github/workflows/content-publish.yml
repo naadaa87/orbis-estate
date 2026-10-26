@@ -1,0 +1,66 @@
+# 인사이트 발행
+# - 매일 한국 시간 오전 11시: 예약 시각이 지난 글을 공개합니다 (10:45에 시작해 11:00까지 기다림)
+# - content/ 폴더가 바뀔 때(관리자 화면 저장, 자동 집필): 바로 사이트 파일을 다시 만듭니다
+# - 직접 실행: 저장소 → Actions → "인사이트 발행" → Run workflow
+# 사이트 파일이 바뀌면 커밋해 두고, Cloudflare Pages가 자동으로 배포합니다.
+# 새로 공개된 글은 IndexNow로 네이버 서치어드바이저·빙에 알립니다.
+name: 인사이트 발행
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "content/**"
+      - "scripts/content/**"
+  schedule:
+    - cron: "45 1 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: content-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - name: 저장소 내려받기
+        uses: actions/checkout@v4
+
+      - name: Node.js 준비
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: 오전 11시까지 기다리기 (정기 발행일 때만)
+        if: github.event_name == 'schedule'
+        run: node scripts/content/wait-until.mjs 11:00
+
+      - name: 사이트 만들고 저장
+        id: save
+        run: |
+          git config user.name "orbis-publish-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          changed=0
+          for attempt in 1 2 3; do
+            git fetch --quiet origin main
+            git reset --quiet --hard origin/main
+            node scripts/content/build.mjs
+            git add -A -- insights '*.html' app.js sitemap.xml rss.xml content/insights/index.json admin/sitegen.mjs
+            if git diff --cached --quiet; then echo "바뀐 사이트 파일이 없습니다."; break; fi
+            git commit --quiet -m "인사이트 발행 $(TZ=Asia/Seoul date +'%Y-%m-%d %H:%M')"
+            if git push --quiet origin HEAD:main; then changed=1; break; fi
+            echo "다른 변경과 겹쳐 다시 시도합니다 ($attempt)"; sleep 7
+          done
+          echo "changed=$changed" >> "$GITHUB_OUTPUT"
+
+      - name: 검색엔진에 새 글 알리기 (IndexNow)
+        if: steps.save.outputs.changed == '1' || github.event_name == 'push'
+        continue-on-error: true
+        env:
+          DIFF_BASE: ${{ github.event.before }}
+        run: node scripts/content/indexnow.mjs

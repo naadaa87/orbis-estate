@@ -1,0 +1,16 @@
+{
+  "_설명": "관리자 화면(설정)에서 바꾸는 값입니다. 저장하면 app.js에 자동 반영됩니다.",
+  "contactEmail": "spaceblank0100@gmail.com",
+  "kakaoChannel": "",
+  "gaId": "",
+  "notice": {
+    "enabled": false,
+    "text": "",
+    "link": ""
+  },
+  "leadSheetUrl": "",
+  "autoWrite": {
+    "enabled": true,
+    "nextTopic": ""
+  }
+}

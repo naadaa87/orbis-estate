@@ -10,6 +10,10 @@
 /assets/video/*
   Cache-Control: public, max-age=604800
 
+/admin/*
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: no-store
+
 /data/*
   Cache-Control: public, max-age=3600
 

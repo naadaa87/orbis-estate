@@ -4,7 +4,8 @@
 
 - 대표 주소: https://orbis-estate.com (www.orbis-estate.com, orbis-estate.pages.dev로 들어와도 이 주소로 옮겨집니다)
 - 호스팅: Cloudflare Pages — 이 저장소의 `main` 브랜치와 연결되어 있어, 파일을 저장하면 1~2분 안에 홈페이지에 반영됩니다.
-- 별도의 빌드 과정 없이 HTML·CSS·JavaScript 파일이 그대로 서비스됩니다.
+- HTML·CSS·JavaScript 파일이 그대로 서비스됩니다. 인사이트 글·매물·설정은 `content/` 폴더의 원고를 깃허브 Actions가 페이지로 바꿔 저장합니다.
+- 관리자 화면: https://orbis-estate.com/admin/ (비밀번호 로그인)
 - 상권분석 데이터 연결 방법은 함께 드린 「상권분석 시스템 연결 가이드」를 따라 하시면 됩니다.
 
 ---
@@ -31,8 +32,11 @@
 ├── projects.html              프로젝트
 │   ├── case-sinchon.html           공실개발 사례
 │   └── case-hwagok.html            점포발굴 사례
-├── insights.html              인사이트
-│   └── insight-vacancy.html        아티클
+├── insights.html              인사이트 목록 (자동 생성)
+│   ├── insights/<글주소>.html      인사이트 글 (자동 생성)
+│   ├── insights/topics/*.html      분야별 모음 6개 (자동 생성)
+│   └── insight-vacancy.html        첫 아티클 (예전 방식, 그대로 유지)
+├── glossary.html · faq.html   부동산 용어사전 · 자주 묻는 질문 (자동 생성)
 ├── owners.html                건물 1차 진단
 ├── contact.html               문의 (유형별 상담 양식)
 ├── privacy.html · terms.html · ad-notice.html · disclaimer.html   법적 고지
@@ -54,7 +58,19 @@
 ├── assets/                    로고 · 사진 · 회사소개서 PDF
 │   ├── partners/                   라운지엑스 로고 · 매장 사진
 │   └── video/                      라운지엑스 영상 3편
-├── sitemap.xml · robots.txt   검색엔진용
+├── admin/                     관리자 화면 (글·매물·설정·검색노출 점검)
+├── functions/api/admin/       관리자 화면이 쓰는 서버 함수 (깃허브에 원고 저장)
+├── content/                   ★ 원고와 설정 — 사이트에 직접 보이지 않습니다
+│   ├── insights/*.md               인사이트 글 원고 (머리말 + 본문)
+│   ├── insights/index.json         글 목록 (자동 생성)
+│   ├── pages/faq.md · glossary.md  자주 묻는 질문 · 용어사전 원고
+│   ├── properties.json             공개 매물
+│   ├── settings.json               이메일 · 카카오톡 · GA · 상단 공지 띠
+│   ├── site.json                   사이트맵·RSS에 넣을 고정 페이지 목록
+│   └── editorial/                  편집 가이드(GUIDE.md) · 주제 목록(topics.md)
+├── scripts/content/           원고 → 페이지 생성기 (build.mjs · sitegen.mjs) · 대표 이미지 · IndexNow
+├── .github/workflows/content-publish.yml  인사이트 발행 (저장할 때 + 매일 오전 11시)
+├── sitemap.xml · rss.xml · robots.txt   검색엔진용 (sitemap·rss는 자동 생성)
 ├── _headers                   보안 헤더 · 캐시 설정
 └── _redirects                 주소 이동 규칙
 ```
@@ -65,11 +81,13 @@
 
 | 바꿀 내용 | 파일 |
 |---|---|
-| 홈페이지에 표시할 이메일, 카카오톡 채널, 방문 분석(GA4) | `app.js` 맨 위 `window.ORBIS = { ... }` |
+| 인사이트 글 쓰기·예약·내리기 | 관리자 화면 → 인사이트 글 (또는 `content/insights/*.md`) |
+| 공개 매물 | 관리자 화면 → 매물 (`content/properties.json`) |
+| 이메일, 카카오톡 채널, 방문 분석(GA4), 상단 공지 띠 | 관리자 화면 → 사이트 설정 (`content/settings.json` → `app.js`에 자동 반영) |
 | 대표 사진 | `assets/ceo-lee-sangmin.jpg` (세로 3:4 비율, 파일명 유지) |
 | 회사소개서 PDF | `assets/orbis_company_profile_2026.pdf` (파일명 유지) |
-| 매물 카드 | `properties.html` |
-| 사례 · 아티클 추가 | `projects.html`, `insights.html` + 상세 페이지 복제 |
+| 사례 추가 | `projects.html` + 상세 페이지 복제 |
+| 자주 묻는 질문 · 용어사전 | `content/pages/faq.md` · `glossary.md` |
 
 `app.js` 설정값 예시
 
@@ -82,6 +100,20 @@ window.ORBIS = {
   GA_ID: ""               // GA4 측정 ID (G-XXXXXXX)
 };
 ```
+
+---
+
+## 인사이트 자동 발행과 관리자 화면
+
+| 어디에 | 이름 | 무엇 |
+|---|---|---|
+| Cloudflare Pages → Settings → Variables and Secrets | `ADMIN_PASSWORD` | 관리자 화면 비밀번호 (12자 이상) |
+| 〃 | `GITHUB_TOKEN` | 깃허브 fine-grained 토큰 — 저장소 orbis-estate만, Contents 읽기·쓰기, Actions 읽기·쓰기 |
+
+- 관리자 화면에서 저장 → `content/`에 원고 커밋 → 깃허브 Actions 「인사이트 발행」이 페이지·목록·사이트맵·RSS를 만들어 커밋 → Cloudflare 배포(1~3분).
+- 매일 오전 10시에 Claude가 그날의 글을 '예약 글'로 올리고, 오전 11시 정기 발행에서 공개합니다. 공개된 글 주소는 IndexNow로 네이버 서치어드바이저·빙에 자동으로 알립니다(키 파일: 저장소 맨 위 `*.txt`).
+- 손으로 빌드하려면: `node scripts/content/build.mjs` (점검만: `--check`, 예약 글까지 미리보기: `--preview 폴더`)
+- 글 원고 형식과 작성 원칙은 `content/editorial/GUIDE.md`에 있습니다.
 
 ---
 

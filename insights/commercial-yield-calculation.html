@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(h){if(h==='www.orbis-estate.com'||h==='orbis-estate.pages.dev'){location.replace('https://orbis-estate.com'+location.pathname+location.search+location.hash);}})(location.hostname);</script>
+<title>상가·빌딩 수익률 계산법, 표면수익률과 실질수익률·캡레이트 차이 | 오르비스중개법인</title>
+<meta name="description" content="상가 수익률 계산을 표면수익률, 보증금 차감 수익률, 순영업소득(NOI)과 캡레이트, 취득 비용, 대출 레버리지, 렌트프리 실효 임대료 순서로 하나의 계산 예시(가정)에 적용해 보여 주고, 수익률을 부풀리는 다섯 가지 함정을 정리합니다.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://orbis-estate.com/insights/commercial-yield-calculation">
+<link rel="alternate" type="application/rss+xml" title="오르비스중개법인 소식" href="https://orbis-estate.com/rss.xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="오르비스중개법인">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="상가·빌딩 수익률 계산법, 표면수익률과 실질수익률·캡레이트 차이 | 오르비스중개법인">
+<meta property="og:description" content="상가 수익률 계산을 표면수익률, 보증금 차감 수익률, 순영업소득(NOI)과 캡레이트, 취득 비용, 대출 레버리지, 렌트프리 실효 임대료 순서로 하나의 계산 예시(가정)에 적용해 보여 주고, 수익률을 부풀리는 다섯 가지 함정을 정리합니다.">
+<meta property="og:url" content="https://orbis-estate.com/insights/commercial-yield-calculation">
+<meta property="og:image" content="https://orbis-estate.com/assets/insights/commercial-yield-calculation.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="article:published_time" content="2026-10-26T20:20:00+09:00">
+<meta property="article:section" content="투자전략">
+<meta property="article:tag" content="상가 수익률 계산">
+<meta property="article:tag" content="빌딩 수익률">
+<meta property="article:tag" content="실질수익률">
+<meta property="article:tag" content="캡레이트">
+<meta property="article:tag" content="순영업소득">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#ffffff">
+<meta name="format-detection" content="telephone=no">
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css?v=20261026">
+<script>document.documentElement.classList.add('js');</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"RealEstateAgent","@id":"https://orbis-estate.com/#organization","name":"오르비스중개법인","alternateName":["오르비스 부동산중개법인","오르비스 부동산","ORBIS Real Estate Brokerage"],"description":"서울 강남구 테헤란로의 부동산 중개법인. 중소형 빌딩·상가·오피스의 매매와 임대차를 중심으로 상권분석 시스템 기반의 점포개발·프랜차이즈 출점, MD·공실개발, 자산관리와 매각전략을 자문합니다.","url":"https://orbis-estate.com/","telephone":"+82-10-7379-5265","image":"https://orbis-estate.com/assets/og-image.jpg","logo":"https://orbis-estate.com/assets/logo-full.png","address":{"@type":"PostalAddress","streetAddress":"테헤란로 123, 6층 615호","addressLocality":"강남구","addressRegion":"서울특별시","addressCountry":"KR"},"identifier":{"@type":"PropertyValue","name":"중개사무소 개설등록번호","value":"11680-2025-00157"},"areaServed":[{"@type":"AdministrativeArea","name":"서울특별시"},{"@type":"AdministrativeArea","name":"경기도"},{"@type":"AdministrativeArea","name":"인천광역시"}],"knowsAbout":["빌딩 매매","꼬마빌딩 매매","상가 임대","오피스 임대","상권분석","점포개발","프랜차이즈 출점","상가 공실","상가 MD","자산관리","매각전략"],"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"10:00","closes":"18:00"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"오르비스중개법인 서비스","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"빌딩·상가 매매·임대차 거래 자문","url":"https://orbis-estate.com/solution-transaction"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"최유효이용·MD·테넌트 전략","url":"https://orbis-estate.com/solution-strategy"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"공실개발·공간 활용 실행 자문","url":"https://orbis-estate.com/solution-execution"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"자산가치 개선·매각전략 자문","url":"https://orbis-estate.com/solution-value"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"상권분석 시스템","url":"https://orbis-estate.com/analysis"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"브랜딩·확장·오픈 전략 자문","url":"https://orbis-estate.com/strategy"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"프랜차이즈 출점·점포발굴","url":"https://orbis-estate.com/solution-franchise"}}]}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://orbis-estate.com/"},{"@type":"ListItem","position":2,"name":"인사이트","item":"https://orbis-estate.com/insights"},{"@type":"ListItem","position":3,"name":"투자전략","item":"https://orbis-estate.com/insights/topics/invest"},{"@type":"ListItem","position":4,"name":"상가·빌딩 수익률 계산법: 표면수익률과 실질수익률의 차이","item":"https://orbis-estate.com/insights/commercial-yield-calculation"}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"상가·빌딩 수익률 계산법: 표면수익률과 실질수익률의 차이","description":"상가 수익률 계산을 표면수익률, 보증금 차감 수익률, 순영업소득(NOI)과 캡레이트, 취득 비용, 대출 레버리지, 렌트프리 실효 임대료 순서로 하나의 계산 예시(가정)에 적용해 보여 주고, 수익률을 부풀리는 다섯 가지 함정을 정리합니다.","datePublished":"2026-10-26T20:20:00+09:00","dateModified":"2026-10-26T20:20:00+09:00","author":{"@type":"Organization","@id":"https://orbis-estate.com/#organization","name":"오르비스중개법인","url":"https://orbis-estate.com/"},"publisher":{"@type":"Organization","@id":"https://orbis-estate.com/#organization","name":"오르비스중개법인","url":"https://orbis-estate.com/","logo":{"@type":"ImageObject","url":"https://orbis-estate.com/assets/logo-full.png"}},"mainEntityOfPage":"https://orbis-estate.com/insights/commercial-yield-calculation","image":"https://orbis-estate.com/assets/insights/commercial-yield-calculation.jpg","keywords":"상가 수익률 계산, 빌딩 수익률, 실질수익률, 캡레이트, 순영업소득","articleSection":"투자전략","inLanguage":"ko-KR","wordCount":4687}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"상가 수익률은 보통 어떻게 계산하나요?","acceptedAnswer":{"@type":"Answer","text":"매물 안내에서는 연 임대료를 매매가에서 보증금을 뺀 금액으로 나누는 방식을 많이 씁니다. 이 숫자에는 공실, 운영비, 취득 비용, 대출 이자가 빠져 있으므로 순영업소득 기준 수익률과 자기자본 수익률을 따로 계산해 비교합니다."}},{"@type":"Question","name":"캡레이트와 표면수익률은 무엇이 다른가요?","acceptedAnswer":{"@type":"Answer","text":"표면수익률은 계약상 임대료 총액을 쓰고, 캡레이트는 공실 손실과 운영비를 뺀 순영업소득(NOI)을 매매가로 나눕니다. 그래서 같은 건물이라도 캡레이트가 표면수익률보다 낮게 나옵니다."}},{"@type":"Question","name":"대출을 많이 받으면 수익률이 높아지나요?","acceptedAnswer":{"@type":"Answer","text":"대출금리가 순영업소득을 실투자금으로 나눈 수익률보다 낮을 때만 자기자본 수익률이 올라갑니다. 금리가 그보다 높으면 대출을 늘릴수록 자기자본 수익률이 떨어지는 역레버리지가 생깁니다."}},{"@type":"Question","name":"렌트프리가 있는 건물은 수익률을 어떻게 다시 계산하나요?","acceptedAnswer":{"@type":"Answer","text":"계약 기간 동안 실제로 받는 임대료 총액을 계약 개월 수로 나눈 실효 임대료로 다시 계산합니다. 60개월 계약에 렌트프리가 6개월이면 실효 임대료는 표기 임대료의 90%입니다."}}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">본문 바로가기</a>
+<header class="nav" id="nav"><div class="nav-inner">
+  <a href="/" class="nav-logo" aria-label="오르비스중개법인 홈"><img src="/assets/logo-icon.png" alt="" width="35" height="37"><span class="nm"><b>오르비스중개법인</b><span>ORBIS REAL ESTATE</span></span></a>
+  <nav class="nav-menu" aria-label="주 메뉴"><div class="nm-item has-sub"><a href="/about" class="nm-top" aria-haspopup="true">회사소개<svg class="cv" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a><div class="nm-sub"><div class="nm-sub-in"><a href="/about"><b>회사 개요</b><span>관점 · 운영 원칙 · 회사 정보</span></a><a href="/leadership"><b>대표 소개</b><span>대표 인사말과 약력</span></a></div></div></div><div class="nm-item has-sub"><a href="/solutions" class="nm-top" aria-haspopup="true">솔루션<svg class="cv" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a><div class="nm-sub"><div class="nm-sub-in"><a href="/solutions"><b>솔루션 전체</b><span>4대 통합 솔루션 한눈에 보기</span></a><a href="/solution-transaction"><b>거래 자문</b><span>빌딩 매매 · 임대차 · 조건 협상</span></a><a href="/solution-strategy"><b>전략·기획</b><span>최유효이용 · MD · 테넌트 구성</span></a><a href="/solution-execution"><b>공실개발·공간 실행</b><span>활용모델 설계 · 구축 · 운영</span></a><a href="/solution-value"><b>자산가치·매각전략</b><span>PM·FM · 데이터룸 · 매각</span></a></div></div></div><div class="nm-item has-sub"><a href="/analysis" class="nm-top" aria-haspopup="true">상권분석<svg class="cv" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a><div class="nm-sub"><div class="nm-sub-in"><a href="/analysis"><b>상권분석 시스템</b><span>공공데이터로 보는 입지·상권 진단</span></a><a href="/analysis-tool"><b>상권분석 시작하기 <span class="nm-badge nb-new">NEW</span></b><span>주소를 넣으면 반경 상권을 바로 확인</span></a><a href="/strategy"><b>브랜딩·확장·오픈 전략</b><span>입지·출점 순서·오픈 일정 자문</span></a><a href="/analysis-data"><b>데이터·지표 안내</b><span>출처 · 기준 시점 · 계산 방식</span></a></div></div></div><div class="nm-item has-sub"><a href="/partners" class="nm-top" aria-haspopup="true">협력사업<svg class="cv" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a><div class="nm-sub"><div class="nm-sub-in"><a href="/partners"><b>협력사업 개요</b><span>점포개발 · 상권분석 · 협력 브랜드</span></a><a href="/partner-loungex"><b>라운지엑스 <span class="nm-badge">PARTNER</span></b><span>공식 파트너사 · 점포개발 상권분석자문</span></a><a href="/solution-franchise"><b>프랜차이즈 출점</b><span>출점기준 정의부터 계약까지 6단계</span></a></div></div></div><div class="nm-item"><a href="/properties" class="nm-top">매물·딜</a></div><div class="nm-item has-sub"><a href="/projects" class="nm-top" aria-haspopup="true">프로젝트<svg class="cv" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a><div class="nm-sub"><div class="nm-sub-in"><a href="/projects"><b>프로젝트 전체</b><span>수행주체를 표기한 실행 사례</span></a><a href="/case-sinchon"><b>공실개발 사례</b><span>서울 서대문구 · 근생빌딩</span></a><a href="/case-hwagok"><b>점포발굴 사례</b><span>서울 강서구 화곡동 · 리테일</span></a></div></div></div><div class="nm-item has-sub"><a href="/insights" class="nm-top active" aria-haspopup="true">인사이트<svg class="cv" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a><div class="nm-sub"><div class="nm-sub-in"><a href="/insights" aria-current="page"><b>인사이트 전체</b><span>시장·투자·상권·계약 실무 가이드</span></a><a href="/insights/topics/legal"><b>계약·법률 가이드</b><span>임대차 · 권리금 · 중개보수 · 등기</span></a><a href="/insights/topics/area"><b>상권분석·입지 가이드</b><span>배후수요 · 유동 · 경쟁 보는 법</span></a><a href="/insights/topics/invest"><b>투자전략 가이드</b><span>수익률 · 실사 · 매각 판단</span></a><a href="/glossary"><b>부동산 용어사전</b><span>임대차 · 투자 · 상권 용어 정리</span></a><a href="/faq"><b>자주 묻는 질문</b><span>상담 절차 · 중개보수 · 상권분석</span></a></div></div></div><div class="nm-item"><a href="/contact" class="nm-top">문의</a></div></nav>
+  <div class="nav-cta">
+    <a href="tel:010-7379-5265" class="nav-tel" data-track="click_phone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>010-7379-5265</a>
+    <a href="/owners" class="btn btn-gold sm" data-track="cta_click" data-label="nav_진단">건물 1차 진단</a>
+    <button class="hamb" id="hamb" type="button" aria-label="메뉴 열기" aria-controls="drawer" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</div></header>
+<div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="전체 메뉴" aria-hidden="true">
+  <button class="drawer-close" id="drawerClose" type="button" aria-label="메뉴 닫기">&times;</button>
+  <a href="/">홈</a><div class="d-group"><div class="d-gt">회사소개</div><a href="/about">회사 개요</a><a href="/leadership">대표 소개</a></div><div class="d-group"><div class="d-gt">솔루션</div><a href="/solutions">솔루션 전체</a><a href="/solution-transaction">거래 자문</a><a href="/solution-strategy">전략·기획</a><a href="/solution-execution">공실개발·공간 실행</a><a href="/solution-value">자산가치·매각전략</a></div><div class="d-group"><div class="d-gt">상권분석</div><a href="/analysis">상권분석 시스템</a><a href="/analysis-tool">상권분석 시작하기 <span class="d-tag d-new">NEW</span></a><a href="/strategy">브랜딩·확장·오픈 전략</a><a href="/analysis-data">데이터·지표 안내</a></div><div class="d-group"><div class="d-gt">협력사업</div><a href="/partners">협력사업 개요</a><a href="/partner-loungex">라운지엑스 <span class="d-tag">PARTNER</span></a><a href="/solution-franchise">프랜차이즈 출점</a></div><a href="/properties">매물·딜</a><div class="d-group"><div class="d-gt">프로젝트</div><a href="/projects">프로젝트 전체</a><a href="/case-sinchon">공실개발 사례</a><a href="/case-hwagok">점포발굴 사례</a></div><div class="d-group"><div class="d-gt">인사이트</div><a href="/insights" aria-current="page">인사이트 전체</a><a href="/insights/topics/legal">계약·법률 가이드</a><a href="/insights/topics/area">상권분석·입지 가이드</a><a href="/glossary">부동산 용어사전</a><a href="/faq">자주 묻는 질문</a></div><a href="/contact">문의</a>
+  <a href="/owners" class="btn btn-gold d-cta">건물 1차 진단 신청</a>
+  <div class="d-contact"><b>대표 이상민</b> · <a href="tel:010-7379-5265" class="d-tel">010-7379-5265</a><br>서울특별시 강남구 테헤란로 123, 6층 615호<br>중개사무소 개설등록번호 <span class="nw">11680-2025-00157</span></div>
+</div>
+<main id="main" tabindex="-1">
+<section class="phero"><div class="ring pr1"></div><div class="ring pr2"></div><div class="article" style="padding-top:0">
+  <nav class="crumb" aria-label="현재 위치"><a href="/">홈</a> / <a href="/insights">인사이트</a> / <a href="/insights/topics/invest">투자전략</a></nav>
+  <h1>상가⁠·⁠빌딩 수익률 계산법: 표면수익률과 실질수익률의 차이</h1>
+  <div class="a-meta"><span>작성 <b>오르비스중개법인</b></span><span>발행 <b><time datetime="2026-10-26T20:20:00+09:00">2026.10.26</time></b></span><span>분야 <b><a href="/insights/topics/invest">투자전략</a></b></span><span>읽기 <b>약 7분</b></span></div>
+  <p class="a-sum">매물 안내서의 수익률은 대개 연 임대료를 매매가나 보증금을 뺀 금액으로 나눈 숫자입니다. 공실 손실, 운영비, 취득 비용, 대출 이자를 차례로 반영하면 같은 건물의 수익률이 계산 예시(가정)에서 4%대 후반에서 3%대 초반까지 내려갑니다. 단계별 계산식과 확인할 자료를 함께 정리했습니다.</p>
+  <div class="toc"><b>CONTENTS</b><ol><li><a href="#s1">계산 예시(가정): 이 글에서 쓰는 건물</a></li><li><a href="#s2">표면수익률과 보증금을 뺀 수익률</a></li><li><a href="#s3">순영업소득(NOI)과 캡레이트</a></li><li><a href="#s4">취득 비용을 넣으면 달라지는 숫자</a></li><li><a href="#s5">대출이 있을 때: 자기자본 수익률과 역레버리지</a></li><li><a href="#s6">렌트프리를 반영한 실효 임대료</a></li><li><a href="#s7">수익률을 부풀리는 흔한 함정</a></li><li><a href="#s8">오르비스는 이렇게 봅니다</a></li></ol></div>
+</div></section>
+<section class="section tight"><div class="article"><article class="a-body">
+<p>상가 수익률 계산은 분모와 분자에 무엇을 넣느냐에 따라 같은 건물도 전혀 다른 숫자가 됩니다. 매물 안내서의 빌딩 수익률은 대개 연 임대료만으로 낸 표면수익률이고, 투자 판단에 쓰는 실질수익률은 공실·운영비·취득 비용·대출 이자를 반영한 숫자입니다. 이 글은 하나의 계산 예시(가정)로 순영업소득(NOI), 캡레이트, 자기자본 수익률을 차례로 계산합니다. 다 읽고 나면 안내서의 수익률을 내 기준으로 다시 계산해 매물끼리 비교할 수 있습니다.</p>
+<h2 id="s1"><span class="no">01</span>계산 예시(가정): 이 글에서 쓰는 건물</h2>
+<p>아래 숫자는 계산 방법을 보여 주기 위한 가정입니다. 특정 건물이나 시장 평균을 뜻하지 않습니다. 임대료는 부가가치세와 관리비를 뺀 금액이고, 모든 수익률은 소득세·법인세를 반영하기 전 기준입니다.</p>
+<div class="a-table c2"><table><thead><tr><th>항목</th><th>계산 예시(가정)</th></tr></thead><tbody><tr><td>매매가</td><td>50억 원</td></tr><tr><td>임대보증금 합계</td><td>5억 원</td></tr><tr><td>월 임대료 합계</td><td>1,750만 원(연 2억 1,000만 원)</td></tr><tr><td>공실·연체 손실</td><td>연 임대료의 5%</td></tr><tr><td>임대인 부담 운영비</td><td>연 2,550만 원</td></tr><tr><td>취득세 등</td><td>매매가의 4.6%</td></tr><tr><td>중개보수·법무·실사 등 부대비용</td><td>매매가의 1%</td></tr><tr><td>대출</td><td>30억 원, 만기까지 이자만 내는 조건</td></tr><tr><td>대출금리</td><td>연 4.0%(비교용 연 3.0%)</td></tr></tbody></table></div>
+<h2 id="s2"><span class="no">02</span>표면수익률과 보증금을 뺀 수익률</h2>
+<p>가장 먼저 보는 숫자는 표면수익률입니다. 연 임대료를 매매가로 나눈 값입니다.</p>
+<ul><li>표면수익률 = 연 임대료 ÷ 매매가 = 2억 1,000만 원 ÷ 50억 원 = <b>4.20%</b></li></ul>
+<p>매물 안내서는 보증금을 뺀 금액을 분모로 쓰는 경우가 많습니다. 매수자가 보증금을 승계하면 그만큼 현금이 덜 들어가기 때문입니다.</p>
+<ul><li>보증금 차감 수익률 = 연 임대료 ÷ (매매가 − 보증금) = 2억 1,000만 원 ÷ 45억 원 = <b>약 4.67%</b></li></ul>
+<p>보증금은 수입이 아니라 돌려줘야 할 돈입니다. 임차인이 바뀔 때 새 보증금이 기존보다 적으면 그 차액은 매수자가 현금으로 채웁니다. 보증금 비중이 큰 건물일수록 이 방식의 수익률이 높아 보이므로 두 숫자를 나란히 적어 두고 비교합니다.</p>
+<h2 id="s3"><span class="no">03</span>순영업소득(NOI)과 캡레이트</h2>
+<p>실질수익률의 출발점은 순영업소득입니다. 한국부동산원은 상업용부동산 임대동향조사에서 순영업소득을 &quot;(임대수입 + 기타수입) − 운영경비&quot;로 정의합니다. 실무에서는 계약상 임대료 총액에서 공실·연체 손실을 먼저 빼고 운영비를 뺍니다.</p>
+<ul><li>순영업소득(NOI) = 연 임대료 − 공실·연체 손실 + 기타수입 − 운영비</li></ul>
+<p>운영비에는 건물을 유지하는 데 해마다 드는 돈만 넣습니다. 대출 이자, 감가상각, 소득세·법인세는 넣지 않습니다.</p>
+<div class="a-table c2"><table><thead><tr><th>운영비 항목</th><th>연 금액(가정)</th></tr></thead><tbody><tr><td>재산세 등 보유세</td><td>1,000만 원</td></tr><tr><td>화재보험료</td><td>150만 원</td></tr><tr><td>임대인 부담 관리비(공용 전기·청소·승강기 유지 부족분)</td><td>600만 원</td></tr><tr><td>수선유지 충당금</td><td>500만 원</td></tr><tr><td>관리 위탁 수수료</td><td>300만 원</td></tr><tr><td>합계</td><td>2,550만 원</td></tr></tbody></table></div>
+<p>공실·연체 손실은 지금 만실이어도 0으로 두지 않습니다. 임차인이 바뀌는 사이의 빈 기간과 연체 가능성을 감안해 잡고, 근거로 그 건물의 과거 공실 기록과 같은 지역·유형 건물의 공실 상황을 봅니다. 계산 예시(가정)에서 공실·연체 손실은 2억 1,000만 원의 5%인 1,050만 원이고, 주차 수입 같은 기타수입은 없다고 봅니다.</p>
+<ul><li>NOI = 2억 1,000만 원 − 1,050만 원 − 2,550만 원 = <b>1억 7,400만 원</b></li><li>캡레이트 = NOI ÷ 매매가 = 1억 7,400만 원 ÷ 50억 원 = <b>3.48%</b></li></ul>
+<p>캡레이트는 대출과 상관없이 건물 자체가 버는 힘을 보여 줍니다. 그래서 금융 조건이 서로 다른 매수자가 같은 건물을 비교할 때 공통 기준이 됩니다. 한국부동산원이 분기마다 공표하는 소득수익률도 순영업소득을 자산가치로 나눈 개념이라 구조가 같습니다. 다만 분기 단위이고 표본 건물의 평균이므로 개별 건물과 바로 비교하기보다 흐름을 읽는 참고값으로 씁니다.</p>
+<h2 id="s4"><span class="no">04</span>취득 비용을 넣으면 달라지는 숫자</h2>
+<p>매수자가 실제로 쓰는 돈은 매매가보다 큽니다. 주택·농지가 아닌 부동산을 매매로 취득하면 취득세 표준세율은 4%이고(「지방세법」 제11조 제1항 제7호 나목), 여기에 지방교육세와 농어촌특별세가 더해져 일반적으로 4.6% 수준으로 계산합니다. 2026년 10월 기준 일반 세율이며, 감면·중과 대상 여부에 따라 달라지므로 실제 세액은 세무사 확인이 필요합니다.</p>
+<p>중개보수는 2026년 10월 기준 국토교통부 요율표상 주택 외 중개대상물의 경우 거래금액의 0.9% 이내에서 중개의뢰인과 개업공인중개사가 협의해 정합니다. 여기에 법무사 등기 비용, 실사·감정 비용, 대출 취급 비용이 붙습니다.</p>
+<div class="a-table c2"><table><thead><tr><th>항목</th><th>계산 예시(가정)</th></tr></thead><tbody><tr><td>취득세 등(4.6%)</td><td>2억 3,000만 원</td></tr><tr><td>중개보수·법무·실사 등(1%)</td><td>5,000만 원</td></tr><tr><td>총투자원가</td><td>52억 8,000만 원</td></tr><tr><td>NOI ÷ 총투자원가</td><td>약 3.30%</td></tr><tr><td>실투자금(총투자원가 − 보증금)</td><td>47억 8,000만 원</td></tr><tr><td>NOI ÷ 실투자금</td><td>약 3.64%</td></tr></tbody></table></div>
+<p>같은 건물이 안내서에서는 4.67%로, 운영비와 취득 비용을 반영하면 3%대 중반으로 보입니다. 여러 매물을 비교할 때는 모든 후보를 같은 분모, 즉 총투자원가나 실투자금 기준으로 맞춰야 순위가 뒤바뀌는 착오를 줄일 수 있습니다.</p>
+<h2 id="s5"><span class="no">05</span>대출이 있을 때: 자기자본 수익률과 역레버리지</h2>
+<p>대출을 쓰면 투자자가 보는 숫자는 자기자본 수익률입니다. 계산 예시(가정)에서 자기자본은 총투자원가 52억 8,000만 원에서 대출 30억 원과 보증금 5억 원을 뺀 17억 8,000만 원입니다.</p>
+<ul><li>자기자본 수익률 = (NOI − 연 이자) ÷ 자기자본</li></ul>
+<div class="a-table c3"><table><thead><tr><th>구분</th><th>대출금리 연 3.0%(가정)</th><th>대출금리 연 4.0%(가정)</th></tr></thead><tbody><tr><td>연 이자</td><td>9,000만 원</td><td>1억 2,000만 원</td></tr><tr><td>세전 현금흐름(NOI − 이자)</td><td>8,400만 원</td><td>5,400만 원</td></tr><tr><td>자기자본 수익률</td><td>약 4.72%</td><td>약 3.03%</td></tr><tr><td>대출이 없을 때(약 3.64%)와 비교</td><td>높아짐(레버리지 효과)</td><td>낮아짐(역레버리지)</td></tr></tbody></table></div>
+<p>판단 기준은 단순합니다. 대출금리가 'NOI ÷ 실투자금' 수익률보다 낮으면 대출이 자기자본 수익률을 끌어올리고, 높으면 끌어내립니다. 이 예시의 경계선은 약 3.64%입니다. 금리가 그보다 높은데 대출을 늘리면 수익률은 낮아지고 금리 변동 위험만 커집니다.</p>
+<div class="a-callout a-tip"><b class="ac-t">이자를 감당하는 힘도 함께 봅니다</b><p>NOI를 연간 원리금으로 나눈 값을 부채상환비율(DSCR)이라고 합니다. 연 4.0% 예시에서는 1억 7,400만 원 ÷ 1억 2,000만 원으로 약 1.45배입니다. 원금을 나눠 갚는 조건이면 분모가 커져 이 비율과 현금흐름이 함께 줄어듭니다. 실제 금리와 상환 조건은 대출 시점과 차주에 따라 다르므로 금융기관 조건을 받아 다시 계산합니다.</p></div>
+<h3>계산 결과 한눈에 보기</h3>
+<div class="a-table c3"><table><thead><tr><th>수익률</th><th>계산식</th><th>계산 예시(가정)</th></tr></thead><tbody><tr><td>표면수익률</td><td>연 임대료 ÷ 매매가</td><td>4.20%</td></tr><tr><td>보증금 차감 수익률</td><td>연 임대료 ÷ (매매가 − 보증금)</td><td>약 4.67%</td></tr><tr><td>캡레이트</td><td>NOI ÷ 매매가</td><td>3.48%</td></tr><tr><td>총투자원가 기준 수익률</td><td>NOI ÷ (매매가 + 취득 비용)</td><td>약 3.30%</td></tr><tr><td>실투자금 기준 수익률</td><td>NOI ÷ (총투자원가 − 보증금)</td><td>약 3.64%</td></tr><tr><td>자기자본 수익률(금리 연 4.0%)</td><td>(NOI − 연 이자) ÷ 자기자본</td><td>약 3.03%</td></tr></tbody></table></div>
+<p>같은 건물인데 안내서 방식의 4.67%와 자기자본 기준 3.03% 사이에 1.6%포인트가 넘는 차이가 납니다. 매물을 비교하거나 매도인과 가격을 이야기할 때는 어느 줄의 숫자인지부터 맞춥니다.</p>
+<h2 id="s6"><span class="no">06</span>렌트프리를 반영한 실효 임대료</h2>
+<p>렌트프리는 계약서의 월 임대료를 그대로 둔 채 실제로 받는 돈을 줄입니다. 그래서 수익률은 계약 기간 전체 기준의 실효 임대료로 다시 봅니다.</p>
+<ul><li>실효 월 임대료 = 계약 기간 동안 실제로 받는 임대료 총액 ÷ 계약 개월 수</li></ul>
+<p>계산 예시(가정)의 임차인 한 곳이 월 500만 원, 계약 60개월, 렌트프리 6개월 조건이라면 실효 월 임대료는 500만 원 × 54개월 ÷ 60개월 = 450만 원입니다. 이를 반영하면 건물 전체 월 임대료는 1,750만 원이 아니라 1,700만 원이 되고, 표면수익률은 4.20%에서 약 4.08%로 내려갑니다. 임대인이 인테리어 공사비를 지원했다면 그 금액도 계약 기간으로 나눠 실효 임대료에서 뺍니다.</p>
+<h2 id="s7"><span class="no">07</span>수익률을 부풀리는 흔한 함정</h2>
+<p>수익률이 유난히 높게 나온 매물은 계산식보다 입력값을 먼저 확인합니다. 아래 다섯 가지가 자주 섞입니다.</p>
+<div class="a-table c3"><table><thead><tr><th>함정</th><th>어떻게 부풀려지나</th><th>확인할 자료</th></tr></thead><tbody><tr><td>렌트롤 과대</td><td>계약서와 다른 금액, 실제로 입금되지 않는 임대료, 매각 직전 시세보다 높게 맺은 계약</td><td>임대차계약서, 최근 1~2년 입금 내역, 세금계산서 발행 내역</td></tr><tr><td>관리비 포함 여부</td><td>관리비를 임대수입에 합쳐 연 수입을 키움. 관리비는 운영비를 충당하는 돈</td><td>관리비 부과·정산 내역, 계약서의 임대료·관리비 구분</td></tr><tr><td>공실 가정 없음</td><td>만실을 전제로 하거나 빈 호실에 희망 임대료를 넣음</td><td>호실별 계약 상태, 공실 기간, 주변 임대 사례</td></tr><tr><td>수선비 누락</td><td>방수·외벽·냉난방·승강기 교체 비용을 운영비에서 뺌</td><td>수선 이력, 설비 연식, 점검 보고서</td></tr><tr><td>임대료 할인 숨김</td><td>렌트프리, 인테리어 지원, 이면 약정, 관계사 임차</td><td>계약서 특약, 별도 합의서, 임차인 확인</td></tr></tbody></table></div>
+<div class="a-callout a-check"><b class="ac-t">매물 수익률을 받았을 때 물어볼 질문</b><ul><li>이 수익률의 분모는 매매가인가, 보증금을 뺀 금액인가?</li><li>연 임대료에 관리비나 부가가치세가 섞여 있지 않은가?</li><li>공실 호실의 임대료는 실제 계약인가, 예상치인가?</li><li>렌트프리·인테리어 지원·이면 약정이 있는 호실은 어디인가?</li><li>몇 년 안에 필요한 큰 수선은 무엇이고 비용은 얼마로 보는가?</li><li>소유자의 특수관계인이나 관계사가 임차한 호실이 있는가?</li></ul></div>
+<h2 id="s8"><span class="no">08</span>오르비스는 이렇게 봅니다</h2>
+<p>오르비스는 매입 검토에서 안내서의 수익률을 그대로 쓰지 않습니다. 렌트롤을 계약서와 입금 내역에 맞춘 뒤 NOI부터 다시 계산하고, 취득 비용과 대출 조건을 넣어 자기자본 수익률을 확인합니다. 금리를 바꿔 가며 역레버리지가 시작되는 지점도 함께 봅니다.</p>
+<p>수익률은 미래 수익을 약속하는 숫자가 아니라 가정의 묶음입니다. 어떤 가정이 들어갔는지 문서로 남겨야 매물끼리 같은 기준으로 비교할 수 있습니다. 매입을 검토 중이라면 <a href="/solution-transaction">거래 자문</a>에서 진행 방식을 확인하거나, <a href="/contact?type=investor">매수·투자 문의</a>로 검토할 매물 자료를 보내 주시면 같은 순서로 다시 계산해 봅니다.</p>
+<section class="a-faq" aria-labelledby="faq-h"><h2 id="faq-h">자주 묻는 질문</h2><details><summary>상가 수익률은 보통 어떻게 계산하나요?</summary><p>매물 안내에서는 연 임대료를 매매가에서 보증금을 뺀 금액으로 나누는 방식을 많이 씁니다. 이 숫자에는 공실, 운영비, 취득 비용, 대출 이자가 빠져 있으므로 순영업소득 기준 수익률과 자기자본 수익률을 따로 계산해 비교합니다.</p></details><details><summary>캡레이트와 표면수익률은 무엇이 다른가요?</summary><p>표면수익률은 계약상 임대료 총액을 쓰고, 캡레이트는 공실 손실과 운영비를 뺀 순영업소득(NOI)을 매매가로 나눕니다. 그래서 같은 건물이라도 캡레이트가 표면수익률보다 낮게 나옵니다.</p></details><details><summary>대출을 많이 받으면 수익률이 높아지나요?</summary><p>대출금리가 순영업소득을 실투자금으로 나눈 수익률보다 낮을 때만 자기자본 수익률이 올라갑니다. 금리가 그보다 높으면 대출을 늘릴수록 자기자본 수익률이 떨어지는 역레버리지가 생깁니다.</p></details><details><summary>렌트프리가 있는 건물은 수익률을 어떻게 다시 계산하나요?</summary><p>계약 기간 동안 실제로 받는 임대료 총액을 계약 개월 수로 나눈 실효 임대료로 다시 계산합니다. 60개월 계약에 렌트프리가 6개월이면 실효 임대료는 표기 임대료의 90%입니다.</p></details></section>
+<section class="a-sources" aria-labelledby="src-h"><h2 id="src-h">참고 자료</h2><ul><li><a href="https://www.reb.or.kr/reb/cm/cntnts/cntntsView.do?mi=9802&amp;cntntsId=1051" target="_blank" rel="noopener">한국부동산원 상업용부동산 임대동향조사 통계산출항목(투자·소득·자본수익률, 순영업소득 정의)</a></li><li><a href="https://law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1021846727" target="_blank" rel="noopener">국가법령정보센터 「지방세법」 제11조(부동산 취득의 세율)</a></li><li><a href="https://irts.molit.go.kr/com/cmn/popup/fee/rtecsFeeRtoPopup.do" target="_blank" rel="noopener">국토교통부 부동산거래 전자계약시스템 중개보수 요율표</a></li></ul><p class="a-src-note">출처의 수치와 법령은 위 기준 시점의 것입니다. 이후 개정·발표로 달라질 수 있습니다.</p></section>
+<div class="a-disclaimer"><b>안내</b><p>이 글은 일반적인 정보 제공을 위해 작성했으며, 특정 자산에 대한 투자 권유나 법률·세무 자문이 아닙니다. 법령과 기준은 바뀔 수 있으니 계약·투자 전에는 최신 법령과 전문가 의견을 확인하시기 바랍니다. 오르비스중개법인은 임대수익·매각가 등 어떠한 결과도 보장하지 않습니다.</p></div>
+<div class="a-tags"><span>#상가 수익률 계산</span><span>#빌딩 수익률</span><span>#실질수익률</span><span>#캡레이트</span><span>#순영업소득</span></div>
+</article>
+<div style="margin-top:34px"><div class="ctaband reveal"><div class="cbring"></div><div class="cbring2"></div><div class="inner">
+    <div><div class="eyebrow">Next Step</div><h2>매입을 검토 중인 자산이 있다면</h2><p>예산과 조건을 알려 주시면 공개·비공개 자산 가운데 맞는 후보와 먼저 확인할 항목을 안내합니다.</p>
+    <a class="tel" href="tel:010-7379-5265" data-track="click_phone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>010-7379-5265</a></div>
+    <div class="acts"><a href="/contact?type=investor" class="btn btn-gold lg" data-track="cta_click" data-label="article_investor">매수·투자 상담 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href="tel:010-7379-5265" class="btn btn-ghost-light lg" data-track="click_phone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>전화 상담</a></div>
+  </div></div></div>
+</div></section>
+<section class="section on-white"><div class="wrap"><p class="eyebrow">Related</p><h2 class="sec-title">함께 읽으면 좋은 글</h2><div class="pgrid g3" style="margin-top:28px"><a class="pcard" href="/insights/small-building-due-diligence" data-cat="invest" style="--pc:#866829">
+  <div class="pc-top"><span class="pc-cat">투자전략</span><span class="pc-read">읽기 6분</span></div>
+  <h3>꼬마빌딩 매입 전 확인할 12가지 실사 체크리스트</h3>
+  <p>꼬마빌딩 매입 전 빌딩 실사에서 볼 12가지를 권리·공법·임대·물리·재무로 나눠 확인 자료와 받는 곳, 위험 신호를 표로 정리했습니다. 렌트롤 검증법과 비주택 취득세 기준(2026년 10월)도 함께 담았습니다.</p>
+  <div class="pc-foot"><time datetime="2026-10-26">2026.10.26</time><span class="more">읽기 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+</a><a class="pcard" href="/insights/rent-free-ti-negotiation" data-cat="asset" style="--pc:#5B6A3A">
+  <div class="pc-top"><span class="pc-cat">공실·자산관리</span><span class="pc-read">읽기 6분</span></div>
+  <h3>렌트프리⁠·⁠인테리어 지원(TI) 협상의 기준</h3>
+  <p>렌트프리와 인테리어 지원(TI)을 실효임대료로 환산해 비교하는 계산식과 예시, TI 지원 방식별 차이, 원상복구·중도해지 반환 특약, 임대인과 임차인이 각각 지키려는 것, 계약서 특약 문구 예시를 정리했습니다.</p>
+  <div class="pc-foot"><time datetime="2026-10-26">2026.10.26</time><span class="more">읽기 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+</a><a class="pcard" href="/insights/commercial-market-indicators" data-cat="market" style="--pc:#27406B">
+  <div class="pc-top"><span class="pc-cat">시장동향</span><span class="pc-read">읽기 7분</span></div>
+  <h3>중소형 빌딩⁠·⁠상가 시장을 읽는 6가지 지표와 확인하는 곳</h3>
+  <p>기준금리·대출금리, 한국부동산원 공실률·임대가격지수·투자수익률, 상업업무용 실거래, 상권 개·폐업과 추정매출, 오피스 통계, 건축 인허가를 어디서 언제 확인하고 어떻게 해석하는지 표와 점검 질문으로 정리했습니다.</p>
+  <div class="pc-foot"><time datetime="2026-10-26">2026.10.26</time><span class="more">읽기 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+</a></div><p class="more-line"><a href="/insights/topics/invest" class="more">투자전략 글 모두 보기 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p></div></section>
+</main>
+<div class="floats">
+  <button class="fbtn kko" type="button" onclick="kakao()" aria-label="카카오톡 상담"><span class="fl">카카오톡 상담</span><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.5 3 2 6.6 2 11c0 2.8 1.9 5.3 4.7 6.7-.2.7-.7 2.6-.8 3-.1.5.2.5.4.4.2-.1 2.6-1.8 3.6-2.5.7.1 1.4.2 2.1.2 5.5 0 10-3.6 10-8S17.5 3 12 3z"/></svg></button>
+  <a class="fbtn tel" href="tel:010-7379-5265" aria-label="전화 상담" data-track="click_phone"><span class="fl">전화 상담</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></a>
+  <button class="fbtn top" id="toTop" type="button" aria-label="맨 위로"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M18 15l-6-6-6 6"/></svg></button>
+</div>
+<div class="mbar">
+  <a href="tel:010-7379-5265" class="m-tel" data-track="click_phone">전화 상담</a>
+  <a href="javascript:kakao()" class="m-kko">카카오톡</a>
+  <a href="/contact" class="m-form" data-track="cta_click" data-label="mbar_상담">상담 신청</a>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<footer class="ft"><div class="wrap">
+  <div class="ft-top">
+    <div class="ft-brand"><img src="/assets/logo-full.png" alt="오르비스중개법인" width="40" height="48" loading="lazy">
+      <p>중소형 빌딩·상가·오피스의 매매·임대차를 중심으로 데이터 기반 상권분석과 점포개발, MD, 공실개발, 자산관리와 매각전략을 연결하는 종합 부동산 중개법인.</p>
+      <a class="ft-call" href="tel:010-7379-5265" data-track="click_phone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>010-7379-5265</a></div>
+    <div class="ft-col"><h5>회사</h5><a href="/about">회사 개요</a><a href="/leadership">대표 소개</a><a href="/projects">프로젝트</a><a href="/insights">인사이트</a><a href="/glossary">부동산 용어사전</a><a href="/assets/orbis_company_profile_2026.pdf" data-track="download_profile" download>회사소개서 다운로드</a></div>
+    <div class="ft-col"><h5>솔루션</h5><a href="/solution-transaction">거래 자문</a><a href="/solution-strategy">전략·기획</a><a href="/solution-execution">공실개발·공간 실행</a><a href="/solution-value">자산가치·매각전략</a><a href="/properties">매물·딜</a></div>
+    <div class="ft-col"><h5>상권분석</h5><a href="/analysis">상권분석 시스템</a><a href="/analysis-tool">상권분석 시작하기</a><a href="/strategy">브랜딩·확장·오픈 전략</a><a href="/analysis-data">데이터·지표 안내</a><a href="/contact?type=analysis">상권분석 상담 신청</a></div>
+    <div class="ft-col"><h5>협력사업</h5><a href="/partners">협력사업 개요</a><a href="/partner-loungex">라운지엑스 파트너사</a><a href="/solution-franchise">프랜차이즈 출점</a><a href="/contact?type=franchise">출점 브리프 제출</a></div>
+    <div class="ft-col"><h5>고객지원</h5><a href="/owners">건물 1차 진단</a><a href="/contact">상담·문의</a><a href="/faq">자주 묻는 질문</a><a href="/privacy">개인정보처리방침</a><a href="/terms">이용안내</a><a href="/ad-notice">중개대상물 광고 안내</a><a href="/disclaimer">면책·저작권</a></div>
+  </div>
+  <div class="ft-bottom">
+    <div class="reg"><b>오르비스중개법인</b><span class="sep" aria-hidden="true">|</span>대표 이상민<span class="sep" aria-hidden="true">|</span>중개사무소 개설등록번호 <span class="nw">11680-2025-00157</span><br>서울특별시 강남구 테헤란로 123, 6층 615호<span class="sep" aria-hidden="true">|</span>T. 010-7379-5265<span class="em-wrap"><span class="sep" aria-hidden="true">|</span>E. <a class="cfg-email-link" href="#"><span class="cfg-email"></span></a></span><br>운영시간 평일 10:00–18:00 (주말·공휴일 휴무)</div>
+    <div class="ft-copy">© 2026 ORBIS Real Estate Brokerage. All rights reserved.</div>
+  </div>
+</div></footer>
+<script src="/app.js?v=20261026"></script>
+</body>
+</html>
