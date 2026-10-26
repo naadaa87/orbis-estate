@@ -243,7 +243,9 @@ if (!PREVIEW) wr('admin/sitegen.mjs', '// 자동 생성 파일 — 원본은 scr
     ...live.slice(0, 40).map((p) => ({ title: p.title, link: `${G.SITE}${p.url}`, date: p.date, category: G.CATEGORIES[p.category]?.name || '인사이트', description: p.description })),
     ...(site.rssExtra || []).map((x) => ({ ...x, date: G.parseKstDate(x.date) })),
   ].sort(byDate).slice(0, 40);
-  wr('rss.xml', G.renderRss(items, NOW));
+  // 마지막 갱신 시각은 가장 최근 글의 시각으로 둡니다(새 글이 없으면 파일이 바뀌지 않도록)
+  const lastItem = items.reduce((m, it) => (it.date && (!m || it.date > m) ? it.date : m), null);
+  wr('rss.xml', G.renderRss(items, lastItem || NOW));
 
   const manifest = all.filter((p) => !p.legacy).map((p) => ({
     slug: p.slug, title: p.title, category: p.category, status: p.status, url: p.url,
@@ -251,7 +253,12 @@ if (!PREVIEW) wr('admin/sitegen.mjs', '// 자동 생성 파일 — 원본은 scr
     description: p.description, keywords: p.keywords, readMin: p.readMin,
     warnings: p.lint?.warnings || [], errors: p.lint?.errors || [],
   }));
-  if (!PREVIEW) wr('content/insights/index.json', JSON.stringify({ generatedAt: G.isoKst(NOW), posts: manifest }, null, 2) + '\n');
+  if (!PREVIEW) {
+    // 글 목록이 그대로면 파일을 다시 쓰지 않습니다(정기 발행 때 불필요한 커밋 방지)
+    let prevPosts = null;
+    try { prevPosts = JSON.parse(fs.readFileSync(path.join(ROOT, 'content/insights/index.json'), 'utf8')).posts; } catch {}
+    if (JSON.stringify(prevPosts) !== JSON.stringify(manifest)) wr('content/insights/index.json', JSON.stringify({ generatedAt: G.isoKst(NOW), posts: manifest }, null, 2) + '\n');
+  }
 }
 
 // 새로 공개된 글 주소 (검색엔진 알림용)
