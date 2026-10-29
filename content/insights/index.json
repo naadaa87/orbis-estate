@@ -1,6 +1,26 @@
 {
-  "generatedAt": "2026-10-28T11:31:00+09:00",
+  "generatedAt": "2026-10-29T09:56:00+09:00",
   "posts": [
+    {
+      "slug": "small-building-loan-ltv-dscr",
+      "title": "꼬마빌딩 대출, LTV·DSCR로 감당할 수 있는 이자 계산하기",
+      "category": "invest",
+      "status": "scheduled",
+      "url": "/insights/small-building-loan-ltv-dscr",
+      "date": "2026-10-29T11:00:00+09:00",
+      "updated": null,
+      "description": "꼬마빌딩 대출을 받기 전에 LTV, DSCR, RTI가 각각 무엇을 재는지와 계산 방법을 정리했습니다. 기준금리 3.00% 시기 금리 변동에 따른 이자 민감도 표, 감당 가능한 대출액 역산법, 금융기관에 묻기 전 점검표를 계산 예시(가정)로 담았습니다.",
+      "keywords": [
+        "꼬마빌딩 대출",
+        "빌딩 담보대출 LTV",
+        "DSCR 계산",
+        "임대업이자상환비율 RTI",
+        "상가 대출 이자"
+      ],
+      "readMin": 7,
+      "warnings": [],
+      "errors": []
+    },
     {
       "slug": "commercial-lease-renewal-refusal",
       "title": "상가 계약갱신요구권, 행사 방법과 거절할 수 있는 8가지 경우",
