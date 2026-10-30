@@ -1,6 +1,26 @@
 {
-  "generatedAt": "2026-10-29T11:30:00+09:00",
+  "generatedAt": "2026-10-30T09:55:00+09:00",
   "posts": [
+    {
+      "slug": "occupancy-cost-ratio-rent-limit",
+      "title": "매출 대비 임대료 비율, 점유비용으로 임대료 상한 정하기",
+      "category": "brand",
+      "status": "scheduled",
+      "url": "/insights/occupancy-cost-ratio-rent-limit",
+      "date": "2026-10-30T11:00:00+09:00",
+      "updated": null,
+      "description": "매출 대비 임대료 비율을 월세만이 아니라 관리비·보증금·인테리어까지 묶은 점유비용으로 계산하는 법, 손익표에서 임대료 상한을 거꾸로 구하는 순서, 매출 변화에 따른 민감도표, 계약 조건에 반영할 점검 항목을 정리했습니다.",
+      "keywords": [
+        "매출 대비 임대료 비율",
+        "점유비용",
+        "임대료 상한",
+        "적정 임대료 계산",
+        "매장 임대료"
+      ],
+      "readMin": 7,
+      "warnings": [],
+      "errors": []
+    },
     {
       "slug": "small-building-loan-ltv-dscr",
       "title": "꼬마빌딩 대출, LTV·DSCR로 감당할 수 있는 이자 계산하기",
