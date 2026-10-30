@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-10-30T09:55:00+09:00",
+  "generatedAt": "2026-10-30T11:30:00+09:00",
   "posts": [
     {
       "slug": "occupancy-cost-ratio-rent-limit",
       "title": "매출 대비 임대료 비율, 점유비용으로 임대료 상한 정하기",
       "category": "brand",
-      "status": "scheduled",
+      "status": "published",
       "url": "/insights/occupancy-cost-ratio-rent-limit",
       "date": "2026-10-30T11:00:00+09:00",
       "updated": null,

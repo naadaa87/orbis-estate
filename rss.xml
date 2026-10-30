@@ -5,8 +5,16 @@
     <link>https://orbis-estate.com/</link>
     <description>강남 부동산 중개법인 오르비스의 부동산 시장동향·투자·상권분석·점포개발·계약/법률·자산관리 가이드</description>
     <language>ko</language>
-    <lastBuildDate>Thu, 29 Oct 2026 11:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 30 Oct 2026 11:00:00 +0900</lastBuildDate>
     <atom:link href="https://orbis-estate.com/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>매출 대비 임대료 비율, 점유비용으로 임대료 상한 정하기</title>
+      <link>https://orbis-estate.com/insights/occupancy-cost-ratio-rent-limit</link>
+      <guid isPermaLink="true">https://orbis-estate.com/insights/occupancy-cost-ratio-rent-limit</guid>
+      <pubDate>Fri, 30 Oct 2026 11:00:00 +0900</pubDate>
+      <category>브랜드·출점</category>
+      <description>매출 대비 임대료 비율을 월세만이 아니라 관리비·보증금·인테리어까지 묶은 점유비용으로 계산하는 법, 손익표에서 임대료 상한을 거꾸로 구하는 순서, 매출 변화에 따른 민감도표, 계약 조건에 반영할 점검 항목을 정리했습니다.</description>
+    </item>
     <item>
       <title>꼬마빌딩 대출, LTV·DSCR로 감당할 수 있는 이자 계산하기</title>
       <link>https://orbis-estate.com/insights/small-building-loan-ltv-dscr</link>

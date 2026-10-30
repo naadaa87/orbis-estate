@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(h){if(h==='www.orbis-estate.com'||h==='orbis-estate.pages.dev'){location.replace('https://orbis-estate.com'+location.pathname+location.search+location.hash);}})(location.hostname);</script>
+<title>매출 대비 임대료 비율, 점유비용으로 감당할 임대료 상한 계산 | 오르비스중개법인</title>
+<meta name="description" content="매출 대비 임대료 비율을 월세만이 아니라 관리비·보증금·인테리어까지 묶은 점유비용으로 계산하는 법, 손익표에서 임대료 상한을 거꾸로 구하는 순서, 매출 변화에 따른 민감도표, 계약 조건에 반영할 점검 항목을 정리했습니다.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://orbis-estate.com/insights/occupancy-cost-ratio-rent-limit">
+<link rel="alternate" type="application/rss+xml" title="오르비스중개법인 소식" href="https://orbis-estate.com/rss.xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="오르비스중개법인">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="매출 대비 임대료 비율, 점유비용으로 감당할 임대료 상한 계산 | 오르비스중개법인">
+<meta property="og:description" content="매출 대비 임대료 비율을 월세만이 아니라 관리비·보증금·인테리어까지 묶은 점유비용으로 계산하는 법, 손익표에서 임대료 상한을 거꾸로 구하는 순서, 매출 변화에 따른 민감도표, 계약 조건에 반영할 점검 항목을 정리했습니다.">
+<meta property="og:url" content="https://orbis-estate.com/insights/occupancy-cost-ratio-rent-limit">
+<meta property="og:image" content="https://orbis-estate.com/assets/insights/occupancy-cost-ratio-rent-limit.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="article:published_time" content="2026-10-30T11:00:00+09:00">
+<meta property="article:section" content="브랜드·출점">
+<meta property="article:tag" content="매출 대비 임대료 비율">
+<meta property="article:tag" content="점유비용">
+<meta property="article:tag" content="임대료 상한">
+<meta property="article:tag" content="적정 임대료 계산">
+<meta property="article:tag" content="매장 임대료">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#ffffff">
+<meta name="format-detection" content="telephone=no">
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css?v=20261026">
+<script>document.documentElement.classList.add('js');</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"RealEstateAgent","@id":"https://orbis-estate.com/#organization","name":"오르비스중개법인","alternateName":["오르비스 부동산중개법인","오르비스 부동산","ORBIS Real Estate Brokerage"],"description":"서울 강남구 테헤란로의 부동산 중개법인. 중소형 빌딩·상가·오피스의 매매와 임대차를 중심으로 상권분석 시스템 기반의 점포개발·프랜차이즈 출점, MD·공실개발, 자산관리와 매각전략을 자문합니다.","url":"https://orbis-estate.com/","telephone":"+82-10-7379-5265","image":"https://orbis-estate.com/assets/og-image.jpg","logo":"https://orbis-estate.com/assets/logo-full.png","address":{"@type":"PostalAddress","streetAddress":"테헤란로 123, 6층 615호","addressLocality":"강남구","addressRegion":"서울특별시","addressCountry":"KR"},"identifier":{"@type":"PropertyValue","name":"중개사무소 개설등록번호","value":"11680-2025-00157"},"areaServed":[{"@type":"AdministrativeArea","name":"서울특별시"},{"@type":"AdministrativeArea","name":"경기도"},{"@type":"AdministrativeArea","name":"인천광역시"}],"knowsAbout":["빌딩 매매","꼬마빌딩 매매","상가 임대","오피스 임대","상권분석","점포개발","프랜차이즈 출점","상가 공실","상가 MD","자산관리","매각전략"],"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"10:00","closes":"18:00"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"오르비스중개법인 서비스","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"빌딩·상가 매매·임대차 거래 자문","url":"https://orbis-estate.com/solution-transaction"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"최유효이용·MD·테넌트 전략","url":"https://orbis-estate.com/solution-strategy"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"공실개발·공간 활용 실행 자문","url":"https://orbis-estate.com/solution-execution"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"자산가치 개선·매각전략 자문","url":"https://orbis-estate.com/solution-value"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"상권분석 시스템","url":"https://orbis-estate.com/analysis"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"브랜딩·확장·오픈 전략 자문","url":"https://orbis-estate.com/strategy"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"프랜차이즈 출점·점포발굴","url":"https://orbis-estate.com/solution-franchise"}}]}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://orbis-estate.com/"},{"@type":"ListItem","position":2,"name":"인사이트","item":"https://orbis-estate.com/insights"},{"@type":"ListItem","position":3,"name":"브랜드·출점","item":"https://orbis-estate.com/insights/topics/brand"},{"@type":"ListItem","position":4,"name":"매출 대비 임대료 비율, 점유비용으로 임대료 상한 정하기","item":"https://orbis-estate.com/insights/occupancy-cost-ratio-rent-limit"}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"매출 대비 임대료 비율, 점유비용으로 임대료 상한 정하기","description":"매출 대비 임대료 비율을 월세만이 아니라 관리비·보증금·인테리어까지 묶은 점유비용으로 계산하는 법, 손익표에서 임대료 상한을 거꾸로 구하는 순서, 매출 변화에 따른 민감도표, 계약 조건에 반영할 점검 항목을 정리했습니다.","datePublished":"2026-10-30T11:00:00+09:00","dateModified":"2026-10-30T11:00:00+09:00","author":{"@type":"Organization","@id":"https://orbis-estate.com/#organization","name":"오르비스중개법인","url":"https://orbis-estate.com/"},"publisher":{"@type":"Organization","@id":"https://orbis-estate.com/#organization","name":"오르비스중개법인","url":"https://orbis-estate.com/","logo":{"@type":"ImageObject","url":"https://orbis-estate.com/assets/logo-full.png"}},"mainEntityOfPage":"https://orbis-estate.com/insights/occupancy-cost-ratio-rent-limit","image":"https://orbis-estate.com/assets/insights/occupancy-cost-ratio-rent-limit.jpg","keywords":"매출 대비 임대료 비율, 점유비용, 임대료 상한, 적정 임대료 계산, 매장 임대료","articleSection":"브랜드·출점","inLanguage":"ko-KR","wordCount":4699}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"매출 대비 임대료 비율은 몇 퍼센트가 적당한가요?","acceptedAnswer":{"@type":"Answer","text":"정해진 정답은 없습니다. 원가율과 인건비 구조가 업종과 브랜드마다 달라서, 같은 비율도 어떤 매장에는 여유이고 어떤 매장에는 적자입니다. 경험칙보다 자기 매장 손익표에서 목표 이익을 남기고 남는 금액을 점유비용 상한으로 잡는 편이 정확합니다."}},{"@type":"Question","name":"점유비용에 관리비와 부가가치세도 넣어야 하나요?","acceptedAnswer":{"@type":"Answer","text":"관리비는 매달 빠져나가는 고정비라 넣습니다. 임차료 부가가치세는 일반과세자라면 매입세액으로 공제받는 경우가 많아 보통 공급가액 기준으로 계산하지만, 과세 유형에 따라 달라지므로 세무사에게 확인합니다."}},{"@type":"Question","name":"보증금도 비용으로 봐야 하나요?","acceptedAnswer":{"@type":"Answer","text":"보증금은 돌려받는 돈이지만 그동안 다른 곳에 쓰지 못하므로 기회비용이 생깁니다. 보증금에 자금 조달 금리나 기대 운용수익률을 곱해 월 단위로 나눈 값을 점유비용에 더하면, 보증금이 큰 조건과 월세가 큰 조건을 같은 선에서 비교할 수 있습니다."}},{"@type":"Question","name":"예상 매출을 모르면 임대료 상한을 어떻게 정하나요?","acceptedAnswer":{"@type":"Answer","text":"기존 매장의 실적이나 비슷한 상권의 공개 데이터로 범위를 잡고, 기준·보수·비관 세 가지 매출로 상한을 각각 계산합니다. 비관 시나리오에서도 버틸 수 있는 금액을 협상의 마지노선으로 두면 판단이 흔들리지 않습니다."}}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">본문 바로가기</a>
+<header class="nav" id="nav"><div class="nav-inner">
+  <a href="/" class="nav-logo" aria-label="오르비스중개법인 홈"><img src="/assets/logo-icon.png" alt="" width="35" height="37"><span class="nm"><b>오르비스중개법인</b><span>ORBIS REAL ESTATE</span></span></a>
+  <nav class="nav-menu" aria-label="주 메뉴"><div class="nm-item has-sub"><a href="/about" class="nm-top" aria-haspopup="true">회사소개<svg class="cv" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a><div class="nm-sub"><div class="nm-sub-in"><a href="/about"><b>회사 개요</b><span>관점 · 운영 원칙 · 회사 정보</span></a><a href="/leadership"><b>대표 소개</b><span>대표 인사말과 약력</span></a></div></div></div><div class="nm-item has-sub"><a href="/solutions" class="nm-top" aria-haspopup="true">솔루션<svg class="cv" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a><div class="nm-sub"><div class="nm-sub-in"><a href="/solutions"><b>솔루션 전체</b><span>4대 통합 솔루션 한눈에 보기</span></a><a href="/solution-transaction"><b>거래 자문</b><span>빌딩 매매 · 임대차 · 조건 협상</span></a><a href="/solution-strategy"><b>전략·기획</b><span>최유효이용 · MD · 테넌트 구성</span></a><a href="/solution-execution"><b>공실개발·공간 실행</b><span>활용모델 설계 · 구축 · 운영</span></a><a href="/solution-value"><b>자산가치·매각전략</b><span>PM·FM · 데이터룸 · 매각</span></a></div></div></div><div class="nm-item has-sub"><a href="/analysis" class="nm-top" aria-haspopup="true">상권분석<svg class="cv" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a><div class="nm-sub"><div class="nm-sub-in"><a href="/analysis"><b>상권분석 시스템</b><span>공공데이터로 보는 입지·상권 진단</span></a><a href="/analysis-tool"><b>상권분석 시작하기 <span class="nm-badge nb-new">NEW</span></b><span>주소를 넣으면 반경 상권을 바로 확인</span></a><a href="/strategy"><b>브랜딩·확장·오픈 전략</b><span>입지·출점 순서·오픈 일정 자문</span></a><a href="/analysis-data"><b>데이터·지표 안내</b><span>출처 · 기준 시점 · 계산 방식</span></a></div></div></div><div class="nm-item has-sub"><a href="/partners" class="nm-top" aria-haspopup="true">협력사업<svg class="cv" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a><div class="nm-sub"><div class="nm-sub-in"><a href="/partners"><b>협력사업 개요</b><span>점포개발 · 상권분석 · 협력 브랜드</span></a><a href="/partner-loungex"><b>라운지엑스 <span class="nm-badge">PARTNER</span></b><span>공식 파트너사 · 점포개발 상권분석자문</span></a><a href="/solution-franchise"><b>프랜차이즈 출점</b><span>출점기준 정의부터 계약까지 6단계</span></a></div></div></div><div class="nm-item"><a href="/properties" class="nm-top">매물·딜</a></div><div class="nm-item has-sub"><a href="/projects" class="nm-top" aria-haspopup="true">프로젝트<svg class="cv" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a><div class="nm-sub"><div class="nm-sub-in"><a href="/projects"><b>프로젝트 전체</b><span>수행주체를 표기한 실행 사례</span></a><a href="/case-sinchon"><b>공실개발 사례</b><span>서울 서대문구 · 근생빌딩</span></a><a href="/case-hwagok"><b>점포발굴 사례</b><span>서울 강서구 화곡동 · 리테일</span></a></div></div></div><div class="nm-item has-sub"><a href="/insights" class="nm-top active" aria-haspopup="true">인사이트<svg class="cv" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a><div class="nm-sub"><div class="nm-sub-in"><a href="/insights" aria-current="page"><b>인사이트 전체</b><span>시장·투자·상권·계약 실무 가이드</span></a><a href="/insights/topics/legal"><b>계약·법률 가이드</b><span>임대차 · 권리금 · 중개보수 · 등기</span></a><a href="/insights/topics/area"><b>상권분석·입지 가이드</b><span>배후수요 · 유동 · 경쟁 보는 법</span></a><a href="/insights/topics/invest"><b>투자전략 가이드</b><span>수익률 · 실사 · 매각 판단</span></a><a href="/glossary"><b>부동산 용어사전</b><span>임대차 · 투자 · 상권 용어 정리</span></a><a href="/faq"><b>자주 묻는 질문</b><span>상담 절차 · 중개보수 · 상권분석</span></a></div></div></div><div class="nm-item"><a href="/contact" class="nm-top">문의</a></div></nav>
+  <div class="nav-cta">
+    <a href="tel:010-7379-5265" class="nav-tel" data-track="click_phone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>010-7379-5265</a>
+    <a href="/owners" class="btn btn-gold sm" data-track="cta_click" data-label="nav_진단">건물 1차 진단</a>
+    <button class="hamb" id="hamb" type="button" aria-label="메뉴 열기" aria-controls="drawer" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</div></header>
+<div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="전체 메뉴" aria-hidden="true">
+  <button class="drawer-close" id="drawerClose" type="button" aria-label="메뉴 닫기">&times;</button>
+  <a href="/">홈</a><div class="d-group"><div class="d-gt">회사소개</div><a href="/about">회사 개요</a><a href="/leadership">대표 소개</a></div><div class="d-group"><div class="d-gt">솔루션</div><a href="/solutions">솔루션 전체</a><a href="/solution-transaction">거래 자문</a><a href="/solution-strategy">전략·기획</a><a href="/solution-execution">공실개발·공간 실행</a><a href="/solution-value">자산가치·매각전략</a></div><div class="d-group"><div class="d-gt">상권분석</div><a href="/analysis">상권분석 시스템</a><a href="/analysis-tool">상권분석 시작하기 <span class="d-tag d-new">NEW</span></a><a href="/strategy">브랜딩·확장·오픈 전략</a><a href="/analysis-data">데이터·지표 안내</a></div><div class="d-group"><div class="d-gt">협력사업</div><a href="/partners">협력사업 개요</a><a href="/partner-loungex">라운지엑스 <span class="d-tag">PARTNER</span></a><a href="/solution-franchise">프랜차이즈 출점</a></div><a href="/properties">매물·딜</a><div class="d-group"><div class="d-gt">프로젝트</div><a href="/projects">프로젝트 전체</a><a href="/case-sinchon">공실개발 사례</a><a href="/case-hwagok">점포발굴 사례</a></div><div class="d-group"><div class="d-gt">인사이트</div><a href="/insights" aria-current="page">인사이트 전체</a><a href="/insights/topics/legal">계약·법률 가이드</a><a href="/insights/topics/area">상권분석·입지 가이드</a><a href="/glossary">부동산 용어사전</a><a href="/faq">자주 묻는 질문</a></div><a href="/contact">문의</a>
+  <a href="/owners" class="btn btn-gold d-cta">건물 1차 진단 신청</a>
+  <div class="d-contact"><b>대표 이상민</b> · <a href="tel:010-7379-5265" class="d-tel">010-7379-5265</a><br>서울특별시 강남구 테헤란로 123, 6층 615호<br>중개사무소 개설등록번호 <span class="nw">11680-2025-00157</span></div>
+</div>
+<main id="main" tabindex="-1">
+<section class="phero"><div class="ring pr1"></div><div class="ring pr2"></div><div class="article" style="padding-top:0">
+  <nav class="crumb" aria-label="현재 위치"><a href="/">홈</a> / <a href="/insights">인사이트</a> / <a href="/insights/topics/brand">브랜드·출점</a></nav>
+  <h1>매출 대비 임대료 비율, 점유비용으로 임대료 상한 정하기</h1>
+  <div class="a-meta"><span>작성 <b>오르비스중개법인</b></span><span>발행 <b><time datetime="2026-10-30T11:00:00+09:00">2026.10.30</time></b></span><span>분야 <b><a href="/insights/topics/brand">브랜드·출점</a></b></span><span>읽기 <b>약 7분</b></span></div>
+  <p class="a-sum">매출 대비 임대료 비율은 월세만 넣으면 실제 부담보다 낮게 나옵니다. 관리비와 보증금, 인테리어 상각까지 묶은 점유비용으로 보고, 매장 손익표에서 감당할 수 있는 금액을 거꾸로 계산하면 협상 전에 임대료 상한을 숫자로 정할 수 있습니다.</p>
+  <div class="toc"><b>CONTENTS</b><ol><li><a href="#s1">매출 대비 임대료 비율, 월세만 보면 생기는 착시</a></li><li><a href="#s2">점유비용에 넣을 항목과 빼는 항목</a></li><li><a href="#s3">손익표에서 임대료 상한을 거꾸로 계산하는 순서</a></li><li><a href="#s4">계산 예시(가정): 월 매출 6,000만 원 매장</a></li><li><a href="#s5">매출이 흔들리면 상한은 얼마나 움직일까</a></li><li><a href="#s6">업종마다 적정 비율이 다른 이유</a></li><li><a href="#s7">계약 조건에 반영할 것들</a></li><li><a href="#s8">오르비스는 이렇게 봅니다</a></li></ol></div>
+</div></section>
+<section class="section tight"><div class="article"><article class="a-body">
+<p>매출 대비 임대료 비율은 점포를 고를 때 가장 먼저 꺼내는 숫자입니다. 그런데 월세만 넣고 계산하면 관리비와 보증금, 인테리어 비용이 빠져 실제 부담보다 낮게 나옵니다. 이 글은 이 비용들을 묶은 '점유비용'으로 비율을 다시 계산하고, 매장 손익표에서 감당할 수 있는 임대료 상한을 거꾸로 구하는 방법을 정리했습니다.</p>
+<p>브랜드 본사의 점포개발 담당자라면 출점 검토서에, 처음 매장을 여는 창업자라면 계약 협상 전에 이 계산을 한 번 해 두면 좋습니다. 상한이 숫자로 정해져 있으면 좋은 자리를 놓칠까 조급해질 때도 기준을 지킬 수 있습니다.</p>
+<h2 id="s1"><span class="no">01</span>매출 대비 임대료 비율, 월세만 보면 생기는 착시</h2>
+<p>같은 월세라도 매장마다 실제로 나가는 돈은 다릅니다. 관리비가 높은 신축 상가, 보증금이 큰 대로변 점포, 인테리어를 처음부터 새로 해야 하는 공실은 월세가 같아도 매달 부담이 커집니다.</p>
+<p>그래서 실무에서는 월세 하나만 보지 않고 <b>점유비용(Occupancy Cost)</b>, 즉 그 자리를 쓰는 데 드는 비용 전체를 매출과 비교합니다. 점유비용 비율로 보면 서로 다른 조건의 점포를 같은 선에서 비교할 수 있습니다.</p>
+<p><b>점유비용 비율 = 월 점유비용 ÷ 월 매출 × 100</b></p>
+<p>월세 비율이 같아 보이던 두 점포가 점유비용 비율로는 몇 퍼센트포인트씩 벌어지는 일이 흔합니다. 출점 검토서에 두 비율을 나란히 적어 두면 의사결정자가 착시 없이 판단할 수 있습니다.</p>
+<h2 id="s2"><span class="no">02</span>점유비용에 넣을 항목과 빼는 항목</h2>
+<p>어디까지 점유비용으로 볼지는 회사마다 기준을 정해 두고 모든 점포에 같은 방식으로 적용해야 합니다. 아래 표는 흔히 쓰는 구분입니다.</p>
+<div class="a-table c3"><table><thead><tr><th>항목</th><th>점유비용 포함 여부</th><th>월 환산 방법</th></tr></thead><tbody><tr><td>월 임대료(차임)</td><td>포함</td><td>계약서 금액(공급가액 기준)</td></tr><tr><td>관리비</td><td>포함</td><td>최근 정산서 평균, 신축이면 관리규약 기준</td></tr><tr><td>보증금 기회비용</td><td>포함</td><td>보증금 × 연 조달금리 ÷ 12</td></tr><tr><td>인테리어·시설 상각</td><td>포함</td><td>투자액 ÷ 예상 사용 개월 수</td></tr><tr><td>권리금 상각</td><td>회사 기준에 따라</td><td>지급액 ÷ 예상 사용 개월 수</td></tr><tr><td>렌트프리·TI 지원</td><td>차감</td><td>혜택 총액 ÷ 계약 개월 수</td></tr><tr><td>전기·수도·가스</td><td>보통 제외</td><td>영업비용으로 따로 관리</td></tr><tr><td>임차료 부가가치세</td><td>보통 제외</td><td>과세 유형에 따라 세무사 확인</td></tr></tbody></table></div>
+<p>인테리어 상각 기간은 계약기간이 아니라 실제로 그 자리를 쓸 기간으로 잡습니다. 계약은 3년이어도 갱신을 전제로 5년을 쓸 계획이라면 5년으로 나누고, 갱신이 불확실한 자리라면 계약기간으로 나누는 편이 보수적입니다. 렌트프리와 인테리어 지원을 실효임대료로 바꾸는 법은 <a href="/insights/rent-free-ti-negotiation">렌트프리·TI 협상 기준</a>에 정리해 두었습니다.</p>
+<h2 id="s3"><span class="no">03</span>손익표에서 임대료 상한을 거꾸로 계산하는 순서</h2>
+<p>임대료 상한은 상권 시세에서 출발하지 않고 매장 손익표에서 출발합니다. 시세는 협상의 출발점일 뿐, 우리 매장이 감당할 수 있는 금액은 손익 구조가 정합니다.</p>
+<ol><li><b>예상 월 매출을 세 가지로 잡습니다.</b> 기준·보수·비관 시나리오를 따로 둡니다.</li><li><b>변동비율을 적습니다.</b> 원재료 원가, 카드·배달 수수료, 로열티처럼 매출에 따라 움직이는 비용입니다.</li><li><b>고정비를 적습니다.</b> 인건비처럼 매출이 줄어도 크게 줄지 않는 비용입니다.</li><li><b>목표 영업이익을 먼저 뺍니다.</b> 남는 돈이 아니라 남겨야 할 돈을 정해 두는 단계입니다.</li><li><b>남은 금액이 감당 가능한 점유비용입니다.</b></li><li><b>여기서 관리비·보증금 기회비용·인테리어 상각을 뺍니다.</b> 그 결과가 월 임대료 상한입니다.</li></ol>
+<p>이 순서를 지키면 &quot;이 정도 상권이면 이 정도 월세는 내야 한다&quot;는 말에 휘둘리지 않습니다. 상한을 넘는 자리라면 조건을 바꾸거나, 매출 가정을 다시 검증하거나, 다른 후보지를 보는 쪽으로 판단이 정리됩니다.</p>
+<h2 id="s4"><span class="no">04</span>계산 예시(가정): 월 매출 6,000만 원 매장</h2>
+<p>아래 숫자는 모두 설명을 위한 계산 예시(가정)입니다. 실제 업종이나 브랜드의 평균이 아닙니다.</p>
+<div class="a-table c3"><table><thead><tr><th>구분</th><th>비율·기준</th><th>금액(월)</th></tr></thead><tbody><tr><td>예상 매출</td><td>기준 시나리오</td><td>6,000만 원</td></tr><tr><td>원가</td><td>매출의 32%</td><td>1,920만 원</td></tr><tr><td>수수료·로열티·기타 운영비</td><td>매출의 13%</td><td>780만 원</td></tr><tr><td>인건비</td><td>고정</td><td>1,500만 원</td></tr><tr><td>목표 영업이익</td><td>매출의 12%</td><td>720만 원</td></tr><tr><td><b>감당 가능한 점유비용</b></td><td>나머지</td><td><b>1,080만 원</b></td></tr><tr><td>관리비</td><td>정산서 기준</td><td>120만 원</td></tr><tr><td>보증금 기회비용</td><td>2억 원 × 연 3% ÷ 12</td><td>50만 원</td></tr><tr><td>인테리어 상각</td><td>1억 5,000만 원 ÷ 60개월</td><td>250만 원</td></tr><tr><td><b>월 임대료 상한</b></td><td>점유비용 − 위 세 항목</td><td><b>660만 원</b></td></tr></tbody></table></div>
+<p>이 매장의 월세 비율은 11%이지만 점유비용 비율은 18%입니다. 월세만 보고 &quot;11%면 괜찮다&quot;고 판단했다면 나머지 7%포인트를 놓친 셈입니다.</p>
+<h2 id="s5"><span class="no">05</span>매출이 흔들리면 상한은 얼마나 움직일까</h2>
+<p>같은 예시에서 매출만 바꿔 보면 상한이 매출보다 훨씬 크게 움직인다는 것을 알 수 있습니다. 인건비 같은 고정비가 있기 때문입니다. 아래 표도 계산 예시(가정)이며, 변동비율과 목표 이익률은 그대로 두고 매출만 바꿨습니다.</p>
+<div class="a-table c5"><table><thead><tr><th>시나리오</th><th>월 매출</th><th>감당 가능한 점유비용</th><th>월 임대료 상한</th><th>기준 대비 상한 변화</th></tr></thead><tbody><tr><td>낙관(+10%)</td><td>6,600만 원</td><td>1,338만 원</td><td>918만 원</td><td>+39%</td></tr><tr><td>기준</td><td>6,000만 원</td><td>1,080만 원</td><td>660만 원</td><td>0%</td></tr><tr><td>보수(−10%)</td><td>5,400만 원</td><td>822만 원</td><td>402만 원</td><td>−39%</td></tr><tr><td>비관(−20%)</td><td>4,800만 원</td><td>564만 원</td><td>144만 원</td><td>−78%</td></tr></tbody></table></div>
+<p>매출이 10% 줄면 감당할 수 있는 임대료는 39% 줄어듭니다. 그래서 협상 상한은 기준 시나리오가 아니라 보수 시나리오에서 정하는 편이 안전합니다. 비관 시나리오에서는 목표 이익을 포기하더라도 적자가 나지 않는지까지 확인해 둡니다.</p>
+<div class="a-callout a-check"><b class="ac-t">협상 전에 확인할 질문</b><ul><li>예상 매출의 근거가 기존 매장 실적이나 공개 상권 데이터로 설명되는가</li><li>보수 시나리오에서도 월 임대료가 상한 안에 들어오는가</li><li>관리비 항목과 최근 정산 내역을 받아 봤는가</li><li>인테리어 상각 기간을 실제 사용 예상 기간으로 잡았는가</li><li>렌트프리·TI 지원을 실효임대료로 환산해 비교했는가</li><li>갱신 때 인상 가능한 범위까지 계산에 넣었는가</li></ul></div>
+<h2 id="s6"><span class="no">06</span>업종마다 적정 비율이 다른 이유</h2>
+<p>&quot;매출 대비 임대료는 몇 %까지&quot;라는 경험칙이 자주 돌지만, 그대로 가져다 쓰기는 어렵습니다. 비율을 바꾸는 요인이 업종과 브랜드마다 다르기 때문입니다.</p>
+<ul><li><b>원가율</b>: 원재료 비중이 높은 업종은 점유비용으로 쓸 수 있는 몫이 작습니다.</li><li><b>인건비 구조</b>: 조리·응대 인력이 많은 매장은 고정비가 커서 매출 변화에 더 민감합니다.</li><li><b>매출이 나오는 방식</b>: 배달·포장 비중이 높으면 1층 노출의 가치가 상대적으로 작아지고, 방문 고객이 중요한 업종은 자리 값이 매출에 직접 이어집니다.</li><li><b>면적 효율</b>: 같은 면적에서 좌석 회전이나 진열 효율이 높을수록 높은 임대료를 감당할 여지가 생깁니다.</li><li><b>브랜드 목적</b>: 첫 매장이나 상징 매장은 홍보 효과를 감안해 점유비용을 높게 잡기도 합니다. 이때는 그 차이를 마케팅 예산으로 따로 적어 두는 편이 판단을 흐리지 않습니다.</li></ul>
+<p>결국 기준이 되는 것은 남의 평균이 아니라 우리 매장의 손익표입니다. 본사라면 업종 평균 대신 자사 기존 매장의 손익 데이터로 점유비용 기준선을 만들어 출점 기준표에 넣어 둡니다. 출점 기준표를 만드는 순서는 <a href="/insights/franchise-site-criteria">프랜차이즈 출점기준 만드는 법</a>에서 다뤘습니다.</p>
+<h2 id="s7"><span class="no">07</span>계약 조건에 반영할 것들</h2>
+<p>상한을 정했다면 이제 그 숫자를 계약서로 지키는 단계입니다. 몇 가지는 법이 정한 기준과 맞물려 있어 함께 확인합니다(2026년 10월 현재 법령 기준).</p>
+<p><b>환산보증금을 먼저 계산합니다.</b> 보증금에 월 차임의 100배를 더한 금액이 지역별 기준금액(서울 9억 원) 이하인지에 따라 적용되는 조항이 달라집니다(「상가건물 임대차보호법」 제2조, 시행령 제2조). 위 예시처럼 보증금 2억 원에 월세 660만 원이면 8억 6,000만 원으로 서울 기준 이내입니다. 같은 조건에서 월세가 750만 원이면 9억 5,000만 원이 되어 기준을 넘습니다.</p>
+<p><b>갱신 이후의 임대료까지 계산합니다.</b> 기준 이내 임대차는 증액 청구가 청구 당시 차임의 5%를 넘지 못하고, 증액 후 1년 이내에는 다시 청구할 수 없습니다(제11조, 시행령 제4조). 계산 예시(가정)로 월세 660만 원이 매년 5%씩 오른다고 보면 4년 뒤 약 802만 원입니다. 기준을 넘는 임대차는 이 상한이 적용되지 않고 제10조의2의 증감청구로 다투게 되므로, 인상 방식과 상한을 처음 계약서에 숫자로 적어 두는 편이 낫습니다. 같은 기간 매출 성장을 그만큼 기대할 수 있는지 함께 따져 봅니다.</p>
+<p><b>매출연동형 임대료는 산식을 구체적으로 적습니다.</b> 기본 임대료에 매출의 일정 비율을 더하는 방식은 매출이 낮을 때 부담을 줄이는 장점이 있습니다. 다만 매출 산정 범위(배달·온라인 매출 포함 여부), 자료 제출 방식, 최저 보장액을 계약서에 분명히 적지 않으면 다툼이 생깁니다.</p>
+<p>계약 전 서류와 특약 점검 순서는 <a href="/insights/commercial-lease-checklist">상가 임대차 계약 전 10가지</a>에 정리해 두었습니다. 개별 계약의 법률 효과와 세무 처리는 변호사·세무사에게 확인합니다.</p>
+<div class="a-callout a-warn"><b class="ac-t">자주 하는 실수</b><p>월세만으로 비율을 계산하는 것, 낙관적인 매출로 상한을 잡는 것, 인테리어를 계약기간보다 길게 상각해 놓고 갱신 불확실성은 따지지 않는 것이 대표적입니다. 셋 다 계약 직후에는 드러나지 않다가 1~2년 뒤 손익에서 나타납니다.</p></div>
+<h2 id="s8"><span class="no">08</span>오르비스는 이렇게 봅니다</h2>
+<p>오르비스는 점포를 소개하기 전에 브랜드의 손익 구조와 목표 점유비용을 먼저 묻습니다. 후보지마다 월세 비율과 점유비용 비율을 나란히 정리하고, 보수 시나리오 기준 상한을 넘는 자리는 조건 조정안과 함께 제시합니다. 예상 매출의 근거는 상권 데이터와 현장 관찰로 따로 확인하며, <a href="/analysis-tool">무료 상권분석</a>으로 후보지 주변의 업종 구성과 점포 밀도를 먼저 확인할 수도 있습니다.</p>
+<p>다점포 출점을 준비하는 본사라면 <a href="/solution-franchise">프랜차이즈 출점 서비스</a>에서 출점 기준표 정리부터 후보지 검토, 임대차 협상까지 함께 진행합니다. 중개보수는 공인중개사법령이 정한 상한 안에서 계약 전에 협의하며, 설계·시공·운영·세무 같은 실행 업무는 관계사·외부 전문기관과 별도 계약으로 진행합니다.</p>
+<section class="a-faq" aria-labelledby="faq-h"><h2 id="faq-h">자주 묻는 질문</h2><details><summary>매출 대비 임대료 비율은 몇 퍼센트가 적당한가요?</summary><p>정해진 정답은 없습니다. 원가율과 인건비 구조가 업종과 브랜드마다 달라서, 같은 비율도 어떤 매장에는 여유이고 어떤 매장에는 적자입니다. 경험칙보다 자기 매장 손익표에서 목표 이익을 남기고 남는 금액을 점유비용 상한으로 잡는 편이 정확합니다.</p></details><details><summary>점유비용에 관리비와 부가가치세도 넣어야 하나요?</summary><p>관리비는 매달 빠져나가는 고정비라 넣습니다. 임차료 부가가치세는 일반과세자라면 매입세액으로 공제받는 경우가 많아 보통 공급가액 기준으로 계산하지만, 과세 유형에 따라 달라지므로 세무사에게 확인합니다.</p></details><details><summary>보증금도 비용으로 봐야 하나요?</summary><p>보증금은 돌려받는 돈이지만 그동안 다른 곳에 쓰지 못하므로 기회비용이 생깁니다. 보증금에 자금 조달 금리나 기대 운용수익률을 곱해 월 단위로 나눈 값을 점유비용에 더하면, 보증금이 큰 조건과 월세가 큰 조건을 같은 선에서 비교할 수 있습니다.</p></details><details><summary>예상 매출을 모르면 임대료 상한을 어떻게 정하나요?</summary><p>기존 매장의 실적이나 비슷한 상권의 공개 데이터로 범위를 잡고, 기준·보수·비관 세 가지 매출로 상한을 각각 계산합니다. 비관 시나리오에서도 버틸 수 있는 금액을 협상의 마지노선으로 두면 판단이 흔들리지 않습니다.</p></details></section>
+<section class="a-sources" aria-labelledby="src-h"><h2 id="src-h">참고 자료</h2><ul><li><a href="https://www.law.go.kr/법령/상가건물임대차보호법" target="_blank" rel="noopener">국가법령정보센터 「상가건물 임대차보호법」(법률 제21083호, 2026.5.12. 시행) 제2조·제10조의2·제11조</a> <span>(2026-10-30 확인)</span></li><li><a href="https://www.law.go.kr/법령/상가건물임대차보호법시행령" target="_blank" rel="noopener">국가법령정보센터 「상가건물 임대차보호법 시행령」 제2조(적용범위)·제4조(차임 등 증액청구의 기준)</a> <span>(2026-10-30 확인)</span></li><li><a href="https://www.moj.go.kr/sites/moj/download/316_01.pdf" target="_blank" rel="noopener">법무부 상가건물 임대차 표준계약서</a> <span>(2026-10-30 확인)</span></li><li><a href="https://golmok.seoul.go.kr/" target="_blank" rel="noopener">서울시 상권분석서비스</a> <span>(2026-10-30 확인)</span></li></ul><p class="a-src-note">출처의 수치와 법령은 위 기준 시점의 것입니다. 이후 개정·발표로 달라질 수 있습니다.</p></section>
+<div class="a-disclaimer"><b>안내</b><p>이 글은 일반적인 정보 제공을 위해 작성했으며, 특정 자산에 대한 투자 권유나 법률·세무 자문이 아닙니다. 법령과 기준은 바뀔 수 있으니 계약·투자 전에는 최신 법령과 전문가 의견을 확인하시기 바랍니다. 오르비스중개법인은 임대수익·매각가 등 어떠한 결과도 보장하지 않습니다.</p></div>
+<div class="a-tags"><span>#매출 대비 임대료 비율</span><span>#점유비용</span><span>#임대료 상한</span><span>#적정 임대료 계산</span><span>#매장 임대료</span></div>
+</article>
+<div style="margin-top:34px"><div class="ctaband reveal"><div class="cbring"></div><div class="cbring2"></div><div class="inner">
+    <div><div class="eyebrow">Next Step</div><h2>다음 매장 입지를 같은 기준으로 비교합니다</h2><p>브랜드와 목표 지역, 표준 점포 조건을 알려 주시면 후보 상권과 점포를 한 틀에서 비교해 드립니다.</p>
+    <a class="tel" href="tel:010-7379-5265" data-track="click_phone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>010-7379-5265</a></div>
+    <div class="acts"><a href="/contact?type=franchise" class="btn btn-gold lg" data-track="cta_click" data-label="article_brand">출점 브리프 보내기 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href="tel:010-7379-5265" class="btn btn-ghost-light lg" data-track="click_phone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>전화 상담</a></div>
+  </div></div></div>
+</div></section>
+<section class="section on-white"><div class="wrap"><p class="eyebrow">Related</p><h2 class="sec-title">함께 읽으면 좋은 글</h2><div class="pgrid g3" style="margin-top:28px"><a class="pcard" href="/insights/rent-free-ti-negotiation" data-cat="asset" style="--pc:#5B6A3A">
+  <div class="pc-top"><span class="pc-cat">공실·자산관리</span><span class="pc-read">읽기 6분</span></div>
+  <h3>렌트프리⁠·⁠인테리어 지원(TI) 협상의 기준</h3>
+  <p>렌트프리와 인테리어 지원(TI)을 실효임대료로 환산해 비교하는 계산식과 예시, TI 지원 방식별 차이, 원상복구·중도해지 반환 특약, 임대인과 임차인이 각각 지키려는 것, 계약서 특약 문구 예시를 정리했습니다.</p>
+  <div class="pc-foot"><time datetime="2026-10-26">2026.10.26</time><span class="more">읽기 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+</a><a class="pcard" href="/insights/commercial-lease-checklist" data-cat="legal" style="--pc:#3D4E6E">
+  <div class="pc-top"><span class="pc-cat">계약·법률</span><span class="pc-read">읽기 8분</span></div>
+  <h3>상가 임대차 계약 전 확인할 10가지</h3>
+  <p>상가 임대차 계약 전에 등기부와 건축물대장, 환산보증금 계산, 대항력과 확정일자, 계약갱신요구권 10년, 차임 증액 5% 상한, 권리금·원상복구·관리비 특약까지 서명 순서대로 점검합니다. 기준금액 초과 임대차에 적용되는 조항도 표로 정리했습니다.</p>
+  <div class="pc-foot"><time datetime="2026-10-26">2026.10.26</time><span class="more">읽기 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+</a><a class="pcard" href="/insights/franchise-site-criteria" data-cat="brand" style="--pc:#A8513A">
+  <div class="pc-top"><span class="pc-cat">브랜드·출점</span><span class="pc-read">읽기 7분</span></div>
+  <h3>프랜차이즈 출점기준 만드는 법: 점포개발 체크리스트</h3>
+  <p>프랜차이즈 출점 전략의 기준이 되는 출점기준표를 상권 유형, 배후수요, 경쟁 거리, 점포 조건, 점유비용 상한으로 나눠 만드는 법과 가맹사업법상 영업지역 설정 의무, 후보지 스코어카드, 가맹 희망 입지 검토 순서를 정리했습니다.</p>
+  <div class="pc-foot"><time datetime="2026-10-26">2026.10.26</time><span class="more">읽기 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+</a></div><p class="more-line"><a href="/insights/topics/brand" class="more">브랜드·출점 글 모두 보기 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p></div></section>
+</main>
+<div class="floats">
+  <button class="fbtn kko" type="button" onclick="kakao()" aria-label="카카오톡 상담"><span class="fl">카카오톡 상담</span><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.5 3 2 6.6 2 11c0 2.8 1.9 5.3 4.7 6.7-.2.7-.7 2.6-.8 3-.1.5.2.5.4.4.2-.1 2.6-1.8 3.6-2.5.7.1 1.4.2 2.1.2 5.5 0 10-3.6 10-8S17.5 3 12 3z"/></svg></button>
+  <a class="fbtn tel" href="tel:010-7379-5265" aria-label="전화 상담" data-track="click_phone"><span class="fl">전화 상담</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></a>
+  <button class="fbtn top" id="toTop" type="button" aria-label="맨 위로"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M18 15l-6-6-6 6"/></svg></button>
+</div>
+<div class="mbar">
+  <a href="tel:010-7379-5265" class="m-tel" data-track="click_phone">전화 상담</a>
+  <a href="javascript:kakao()" class="m-kko">카카오톡</a>
+  <a href="/contact" class="m-form" data-track="cta_click" data-label="mbar_상담">상담 신청</a>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<footer class="ft"><div class="wrap">
+  <div class="ft-top">
+    <div class="ft-brand"><img src="/assets/logo-full.png" alt="오르비스중개법인" width="40" height="48" loading="lazy">
+      <p>중소형 빌딩·상가·오피스의 매매·임대차를 중심으로 데이터 기반 상권분석과 점포개발, MD, 공실개발, 자산관리와 매각전략을 연결하는 종합 부동산 중개법인.</p>
+      <a class="ft-call" href="tel:010-7379-5265" data-track="click_phone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>010-7379-5265</a></div>
+    <div class="ft-col"><h5>회사</h5><a href="/about">회사 개요</a><a href="/leadership">대표 소개</a><a href="/projects">프로젝트</a><a href="/insights">인사이트</a><a href="/glossary">부동산 용어사전</a><a href="/assets/orbis_company_profile_2026.pdf" data-track="download_profile" download>회사소개서 다운로드</a></div>
+    <div class="ft-col"><h5>솔루션</h5><a href="/solution-transaction">거래 자문</a><a href="/solution-strategy">전략·기획</a><a href="/solution-execution">공실개발·공간 실행</a><a href="/solution-value">자산가치·매각전략</a><a href="/properties">매물·딜</a></div>
+    <div class="ft-col"><h5>상권분석</h5><a href="/analysis">상권분석 시스템</a><a href="/analysis-tool">상권분석 시작하기</a><a href="/strategy">브랜딩·확장·오픈 전략</a><a href="/analysis-data">데이터·지표 안내</a><a href="/contact?type=analysis">상권분석 상담 신청</a></div>
+    <div class="ft-col"><h5>협력사업</h5><a href="/partners">협력사업 개요</a><a href="/partner-loungex">라운지엑스 파트너사</a><a href="/solution-franchise">프랜차이즈 출점</a><a href="/contact?type=franchise">출점 브리프 제출</a></div>
+    <div class="ft-col"><h5>고객지원</h5><a href="/owners">건물 1차 진단</a><a href="/contact">상담·문의</a><a href="/faq">자주 묻는 질문</a><a href="/privacy">개인정보처리방침</a><a href="/terms">이용안내</a><a href="/ad-notice">중개대상물 광고 안내</a><a href="/disclaimer">면책·저작권</a></div>
+  </div>
+  <div class="ft-bottom">
+    <div class="reg"><b>오르비스중개법인</b><span class="sep" aria-hidden="true">|</span>대표 이상민<span class="sep" aria-hidden="true">|</span>중개사무소 개설등록번호 <span class="nw">11680-2025-00157</span><br>서울특별시 강남구 테헤란로 123, 6층 615호<span class="sep" aria-hidden="true">|</span>T. 010-7379-5265<span class="em-wrap"><span class="sep" aria-hidden="true">|</span>E. <a class="cfg-email-link" href="#"><span class="cfg-email"></span></a></span><br>운영시간 평일 10:00–18:00 (주말·공휴일 휴무)</div>
+    <div class="ft-copy">© 2026 ORBIS Real Estate Brokerage. All rights reserved.</div>
+  </div>
+</div></footer>
+<script src="/app.js?v=20261026"></script>
+</body>
+</html>
