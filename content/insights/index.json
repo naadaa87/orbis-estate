@@ -1,6 +1,26 @@
 {
-  "generatedAt": "2026-10-30T11:30:00+09:00",
+  "generatedAt": "2026-10-31T09:57:00+09:00",
   "posts": [
+    {
+      "slug": "commercial-maintenance-fee-settlement",
+      "title": "상가 관리비 정산, 14개 항목 내역 확인과 분쟁 줄이는 법",
+      "category": "asset",
+      "status": "scheduled",
+      "url": "/insights/commercial-maintenance-fee-settlement",
+      "date": "2026-10-31T11:00:00+09:00",
+      "updated": null,
+      "description": "2026년 5월 시행된 상가 관리비 내역 제공 제도의 요건과 14개 항목, 10만 원 미만 간이 고지, 면적·사용량 배분 계산 예시, 정산서 점검표, 계약서에 적어 둘 관리비 조항을 임대인과 임차인 양쪽에서 정리했습니다.",
+      "keywords": [
+        "상가 관리비 정산",
+        "상가 관리비 내역",
+        "관리비 14개 항목",
+        "상가 관리비 인상",
+        "관리비 분쟁"
+      ],
+      "readMin": 7,
+      "warnings": [],
+      "errors": []
+    },
     {
       "slug": "occupancy-cost-ratio-rent-limit",
       "title": "매출 대비 임대료 비율, 점유비용으로 임대료 상한 정하기",
