@@ -1,6 +1,26 @@
 {
-  "generatedAt": "2026-10-31T11:30:00+09:00",
+  "generatedAt": "2026-11-01T09:51:00+09:00",
   "posts": [
+    {
+      "slug": "base-rate-commercial-real-estate-impact",
+      "title": "기준금리가 상가·빌딩 시장에 닿는 경로, 10월 동결 이후 읽는 법",
+      "category": "market",
+      "status": "scheduled",
+      "url": "/insights/base-rate-commercial-real-estate-impact",
+      "date": "2026-11-01T11:00:00+09:00",
+      "updated": null,
+      "description": "기준금리 부동산 영향을 상가·빌딩 기준으로 정리했습니다. 2026년 10월 연 3.00% 동결 결정문 읽는 법, 대출금리·요구수익률·거래·임차 수요로 이어지는 순서, 금리 0.25%p가 건물값에 주는 영향을 계산 예시(가정)와 점검표로 담았습니다.",
+      "keywords": [
+        "기준금리 부동산 영향",
+        "기준금리 동결 상가",
+        "금리와 빌딩 가격",
+        "상가 수익률 금리",
+        "한국은행 금통위"
+      ],
+      "readMin": 7,
+      "warnings": [],
+      "errors": []
+    },
     {
       "slug": "commercial-maintenance-fee-settlement",
       "title": "상가 관리비 정산, 14개 항목 내역 확인과 분쟁 줄이는 법",
