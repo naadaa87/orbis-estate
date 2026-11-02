@@ -1,6 +1,26 @@
 {
-  "generatedAt": "2026-11-01T11:32:00+09:00",
+  "generatedAt": "2026-11-02T09:56:00+09:00",
   "posts": [
+    {
+      "slug": "commercial-lease-trend-2026-q3",
+      "title": "2026년 3분기 상업용부동산 임대동향, 공실률과 수익률 읽는 법",
+      "category": "market",
+      "status": "scheduled",
+      "url": "/insights/commercial-lease-trend-2026-q3",
+      "date": "2026-11-02T11:00:00+09:00",
+      "updated": null,
+      "description": "한국부동산원 2026년 3분기 상업용부동산 임대동향조사의 공실률·임대가격지수·투자수익률을 오피스와 상가 유형별로 정리했습니다. 표본 개편으로 달라진 비교 방법, 분기 수익률을 연 단위로 오해하지 않는 법, 내 건물에 대입하는 점검표를 담았습니다.",
+      "keywords": [
+        "상업용부동산 임대동향",
+        "3분기 상가 공실률",
+        "오피스 공실률",
+        "상가 투자수익률",
+        "임대가격지수"
+      ],
+      "readMin": 7,
+      "warnings": [],
+      "errors": []
+    },
     {
       "slug": "base-rate-commercial-real-estate-impact",
       "title": "기준금리가 상가·빌딩 시장에 닿는 경로, 10월 동결 이후 읽는 법",
