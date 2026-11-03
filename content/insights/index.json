@@ -1,6 +1,26 @@
 {
-  "generatedAt": "2026-11-02T11:31:00+09:00",
+  "generatedAt": "2026-11-03T09:51:00+09:00",
   "posts": [
+    {
+      "slug": "office-residential-university-trade-area",
+      "title": "오피스 상권·주거 상권·대학가 상권, 업종이 갈리는 이유",
+      "category": "area",
+      "status": "scheduled",
+      "url": "/insights/office-residential-university-trade-area",
+      "date": "2026-11-03T11:00:00+09:00",
+      "updated": null,
+      "description": "오피스 상권, 주거 상권, 대학가 상권에서 창업 업종이 갈리는 이유를 시간대·요일·계절 패턴으로 비교하고, 서울시 상권분석서비스로 직장인구와 주거인구를 확인하는 순서, 업종 궁합 점검표와 현장 확인 질문을 정리했습니다.",
+      "keywords": [
+        "오피스 상권 창업",
+        "주거 상권 업종",
+        "대학가 상권",
+        "상권 유형별 업종",
+        "직장인구 상주인구"
+      ],
+      "readMin": 9,
+      "warnings": [],
+      "errors": []
+    },
     {
       "slug": "commercial-lease-trend-2026-q3",
       "title": "2026년 3분기 상업용부동산 임대동향, 공실률과 수익률 읽는 법",
