@@ -29,6 +29,7 @@
 │   ├── partner-loungex.html        라운지엑스 파트너 페이지
 │   └── solution-franchise.html     프랜차이즈 출점
 ├── properties.html            매물·딜
+│   └── lease-request.html          맞춤 매물 의뢰 (임차 조건 입력 · 서울 구 지도 선택, lease-request.js)
 ├── projects.html              프로젝트
 │   ├── case-sinchon.html           공실개발 사례
 │   └── case-hwagok.html            점포발굴 사례
@@ -83,6 +84,7 @@
 |---|---|
 | 인사이트 글 쓰기·예약·내리기 | 관리자 화면 → 인사이트 글 (또는 `content/insights/*.md`) |
 | 공개 매물 | 관리자 화면 → 매물 (`content/properties.json`) |
+| 맞춤 매물 의뢰서 항목·문구 | `lease-request.html` (선택지·조건 목록은 `lease-request.js` 위쪽) |
 | 이메일, 카카오톡 채널, 방문 분석(GA4), 상단 공지 띠 | 관리자 화면 → 사이트 설정 (`content/settings.json` → `app.js`에 자동 반영) |
 | 대표 사진 | `assets/ceo-lee-sangmin.jpg` (세로 3:4 비율, 파일명 유지) |
 | 회사소개서 PDF | `assets/orbis_company_profile_2026.pdf` (파일명 유지) |

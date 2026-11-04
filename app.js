@@ -147,15 +147,23 @@ function kakao(){
       var data={}; new FormData(f).forEach(function(v,k){ if(v===''||k==='website')return; data[k]= data[k]? data[k]+', '+v : v; });
       data['문의유형']=f.getAttribute('data-type')||data['문의유형']||'일반';
       data['접수페이지']=location.pathname+location.search;
+      /* 접수 알림에서 먼저 보이도록 문의유형·성함·연락처를 앞에 둡니다 */
+      var head={}; ['문의유형','성함','연락처','이메일'].forEach(function(k){ if(data[k]!==undefined) head[k]=data[k]; });
+      data=Object.assign(head,data);
       var btn=f.querySelector('button[type=submit]'); var orig=btn?btn.textContent:'';
       if(btn){btn.disabled=true;btn.textContent='접수 중…';}
       fetch(ORBIS.LEAD_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)})
         .then(function(r){ if(!r.ok) throw new Error('server'); return r.json(); })
-        .then(function(){
+        .then(function(res){
           track('form_submit',{form:data['문의유형']});
           var ok=f.parentElement.querySelector('.form-ok');
-          if(ok){ ok.classList.add('show'); f.style.display='none'; ok.setAttribute('tabindex','-1'); ok.focus(); }
+          if(ok){
+            var idEl=ok.querySelector('[data-lead-id]');
+            if(idEl && res && res.lead_id){ idEl.textContent=res.lead_id; if(idEl.parentElement) idEl.parentElement.hidden=false; }
+            ok.classList.add('show'); f.style.display='none'; ok.setAttribute('tabindex','-1'); ok.focus();
+          }
           else toast('상담 신청이 접수되었습니다. 영업시간 내 순차적으로 연락드립니다.');
+          try{ f.dispatchEvent(new CustomEvent('lead:done',{detail:{data:data,res:res}})); }catch(e){}
         })
         .catch(function(){
           /* 접수 서버 미연결 시: 메일 작성 화면으로 전환 */

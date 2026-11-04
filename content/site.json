@@ -4,7 +4,7 @@
   "static": [
     {
       "path": "/",
-      "lastmod": "2026-10-11",
+      "lastmod": "2026-11-04",
       "changefreq": "weekly",
       "priority": "1.0"
     },
@@ -94,9 +94,15 @@
     },
     {
       "path": "/properties",
-      "lastmod": "2026-10-11",
+      "lastmod": "2026-11-04",
       "changefreq": "weekly",
       "priority": "0.8"
+    },
+    {
+      "path": "/lease-request",
+      "lastmod": "2026-11-04",
+      "changefreq": "monthly",
+      "priority": "0.9"
     },
     {
       "path": "/projects",
@@ -130,13 +136,13 @@
     },
     {
       "path": "/contact",
-      "lastmod": "2026-10-11",
+      "lastmod": "2026-11-04",
       "changefreq": "monthly",
       "priority": "0.8"
     },
     {
       "path": "/privacy",
-      "lastmod": "2026-10-10",
+      "lastmod": "2026-11-04",
       "changefreq": "yearly",
       "priority": "0.3"
     },
