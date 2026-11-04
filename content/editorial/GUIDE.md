@@ -121,8 +121,8 @@ related: [다른-글-slug, 다른-글-slug]
    - 사람 이름은 대표 외에 없다
    - 사람이 쓴 듯 자연스럽고, 독자가 바로 쓸 도구가 있다
 8. 원고와 이미지, topics.md(그리고 nextTopic을 비웠다면 settings.json)만 커밋합니다(사이트 파일은 깃허브 Actions '인사이트 발행'이 만듭니다). 커밋 메시지: `인사이트 예약: <제목> (<날짜> 11:00 공개)`.
-9. 11시 정기 발행(깃허브 Actions)이 글을 공개하고 IndexNow로 네이버·빙에 알립니다.
-10. 11시 15분 이후 https://orbis-estate.com/insights/<slug> 가 열리는지 확인합니다. 11시 30분까지 열리지 않으면 `node scripts/content/build.mjs`를 직접 실행해 생성 파일을 커밋·푸시합니다.
+9. 깃허브 Actions의 정기 발행은 몇 시간씩 늦게 시작되는 날이 많으므로 기다리지 않습니다. 11시가 지나면 `git pull --rebase` 후 `node scripts/content/build.mjs`를 실행하고, 바뀐 사이트 파일(`git add -A -- insights '*.html' app.js sitemap.xml rss.xml content/insights/index.json admin/sitegen.mjs`)을 커밋·푸시합니다. 푸시하면 Actions가 새 글 주소를 IndexNow로 네이버·빙에 알립니다.
+10. 3분쯤 뒤 https://orbis-estate.com/insights/<slug> 가 열리는지 확인합니다.
 
 ## 9. 고칠 때
 
