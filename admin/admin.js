@@ -6,7 +6,7 @@ const $ = (s, el = document) => el.querySelector(s);
 const $$ = (s, el = document) => [...el.querySelectorAll(s)];
 const app = $('#app');
 const E = G.esc;
-const state = { posts: null, files: null, layout: null };
+const state = { posts: null, files: null, layout: null, me: null };
 
 const ICON = {
   home: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>',
@@ -15,6 +15,7 @@ const ICON = {
   prop: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h.01M15 9h.01M9 13h.01M15 13h.01M9 17h6"/></svg>',
   gear: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>',
   seo: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>',
+  inbox: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.5 5.1L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.5-6.9A2 2 0 0 0 16.8 4H7.2a2 2 0 0 0-1.7 1.1z"/></svg>',
   help: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6V14M12 17h.01"/></svg>',
 };
 
@@ -62,20 +63,20 @@ function renderLogin(msg = '') {
   $('#pw').focus();
   $('#lf').onsubmit = async (e) => {
     e.preventDefault(); const b = e.submitter; b.disabled = true; $('#lerr').textContent = '';
-    try { await api('/login', { method: 'POST', body: { password: $('#pw').value } }); state.posts = null; route(); }
+    try { await api('/login', { method: 'POST', body: { password: $('#pw').value } }); state.posts = null; state.me = await api('/me').catch(() => null); route(); }
     catch (err) { $('#lerr').textContent = err.data?.error === 'not_configured' ? 'Cloudflare에 ADMIN_PASSWORD를 먼저 등록해 주세요.' : err.message; }
     finally { b.disabled = false; }
   };
 }
 
 // ---------------------------------------------------------------- 셸
-const NAV = [['dashboard', '대시보드', 'home'], ['posts', '인사이트 글', 'posts'], ['new', '새 글 쓰기', 'pen'], ['properties', '매물', 'prop'], ['settings', '사이트 설정', 'gear'], ['seo', '검색노출 점검', 'seo'], ['help', '사용 안내', 'help']];
+const NAV = [['dashboard', '대시보드', 'home'], ['leads', '상담 접수', 'inbox'], ['posts', '인사이트 글', 'posts'], ['new', '새 글 쓰기', 'pen'], ['properties', '매물', 'prop'], ['settings', '사이트 설정', 'gear'], ['seo', '검색노출 점검', 'seo'], ['help', '사용 안내', 'help']];
 function shell(active, html) {
   app.innerHTML = `<div class="shell"><aside class="side">
     <div class="brand"><img src="/assets/logo-icon.png" alt=""><div><b>오르비스 관리자</b><span>orbis-estate.com</span></div></div>
-    ${NAV.map(([k, t, i]) => `<a class="nv${k === active ? ' on' : ''}" href="#/${k}">${ICON[i]}${t}</a>`).join('')}
+    ${NAV.map(([k, t, i]) => `<a class="nv${k === active ? ' on' : ''}" href="#/${k}">${ICON[i]}${t}${k === 'leads' && state.me?.leads?.new ? `<em class="nbadge">${state.me.leads.new}</em>` : ''}</a>`).join('')}
     <div class="sp"></div><a class="sm-link" href="/" target="_blank" rel="noopener">사이트 열기 ↗</a><a class="sm-link" href="#" id="logout">로그아웃</a>
-  </aside><main class="main" id="view">${html}</main></div>`;
+  </aside><main class="main">${state.me && !state.me.github && active !== 'leads' ? '<p class="note" style="margin-bottom:16px">Cloudflare에 GITHUB_TOKEN이 아직 없어 글·매물·설정은 불러오거나 저장할 수 없습니다. 상담 접수는 그대로 쓸 수 있습니다.</p>' : ''}<div id="view">${html}</div></main></div>`;
   $('#logout').onclick = async (e) => { e.preventDefault(); try { await api('/logout', { method: 'POST' }); } catch {} renderLogin('로그아웃했습니다.'); };
 }
 
@@ -83,7 +84,11 @@ function shell(active, html) {
 async function viewDashboard() {
   shell('dashboard', '<div class="empty">불러오는 중…</div>');
   try {
-    const [, st] = await Promise.all([loadPosts(true), api('/status').catch((e) => ({ commits: [], runs: [], runsError: e.message }))]);
+    const [, st, lz] = await Promise.all([
+      loadPosts(true).catch((e) => { state.posts = []; state.postsError = e.message; }),
+      api('/status').catch((e) => ({ commits: [], runs: [], runsError: e.message })),
+      api('/leads?status=open').catch((e) => ({ leads: [], counts: {}, error: e.data?.error || e.message })),
+    ]);
     const ps = state.posts; const c = (s) => ps.filter((p) => p.status === s).length;
     const warn = ps.filter((p) => (p.warnings || []).length || (p.errors || []).length).length;
     const sched = ps.filter((p) => p.status === 'scheduled').sort((a, b) => a.date.localeCompare(b.date));
@@ -92,6 +97,11 @@ async function viewDashboard() {
     $('#view').innerHTML = `<div class="topline"><div><h2>대시보드</h2><p>새 글은 매일 오전 11시에 공개됩니다. 다음 정기 발행: <b>${fmt(G.isoKst(next11()))}</b></p></div>
       <div class="acts"><a class="btn btn-gold" href="#/new">${ICON.pen.replace('<svg', '<svg width="16" height="16"')} 새 글 쓰기</a><button class="btn btn-line" id="rb">지금 다시 반영</button></div></div>
     <div class="grid g4"><div class="card kpi"><b>${c('published')}</b><span>공개 글</span></div><div class="card kpi"><b>${c('scheduled')}</b><span>예약 글</span></div><div class="card kpi"><b>${c('draft')}</b><span>임시 저장</span></div><div class="card kpi gold"><b>${warn}</b><span>점검 알림이 있는 글</span></div></div>
+    <div class="card lead-card" style="margin-top:16px"><div class="lc-head"><h3>상담 접수</h3><a class="btn btn-line btn-sm" href="#/leads">전체 보기</a></div>
+      ${lz.error === 'no_db' ? '<p class="note">상담 접수 저장소(D1)가 아직 연결되지 않았습니다. 지금은 문의가 들어와도 여기에 쌓이지 않습니다.</p>'
+        : `<div class="lc-kpis"><a href="#/leads" class="lc-k${(lz.counts.new || 0) ? ' hot' : ''}"><b>${lz.counts.new || 0}</b><span>새 접수</span></a><a href="#/leads" class="lc-k"><b>${(lz.counts.contacted || 0) + (lz.counts.progress || 0)}</b><span>진행 중</span></a><a href="#/leads" class="lc-k"><b>${lz.counts.contract || 0}</b><span>계약</span></a></div>
+        ${lz.leads.length ? `<div class="list">${lz.leads.slice(0, 5).map((l) => `<div class="row">${leadPill(l.status)}<span class="t"><a href="#/lead/${E(l.id)}"><b>${E(l.name || '이름 없음')}</b> · ${E(l.type || '')}</a> <span class="sub">${E(l.summary || '')}</span></span><time>${fmt(l.created_at)}</time></div>`).join('')}</div>` : '<p class="empty">처리할 접수가 없습니다.</p>'}`}
+    </div>
     <div class="grid g2" style="margin-top:16px">
       <div class="card"><h3>발행 처리 기록</h3>${st.runsError ? `<p class="note cool">발행 기록을 읽지 못했습니다. 깃허브 토큰에 Actions 읽기 권한이 있는지 확인해 주세요.</p>` : st.runs.length ? `<div class="list">${st.runs.map((r) => `<div class="row">${runTxt(r)}<span class="t">${ev[r.event] || r.event}</span><time>${fmt(r.created)}</time><a class="btn btn-line btn-sm" href="${E(r.url)}" target="_blank" rel="noopener">기록</a></div>`).join('')}</div>` : '<p class="empty">아직 기록이 없습니다.</p>'}</div>
       <div class="card"><h3>예약된 글</h3>${sched.length ? `<div class="list">${sched.map((p) => `<div class="row"><span class="t"><a href="#/edit/${p.slug}">${E(p.title)}</a></span><time>${fmt(p.date)}</time></div>`).join('')}</div>` : '<p class="empty">예약된 글이 없습니다. 자동 발행 글은 매일 오전 10시에 준비되어 11시에 공개됩니다.</p>'}</div>
@@ -108,6 +118,73 @@ async function viewDashboard() {
     $('#rb').onclick = async (e) => { e.target.disabled = true; try { await api('/rebuild', { method: 'POST' }); toast('반영을 시작했습니다. 1~3분 뒤 사이트에 나타납니다.'); } catch (err) { fail(err); } e.target.disabled = false; };
     api('/file?path=content/settings.json').then((f) => { const s = JSON.parse(f.text); if (s.leadSheetUrl) { const a = $('#leadlink'); a.href = s.leadSheetUrl; a.target = '_blank'; a.querySelector('span').textContent = '구글 시트 열기'; } }).catch(() => {});
   } catch (e) { fail(e); }
+}
+
+
+// ---------------------------------------------------------------- 상담 접수
+const LEAD_ST = { new: ['신규', 'bad'], contacted: ['연락함', 'sch'], progress: ['진행 중', 'warn'], contract: ['계약', 'ok'], closed: ['종료', 'draft'], spam: ['스팸·무효', 'hid'] };
+const leadPill = (s) => { const [t, c] = LEAD_ST[s] || [s, 'draft']; return `<span class="pill ${c}">${t}</span>`; };
+const telHref = (p) => 'tel:' + String(p || '').replace(/[^0-9+]/g, '');
+async function viewLeads() {
+  shell('leads', '<div class="empty">불러오는 중…</div>');
+  let status = sessionStorage.getItem('lead_status') || 'open'; let q = ''; let page = 0;
+  const draw = async () => {
+    let d;
+    try { d = await api(`/leads?status=${status}&q=${encodeURIComponent(q)}&page=${page}`); }
+    catch (e) {
+      if (e.data?.error === 'no_db') { $('#view').innerHTML = `<div class="topline"><div><h2>상담 접수</h2></div></div><div class="card"><p class="note">상담 접수 저장소(D1)가 아직 연결되지 않았습니다. Cloudflare → Workers &amp; Pages → orbis-estate → Settings → Bindings에서 D1 데이터베이스를 변수 이름 <b>DB</b>로 연결한 뒤 다시 배포하면, 이후 접수부터 여기에 쌓입니다.</p></div>`; return; }
+      return fail(e);
+    }
+    const c = d.counts; const all = Object.entries(c).filter(([k]) => k !== 'spam').reduce((a, [, n]) => a + n, 0);
+    const tabs = [['open', '처리 중', (c.new || 0) + (c.contacted || 0) + (c.progress || 0)], ['new', '신규', c.new || 0], ['contacted', '연락함', c.contacted || 0], ['progress', '진행 중', c.progress || 0], ['contract', '계약', c.contract || 0], ['closed', '종료', c.closed || 0], ['all', '전체', all], ['spam', '스팸·무효', c.spam || 0]];
+    $('#view').innerHTML = `<div class="topline"><div><h2>상담 접수</h2><p>홈페이지 문의 양식으로 들어온 접수입니다. 접수일로부터 1년이 지나면 자동으로 지워집니다(계약 상태는 보관).</p></div>
+      <div class="acts"><a class="btn btn-line" href="${API}/leads.csv" download>엑셀(CSV) 내려받기</a></div></div>
+      ${state.me?.leads && !state.me.leads.webhook ? '<p class="note cool" style="margin-bottom:14px">새 접수 알림(메일)이 아직 연결되지 않았습니다. 접수는 여기에 쌓이니 하루 한 번 이상 확인해 주세요.</p>' : ''}
+      <div class="toolrow"><div class="tabs" id="lt">${tabs.map(([k, t, n]) => `<button data-k="${k}" class="${k === status ? 'on' : ''}">${t} ${n}</button>`).join('')}</div>
+      <input type="search" id="lq" placeholder="이름·연락처·내용 검색" value="${E(q)}"></div>
+      <div class="tbl-wrap"><table class="ltbl"><thead><tr><th>접수일시</th><th>상태</th><th>유형</th><th>성함 · 연락처</th><th>요약</th></tr></thead><tbody>
+      ${d.leads.length ? d.leads.map((l) => `<tr class="lrow" data-id="${E(l.id)}"><td class="nowrap">${fmt(l.created_at)}</td><td class="nowrap">${leadPill(l.status)}</td><td class="nowrap">${E(l.type || '-')}</td>
+        <td class="nowrap"><div class="ttl"><a href="#/lead/${E(l.id)}">${E(l.name || '이름 없음')}</a></div><div class="sub"><a href="${telHref(l.phone)}">${E(l.phone || '')}</a></div></td>
+        <td><div class="sub2">${E(l.summary || '')}</div>${l.memo ? `<div class="sub">메모: ${E(l.memo.slice(0, 60))}</div>` : ''}</td></tr>`).join('') : '<tr><td colspan="5" class="empty">해당하는 접수가 없습니다.</td></tr>'}
+      </tbody></table></div>
+      <div class="pager">${page > 0 ? '<button class="btn btn-line btn-sm" id="pv">이전</button>' : ''}<span>${d.total ? `${page * 50 + 1}–${Math.min(d.total, page * 50 + 50)} / ${d.total}건` : ''}</span>${(page + 1) * 50 < d.total ? '<button class="btn btn-line btn-sm" id="nx">다음</button>' : ''}</div>`;
+    $$('#lt button').forEach((b) => (b.onclick = () => { status = b.dataset.k; page = 0; sessionStorage.setItem('lead_status', status); draw(); }));
+    let t; $('#lq').oninput = (e) => { clearTimeout(t); t = setTimeout(() => { q = e.target.value.trim(); page = 0; draw().then(() => { const i = $('#lq'); i.focus(); i.setSelectionRange(i.value.length, i.value.length); }); }, 350); };
+    $$('.lrow').forEach((tr) => (tr.onclick = (e) => { if (e.target.closest('a')) return; location.hash = '#/lead/' + tr.dataset.id; }));
+    if ($('#pv')) $('#pv').onclick = () => { page--; draw(); };
+    if ($('#nx')) $('#nx').onclick = () => { page++; draw(); };
+  };
+  draw();
+}
+async function viewLead(id) {
+  shell('leads', '<div class="empty">불러오는 중…</div>');
+  let d; try { d = await api('/lead?id=' + encodeURIComponent(id)); } catch (e) { return fail(e); }
+  const l = d.lead; const data = l.data || {};
+  const skip = new Set(['성함', '연락처', '이메일', '문의유형', '접수페이지']);
+  const rows = Object.entries(data).filter(([k]) => !skip.has(k));
+  const smsBody = encodeURIComponent(`[오르비스중개법인] 안녕하세요, ${l.name || ''}님. 남겨 주신 문의 확인하고 연락드립니다.`);
+  $('#view').innerHTML = `<div class="topline"><div><a href="#/leads" class="back">← 상담 접수</a><h2>${E(l.name || '이름 없음')} <span style="font-size:15px;color:var(--slate)">${E(l.type || '')}</span></h2><p>접수 ${fmt(l.created_at)} · 접수번호 ${E(l.id)}${l.updated_at && l.updated_at !== l.created_at ? ' · 최근 수정 ' + fmt(l.updated_at) : ''}</p></div>
+    <div class="acts">${l.phone ? `<a class="btn btn-navy" href="${telHref(l.phone)}">전화 걸기</a><a class="btn btn-line" href="sms:${E(String(l.phone).replace(/[^0-9+]/g, ''))}?&body=${smsBody}">문자 보내기</a>` : ''}${l.email ? `<a class="btn btn-line" href="mailto:${E(l.email)}">메일</a>` : ''}</div></div>
+    <div class="ed"><div class="card"><h3>접수 내용</h3>
+      <dl class="ldl"><div><dt>성함·업체명</dt><dd>${E(l.name || '-')}</dd></div><div><dt>연락처</dt><dd>${l.phone ? `<a href="${telHref(l.phone)}">${E(l.phone)}</a>` : '-'}</dd></div>${l.email ? `<div><dt>이메일</dt><dd>${E(l.email)}</dd></div>` : ''}
+      ${rows.map(([k, v]) => `<div><dt>${E(k)}</dt><dd>${E(String(v)).replace(/\n/g, '<br>')}</dd></div>`).join('')}
+      <div><dt>접수 페이지</dt><dd>${l.page ? `<a href="${E(l.page)}" target="_blank" rel="noopener">${E(l.page)}</a>` : '-'}</dd></div></dl>
+    </div>
+    <div class="ed-side"><div class="card"><h3>처리</h3>
+      <div class="f"><label for="ls">상태</label><select id="ls">${Object.entries(LEAD_ST).map(([k, [t]]) => `<option value="${k}"${k === l.status ? ' selected' : ''}>${t}</option>`).join('')}</select></div>
+      <div class="f" style="margin-top:12px"><label for="lm">내부 메모</label><textarea id="lm" rows="7" placeholder="통화 내용, 다음 연락일, 안내한 매물 등">${E(l.memo || '')}</textarea><span class="hint">고객에게는 보이지 않습니다.</span></div>
+      <div class="acts" style="margin-top:12px"><button class="btn btn-gold" id="lsave">저장</button><button class="btn btn-bad btn-sm" id="ldel">삭제</button></div>
+    </div>
+    <p class="note cool">${l.notified ? '알림이 전달된 접수입니다.' : '알림 기록이 없는 접수입니다.'} 개인정보는 상담 목적 범위에서만 쓰고, 상담이 끝나면 상태를 '종료'로 바꿔 주세요.</p></div></div>`;
+  $('#lsave').onclick = async (e) => {
+    e.target.disabled = true;
+    try { await api('/lead', { method: 'PUT', body: { id: l.id, status: $('#ls').value, memo: $('#lm').value } }); toast('저장했습니다.'); state.me = await api('/me').catch(() => state.me); viewLead(l.id); }
+    catch (err) { fail(err); e.target.disabled = false; }
+  };
+  $('#ldel').onclick = async () => {
+    if (!confirm('이 접수를 완전히 지울까요? 되돌릴 수 없습니다.')) return;
+    try { await api('/lead?id=' + encodeURIComponent(l.id), { method: 'DELETE' }); toast('삭제했습니다.'); location.hash = '#/leads'; } catch (err) { fail(err); }
+  };
 }
 
 // ---------------------------------------------------------------- 글 목록
@@ -374,6 +451,8 @@ async function route() {
   const h = location.hash.replace(/^#\/?/, '') || 'dashboard';
   const [v, arg] = h.split('/');
   try {
+    if (v === 'leads') return viewLeads();
+    if (v === 'lead' && arg) return viewLead(arg);
     if (v === 'posts') return viewPosts();
     if (v === 'new') return viewEditor(null);
     if (v === 'edit' && arg) return viewEditor(arg);
@@ -386,7 +465,7 @@ async function route() {
 }
 window.addEventListener('hashchange', route);
 (async () => {
-  try { await api('/me'); route(); }
+  try { state.me = await api('/me'); route(); }
   catch (e) {
     if (e.message === 'login') return;
     if (e.data?.error === 'not_configured') return renderLogin('관리자 비밀번호(ADMIN_PASSWORD)가 아직 등록되지 않았습니다. 사용 안내 문서를 참고해 Cloudflare에 등록해 주세요.');

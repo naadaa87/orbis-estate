@@ -121,8 +121,15 @@ window.ORBIS = {
 
 ## 상담 접수 연결
 
-Cloudflare Pages 프로젝트 → **Settings → Variables and Secrets** 에 `LEAD_WEBHOOK`(접수 내용을 받을 웹훅 주소)을 넣으면, 홈페이지 상담 신청이 바로 접수됩니다.
-설정하기 전에는 상담 신청 내용이 방문자의 메일 작성 화면으로 넘어가는 방식으로 동작합니다.
+| 어디에 | 이름 | 무엇 |
+|---|---|---|
+| Cloudflare Pages → Settings → Bindings → D1 database | `DB` | 상담 접수 저장소. 관리자 화면 → 상담 접수에서 목록·상태·메모·CSV 내려받기 (표는 첫 접수 때 자동 생성) |
+| Cloudflare Pages → Settings → Variables and Secrets | `LEAD_WEBHOOK` | (선택) 새 접수 알림을 보낼 주소 — 구글 Apps Script로 Gmail 알림 (`scripts/lead-alert/Code.gs`) |
+| 〃 | `LEAD_WEBHOOK_SECRET` | (선택) 알림 주소가 홈페이지에서 온 요청만 받도록 함께 보내는 확인 값 |
+
+- 접수는 D1에 먼저 저장하고, 알림은 그 뒤에 보냅니다. 알림이 실패해도 접수는 남습니다.
+- 접수일로부터 1년이 지난 건은 자동으로 지웁니다(상태가 '계약'인 건은 보관).
+- D1도 알림도 없으면 방문자의 메일 작성 화면으로 넘어가는 방식으로 동작합니다.
 
 ---
 

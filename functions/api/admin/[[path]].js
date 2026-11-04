@@ -11,7 +11,10 @@
  *   GITHUB_REPO    : 기본값 naadaa87/orbis-estate (선택)
  *   GITHUB_BRANCH  : 기본값 main (선택)
  *   ADMIN_SECRET   : 로그인 유지용 서명 키 (선택 — 없으면 위 값들로 만들어 씁니다)
+ *   D1 바인딩(DB)   : 상담 접수 저장소. 상담 접수 메뉴는 깃허브 토큰 없이도 동작합니다.
  */
+
+import { leadDb, ensureSchema } from '../lead.js';
 
 const COOKIE = 'orbis_admin';
 const SESSION_HOURS = 12;
@@ -119,6 +122,75 @@ function checkPost(text) {
   return errors;
 }
 
+
+// ---------------------------------------------------------------- 상담 접수 (D1)
+const LEAD_STATUS = ['new', 'contacted', 'progress', 'contract', 'closed', 'spam'];
+const STATUS_KO = { new: '신규', contacted: '연락함', progress: '진행 중', contract: '계약', closed: '종료', spam: '스팸·무효' };
+function kst(iso) {
+  const d = new Date(new Date(iso).getTime() + 9 * 3600e3);
+  return isNaN(d) ? '' : d.toISOString().slice(0, 16).replace('T', ' ');
+}
+function csvCell(v) { const s = String(v == null ? '' : v); return /[",\n\r]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s; }
+async function handleLeads(route, method, url, request, env) {
+  const db = leadDb(env);
+  if (!db) return json({ ok: false, error: 'no_db', message: 'Cloudflare에 D1 데이터베이스가 연결되지 않았습니다. (Settings → Bindings → D1, 변수 이름 DB)' }, 503);
+  await ensureSchema(db);
+  if (route === '/leads' && method === 'GET') {
+    const status = url.searchParams.get('status') || '';
+    const q = (url.searchParams.get('q') || '').trim().slice(0, 40);
+    const page = Math.max(0, parseInt(url.searchParams.get('page') || '0', 10) || 0);
+    const where = []; const args = [];
+    if (status === 'open') where.push("status IN ('new','contacted','progress')");
+    else if (LEAD_STATUS.includes(status)) { where.push('status = ?'); args.push(status); }
+    else where.push("status != 'spam'");
+    if (q) { where.push('(name LIKE ? OR phone LIKE ? OR summary LIKE ? OR type LIKE ? OR memo LIKE ? OR id LIKE ?)'); const like = `%${q}%`; args.push(like, like, like, like, like, like); }
+    const w = where.length ? 'WHERE ' + where.join(' AND ') : '';
+    const [rows, counts, total] = await db.batch([
+      db.prepare(`SELECT id, created_at, type, name, phone, summary, status, memo, notified FROM leads ${w} ORDER BY created_at DESC LIMIT 50 OFFSET ?`).bind(...args, page * 50),
+      db.prepare('SELECT status, COUNT(*) AS n FROM leads GROUP BY status'),
+      db.prepare(`SELECT COUNT(*) AS n FROM leads ${w}`).bind(...args),
+    ]);
+    const c = {}; for (const r of counts.results) c[r.status] = r.n;
+    return json({ ok: true, leads: rows.results, counts: c, total: (total.results[0] || {}).n || 0, page });
+  }
+  if (route === '/lead' && method === 'GET') {
+    const id = url.searchParams.get('id') || '';
+    const row = await db.prepare('SELECT * FROM leads WHERE id = ?').bind(id).first();
+    if (!row) return json({ ok: false, error: 'not_found', message: '접수 내역을 찾을 수 없습니다.' }, 404);
+    let data = {}; try { data = JSON.parse(row.data); } catch {}
+    delete row.ip_hash;
+    return json({ ok: true, lead: { ...row, data } });
+  }
+  if (route === '/lead' && method === 'PUT') {
+    const b = await request.json();
+    const id = String(b.id || '');
+    const status = String(b.status || '');
+    if (!LEAD_STATUS.includes(status)) return json({ ok: false, error: 'bad_status' }, 400);
+    const memo = String(b.memo || '').slice(0, 4000);
+    const r = await db.prepare('UPDATE leads SET status = ?, memo = ?, updated_at = ? WHERE id = ?').bind(status, memo, new Date().toISOString(), id).run();
+    if (!r.meta || !r.meta.changes) return json({ ok: false, error: 'not_found', message: '접수 내역을 찾을 수 없습니다.' }, 404);
+    return json({ ok: true });
+  }
+  if (route === '/lead' && method === 'DELETE') {
+    const id = url.searchParams.get('id') || '';
+    await db.prepare('DELETE FROM leads WHERE id = ?').bind(id).run();
+    return json({ ok: true });
+  }
+  if (route === '/leads.csv' && method === 'GET') {
+    const { results } = await db.prepare("SELECT * FROM leads WHERE status != 'spam' ORDER BY created_at DESC LIMIT 5000").all();
+    const head = ['접수번호', '접수일시', '문의 유형', '처리 상태', '성함', '연락처', '이메일', '요약', '메모', '접수 페이지', '전체 내용'];
+    const lines = [head.join(',')];
+    for (const r of results) {
+      let d = {}; try { d = JSON.parse(r.data); } catch {}
+      const all = Object.entries(d).filter(([k]) => !['성함', '연락처', '이메일', '문의유형', '접수페이지'].includes(k)).map(([k, v]) => `${k}: ${v}`).join(' | ');
+      lines.push([r.id, kst(r.created_at), r.type, STATUS_KO[r.status] || r.status, r.name, r.phone, r.email, r.summary, r.memo, r.page, all].map(csvCell).join(','));
+    }
+    const name = `orbis-leads-${kst(new Date().toISOString()).slice(0, 10)}.csv`;
+    return new Response('﻿' + lines.join('\r\n'), { headers: { 'Content-Type': 'text/csv; charset=utf-8', 'Content-Disposition': `attachment; filename="${name}"`, 'Cache-Control': 'no-store' } });
+  }
+  return null;
+}
+
 // ---------------------------------------------------------------- 라우터
 export async function onRequest(context) {
   const { request, env, params } = context;
@@ -141,11 +213,23 @@ export async function onRequest(context) {
   if (route === '/logout') return json({ ok: true }, 200, { 'Set-Cookie': `${COOKIE}=; Path=/api/admin; HttpOnly; Secure; SameSite=Strict; Max-Age=0` });
 
   if (!(await isAuthed(request, env))) return json({ ok: false, error: 'login_required' }, 401);
-  if (!env.GITHUB_TOKEN) return json({ ok: false, error: 'no_token', message: 'Cloudflare에 GITHUB_TOKEN이 등록되지 않았습니다.' }, 503);
+
+  // 로그인 확인 · 상담 접수 (깃허브 토큰 없이도 동작)
+  if (route === '/me') {
+    const db = leadDb(env); let newLeads = null;
+    if (db) { try { await ensureSchema(db); newLeads = (await db.prepare("SELECT COUNT(*) AS n FROM leads WHERE status = 'new'").first()).n; } catch (e) { newLeads = null; } }
+    return json({ ok: true, github: !!env.GITHUB_TOKEN, leads: { db: !!db, new: newLeads, webhook: !!(env.LEAD_WEBHOOK || (env.RESEND_API_KEY && env.LEAD_TO)) }, session_hours: SESSION_HOURS });
+  }
+  if (route === '/leads' || route === '/lead' || route === '/leads.csv') {
+    try { const r = await handleLeads(route, method, url, request, env); if (r) return r; }
+    catch (e) { return json({ ok: false, error: 'db', message: '상담 접수 저장소를 읽지 못했습니다. (' + e.message + ')' }, 500); }
+    return json({ ok: false, error: 'not_found' }, 404);
+  }
+
+  if (!env.GITHUB_TOKEN) return json({ ok: false, error: 'no_token', message: 'Cloudflare에 GITHUB_TOKEN이 등록되지 않았습니다. 글·매물·설정 저장에 필요합니다.' }, 503);
   const G = gh(env);
 
   try {
-    if (route === '/me') return json({ ok: true, repo: G.repo, branch: G.branch, session_hours: SESSION_HOURS });
 
     // 글 목록: 빌드가 만든 목록 + 아직 빌드 전인 원고 파일
     if (route === '/posts' && method === 'GET') {
