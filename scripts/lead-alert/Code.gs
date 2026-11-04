@@ -6,22 +6,22 @@
  *
  * 설치
  *  1. script.google.com → 새 프로젝트 → 이 파일 내용을 붙여 넣기
- *  2. 아래 SECRET에 Cloudflare의 LEAD_WEBHOOK_SECRET과 같은 값을 넣기
+ *  2. (선택) 아래 SECRET과 Cloudflare의 LEAD_WEBHOOK_SECRET에 같은 값을 넣기
  *  3. 배포 → 새 배포 → 유형: 웹 앱 / 실행 사용자: 나 / 액세스 권한: 모든 사용자 → 배포 → 권한 허용
  *  4. 나온 웹 앱 URL(https://script.google.com/macros/s/…/exec)을 Cloudflare의 LEAD_WEBHOOK에 넣기
  */
 
 // 알림 받을 주소. 비워 두면 이 스크립트를 만든 구글 계정으로 보냅니다. 여러 명이면 쉼표로 구분합니다.
 const TO = '';
-// Cloudflare 환경변수 LEAD_WEBHOOK_SECRET과 같은 값 (다르면 알림을 보내지 않습니다)
-const SECRET = 'PUT-THE-SAME-SECRET-HERE';
+// (선택) Cloudflare 환경변수 LEAD_WEBHOOK_SECRET과 같은 값. 넣으면 값이 맞는 요청만 알림을 보냅니다.
+const SECRET = '';
 
 const HIDE = ['text', 'secret', 'admin_url', 'lead_id', 'received_at', 'ip_country', '성함', '연락처', '이메일', '문의유형', '접수페이지'];
 
 function doPost(e) {
   var d = {};
   try { d = JSON.parse(e.postData.contents); } catch (err) { return out_({ ok: false, error: 'invalid' }); }
-  if (!SECRET || d.secret !== SECRET) return out_({ ok: false, error: 'forbidden' });
+  if (SECRET && d.secret !== SECRET) return out_({ ok: false, error: 'forbidden' });
 
   var name = d['성함'] || d['담당자'] || '이름 없음';
   var type = d['문의유형'] || '상담';
