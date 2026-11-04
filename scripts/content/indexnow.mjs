@@ -13,7 +13,10 @@ if (!urls.length && process.env.DIFF_BASE && !/^0+$/.test(process.env.DIFF_BASE)
   try {
     try { execSync('git fetch --quiet --deepen=50 origin main', { stdio: 'ignore' }); } catch {}
     const names = execSync(`git diff --name-only ${process.env.DIFF_BASE} HEAD`, { encoding: 'utf8' }).split('\n').filter(Boolean);
+    // 이번 push로 새로 생긴 글 페이지(예약 글을 직접 빌드해 올린 경우)도 알립니다
+    const added = execSync(`git diff --name-only --diff-filter=A ${process.env.DIFF_BASE} HEAD`, { encoding: 'utf8' }).split('\n').filter(Boolean);
     const set = new Set();
+    for (const n of added) { const m = n.match(/^insights\/([a-z0-9-]+)\.html$/); if (m) set.add(`https://${HOST}/insights/${m[1]}`); }
     for (const n of names) {
       let m = n.match(/^content\/insights\/([a-z0-9-]+)\.md$/);
       if (m && fs.existsSync(`insights/${m[1]}.html`)) set.add(`https://${HOST}/insights/${m[1]}`);
