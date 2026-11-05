@@ -1,6 +1,26 @@
 {
-  "generatedAt": "2026-11-04T11:30:00+09:00",
+  "generatedAt": "2026-11-05T09:56:00+09:00",
   "posts": [
+    {
+      "slug": "individual-vs-corporate-building-purchase",
+      "title": "빌딩 법인 매입과 개인 매입, 네 단계로 비교하는 법",
+      "category": "invest",
+      "status": "scheduled",
+      "url": "/insights/individual-vs-corporate-building-purchase",
+      "date": "2026-11-05T11:00:00+09:00",
+      "updated": null,
+      "description": "법인으로 빌딩을 살지 개인으로 살지 고민할 때 비교할 항목을 정리했습니다. 2026년 법인세율 인상과 부동산임대업 소규모 법인 세율, 과밀억제권역 취득세 중과, 양도 시 차이, 법인 이익을 꺼낼 때의 세금을 계산 예시(가정)와 비교표로 담았습니다.",
+      "keywords": [
+        "법인 빌딩 매입",
+        "개인 법인 부동산 비교",
+        "부동산 임대법인 법인세율",
+        "법인 취득세 중과",
+        "꼬마빌딩 법인 매입"
+      ],
+      "readMin": 7,
+      "warnings": [],
+      "errors": []
+    },
     {
       "slug": "commercial-rent-arrears-termination",
       "title": "상가 월세 연체, 3기 연체와 계약 해지의 기준",
