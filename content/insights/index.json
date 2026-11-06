@@ -1,6 +1,26 @@
 {
-  "generatedAt": "2026-11-05T11:02:00+09:00",
+  "generatedAt": "2026-11-06T09:56:00+09:00",
   "posts": [
+    {
+      "slug": "shop-in-shop-popup-showroom-contract",
+      "title": "숍인숍·팝업·쇼룸 계약, 무엇이 다른가",
+      "category": "brand",
+      "status": "scheduled",
+      "url": "/insights/shop-in-shop-popup-showroom-contract",
+      "date": "2026-11-06T11:00:00+09:00",
+      "updated": null,
+      "description": "숍인숍·팝업스토어·쇼룸 계약을 전대차·일시사용 임대차·위탁 운영으로 나눠 비교하고, 상가건물 임대차보호법이 어디까지 적용되는지, 임대인 동의와 사업자등록, 계약서에 넣을 조항을 표와 체크리스트로 정리했습니다.",
+      "keywords": [
+        "숍인숍 계약",
+        "팝업스토어 계약",
+        "쇼룸 임대",
+        "상가 전대차",
+        "일시사용 임대차"
+      ],
+      "readMin": 7,
+      "warnings": [],
+      "errors": []
+    },
     {
       "slug": "individual-vs-corporate-building-purchase",
       "title": "빌딩 법인 매입과 개인 매입, 네 단계로 비교하는 법",
