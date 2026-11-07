@@ -1,6 +1,26 @@
 {
-  "generatedAt": "2026-11-06T11:02:00+09:00",
+  "generatedAt": "2026-11-07T09:53:00+09:00",
   "posts": [
+    {
+      "slug": "old-building-renovation-priority",
+      "title": "노후 건물 리모델링, 어디부터 고칠까",
+      "category": "asset",
+      "status": "scheduled",
+      "url": "/insights/old-building-renovation-priority",
+      "date": "2026-11-07T11:00:00+09:00",
+      "updated": null,
+      "description": "노후 건물 리모델링을 안전, 누수, 임차인이 매일 쓰는 설비, 외관 순서로 나눠 우선순위를 정하는 방법과 점수표, 공사비 회수 계산 예시, 공사 중 임차인과 정리할 계약 문제, 그린리모델링 이자지원 확인 포인트를 정리했습니다.",
+      "keywords": [
+        "노후 건물 리모델링",
+        "건물 리모델링 우선순위",
+        "노후 상가 건물 수선",
+        "대수선 리모델링 차이",
+        "그린리모델링 이자지원"
+      ],
+      "readMin": 7,
+      "warnings": [],
+      "errors": []
+    },
     {
       "slug": "shop-in-shop-popup-showroom-contract",
       "title": "숍인숍·팝업·쇼룸 계약, 무엇이 다른가",
