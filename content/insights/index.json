@@ -1,6 +1,26 @@
 {
-  "generatedAt": "2026-11-07T11:02:00+09:00",
+  "generatedAt": "2026-11-08T09:51:00+09:00",
   "posts": [
+    {
+      "slug": "seoul-office-districts-cbd-gbd-ybd",
+      "title": "서울 오피스 권역, 도심·강남·여의도는 무엇이 다른가",
+      "category": "market",
+      "status": "scheduled",
+      "url": "/insights/seoul-office-districts-cbd-gbd-ybd",
+      "date": "2026-11-08T11:00:00+09:00",
+      "updated": null,
+      "description": "서울 오피스 3대 권역인 도심·강남·여의도의 범위와 수요층, 2026년 2~3분기 공실률·임대료를 기관별로 정리했습니다. 통계마다 숫자가 다른 이유, 명목 임대료와 실질 임대료 계산 예시, 권역 선택 점검표를 담았습니다.",
+      "keywords": [
+        "서울 오피스 권역",
+        "강남 오피스 시장",
+        "도심 오피스 공실률",
+        "여의도 오피스",
+        "오피스 공실률 비교"
+      ],
+      "readMin": 7,
+      "warnings": [],
+      "errors": []
+    },
     {
       "slug": "old-building-renovation-priority",
       "title": "노후 건물 리모델링, 어디부터 고칠까",
