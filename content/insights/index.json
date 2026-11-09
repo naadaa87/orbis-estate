@@ -1,6 +1,26 @@
 {
-  "generatedAt": "2026-11-08T11:01:00+09:00",
+  "generatedAt": "2026-11-09T09:50:00+09:00",
   "posts": [
+    {
+      "slug": "commercial-building-transaction-volume",
+      "title": "빌딩 매매 거래량으로 시장 온도 읽는 법",
+      "category": "market",
+      "status": "scheduled",
+      "url": "/insights/commercial-building-transaction-volume",
+      "date": "2026-11-09T11:00:00+09:00",
+      "updated": null,
+      "description": "2026년 3분기 전국 상업업무용 빌딩 매매 거래량은 2,808건으로 줄었지만 평균 거래금액은 오히려 올랐습니다. 국토교통부 실거래 자료를 읽는 순서, 신고 기한 때문에 생기는 착시, 금액대별로 나눠 보는 법과 점검표를 정리했습니다.",
+      "keywords": [
+        "빌딩 매매 거래량",
+        "상업업무용 실거래가",
+        "꼬마빌딩 거래량",
+        "상업용 빌딩 거래금액",
+        "빌딩 시장 전망"
+      ],
+      "readMin": 8,
+      "warnings": [],
+      "errors": []
+    },
     {
       "slug": "seoul-office-districts-cbd-gbd-ybd",
       "title": "서울 오피스 권역, 도심·강남·여의도는 무엇이 다른가",
