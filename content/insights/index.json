@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-11-09T09:50:00+09:00",
+  "generatedAt": "2026-11-09T11:01:00+09:00",
   "posts": [
     {
       "slug": "commercial-building-transaction-volume",
       "title": "빌딩 매매 거래량으로 시장 온도 읽는 법",
       "category": "market",
-      "status": "scheduled",
+      "status": "published",
       "url": "/insights/commercial-building-transaction-volume",
       "date": "2026-11-09T11:00:00+09:00",
       "updated": null,
