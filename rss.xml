@@ -5,8 +5,16 @@
     <link>https://orbis-estate.com/</link>
     <description>강남 부동산 중개법인 오르비스의 부동산 시장동향·투자·상권분석·점포개발·계약/법률·자산관리 가이드</description>
     <language>ko</language>
-    <lastBuildDate>Mon, 09 Nov 2026 11:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 10 Nov 2026 11:00:00 +0900</lastBuildDate>
     <atom:link href="https://orbis-estate.com/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>유동인구 분석의 함정, 지나가는 길과 머무는 길</title>
+      <link>https://orbis-estate.com/insights/foot-traffic-data-pitfalls</link>
+      <guid isPermaLink="true">https://orbis-estate.com/insights/foot-traffic-data-pitfalls</guid>
+      <pubDate>Tue, 10 Nov 2026 11:00:00 +0900</pubDate>
+      <category>상권분석</category>
+      <description>유동인구 분석을 할 때 숫자가 많은 길이 왜 손님이 많은 길이 아닐 수 있는지, 통신 데이터 기반 생활인구 자료가 무엇을 세는지, 통과 동선과 체류 동선을 현장에서 구분하는 관찰표와 판단 순서를 정리했습니다.</description>
+    </item>
     <item>
       <title>빌딩 매매 거래량으로 시장 온도 읽는 법</title>
       <link>https://orbis-estate.com/insights/commercial-building-transaction-volume</link>
