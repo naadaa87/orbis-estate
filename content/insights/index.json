@@ -1,6 +1,26 @@
 {
-  "generatedAt": "2026-11-09T11:01:00+09:00",
+  "generatedAt": "2026-11-10T09:55:00+09:00",
   "posts": [
+    {
+      "slug": "foot-traffic-data-pitfalls",
+      "title": "유동인구 분석의 함정, 지나가는 길과 머무는 길",
+      "category": "area",
+      "status": "scheduled",
+      "url": "/insights/foot-traffic-data-pitfalls",
+      "date": "2026-11-10T11:00:00+09:00",
+      "updated": null,
+      "description": "유동인구 분석을 할 때 숫자가 많은 길이 왜 손님이 많은 길이 아닐 수 있는지, 통신 데이터 기반 생활인구 자료가 무엇을 세는지, 통과 동선과 체류 동선을 현장에서 구분하는 관찰표와 판단 순서를 정리했습니다.",
+      "keywords": [
+        "유동인구 분석 주의",
+        "유동인구 데이터",
+        "생활인구 데이터",
+        "상가 유동인구",
+        "체류 동선"
+      ],
+      "readMin": 8,
+      "warnings": [],
+      "errors": []
+    },
     {
       "slug": "commercial-building-transaction-volume",
       "title": "빌딩 매매 거래량으로 시장 온도 읽는 법",
