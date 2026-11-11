@@ -1,6 +1,26 @@
 {
-  "generatedAt": "2026-11-10T11:01:00+09:00",
+  "generatedAt": "2026-11-11T09:51:00+09:00",
   "posts": [
+    {
+      "slug": "commercial-lease-restoration-clause",
+      "title": "상가 원상복구 범위, 분쟁을 줄이는 계약서 문구",
+      "category": "legal",
+      "status": "scheduled",
+      "url": "/insights/commercial-lease-restoration-clause",
+      "date": "2026-11-11T11:00:00+09:00",
+      "updated": null,
+      "description": "상가 임대차가 끝날 때 원상복구 범위를 어디까지로 볼지, 전 임차인이 남긴 시설은 누가 철거하는지, 유익비 포기 특약과는 어떻게 다른지를 민법 조문과 대법원 판결 기준으로 정리했습니다. 입점 기록표와 특약 문구 예시를 담았습니다.",
+      "keywords": [
+        "상가 원상복구 범위",
+        "원상복구 특약",
+        "원상회복의무",
+        "전 임차인 시설 원상복구",
+        "상가 철거비 보증금 공제"
+      ],
+      "readMin": 7,
+      "warnings": [],
+      "errors": []
+    },
     {
       "slug": "foot-traffic-data-pitfalls",
       "title": "유동인구 분석의 함정, 지나가는 길과 머무는 길",
