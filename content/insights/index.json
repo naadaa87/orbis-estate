@@ -1,6 +1,26 @@
 {
-  "generatedAt": "2026-11-11T11:02:00+09:00",
+  "generatedAt": "2026-11-12T09:58:00+09:00",
   "posts": [
+    {
+      "slug": "sectional-retail-vs-whole-building-investment",
+      "title": "구분상가 투자와 통건물 투자, 무엇이 다른가",
+      "category": "invest",
+      "status": "scheduled",
+      "url": "/insights/sectional-retail-vs-whole-building-investment",
+      "date": "2026-11-12T11:00:00+09:00",
+      "updated": null,
+      "description": "구분상가 투자와 통건물 투자를 관리 구조, 의사결정 권한, 공실 위험, 환금성 네 가지로 비교했습니다. 관리단·관리규약·업종제한처럼 구분상가에만 있는 확인 항목과 공실 집중도 계산 예시(가정), 매입 전 비교표를 담았습니다.",
+      "keywords": [
+        "구분상가 투자",
+        "통건물 투자",
+        "집합상가 공실률",
+        "구분상가 관리단",
+        "상가 업종제한"
+      ],
+      "readMin": 7,
+      "warnings": [],
+      "errors": []
+    },
     {
       "slug": "commercial-lease-restoration-clause",
       "title": "상가 원상복구 범위, 분쟁을 줄이는 계약서 문구",
