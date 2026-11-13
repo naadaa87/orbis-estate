@@ -1,6 +1,26 @@
 {
-  "generatedAt": "2026-11-12T11:02:00+09:00",
+  "generatedAt": "2026-11-13T09:53:00+09:00",
   "posts": [
+    {
+      "slug": "franchise-site-approval-process",
+      "title": "가맹점 입지 승인 절차, 본사 기준표와 승인 단계 설계",
+      "category": "brand",
+      "status": "scheduled",
+      "url": "/insights/franchise-site-approval-process",
+      "date": "2026-11-13T11:00:00+09:00",
+      "updated": null,
+      "description": "가맹점 입지 승인 절차를 접수·서면검토·현장조사·승인회의·계약 다섯 단계로 나눠 설계하는 법, 정보공개서 14일·인근가맹점 현황문서 등 가맹사업법 절차와 맞물리는 지점, 임대차 계약 시점과 특약, 반려 기록 양식을 정리했습니다.",
+      "keywords": [
+        "가맹점 입지 승인",
+        "점포 승인 절차",
+        "가맹점 점포개발",
+        "인근가맹점 현황문서",
+        "가맹계약 순서"
+      ],
+      "readMin": 7,
+      "warnings": [],
+      "errors": []
+    },
     {
       "slug": "sectional-retail-vs-whole-building-investment",
       "title": "구분상가 투자와 통건물 투자, 무엇이 다른가",
