@@ -1,6 +1,26 @@
 {
-  "generatedAt": "2026-11-13T11:01:00+09:00",
+  "generatedAt": "2026-11-14T09:52:00+09:00",
   "posts": [
+    {
+      "slug": "vacant-floor-short-term-use",
+      "title": "공실 층 단기 활용, 팝업·공유오피스·스튜디오 비교",
+      "category": "asset",
+      "status": "scheduled",
+      "url": "/insights/vacant-floor-short-term-use",
+      "date": "2026-11-14T11:00:00+09:00",
+      "updated": null,
+      "description": "빈 층을 팝업스토어·공유오피스·촬영 스튜디오로 단기 활용할 때 건물주가 따져야 할 계약 형태, 건축물대장 용도 확인, 장기 임대에 미치는 영향, 조기 종료 조항을 비교표와 계산 예시(가정), 점검 체크리스트로 정리했습니다.",
+      "keywords": [
+        "공실 활용 방법",
+        "빈 상가 활용",
+        "공실 단기 임대",
+        "건물 공실 해결",
+        "일시사용 임대차"
+      ],
+      "readMin": 7,
+      "warnings": [],
+      "errors": []
+    },
     {
       "slug": "franchise-site-approval-process",
       "title": "가맹점 입지 승인 절차, 본사 기준표와 승인 단계 설계",
