@@ -5,8 +5,16 @@
     <link>https://orbis-estate.com/</link>
     <description>강남 부동산 중개법인 오르비스의 부동산 시장동향·투자·상권분석·점포개발·계약/법률·자산관리 가이드</description>
     <language>ko</language>
-    <lastBuildDate>Sat, 14 Nov 2026 11:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 15 Nov 2026 11:00:00 +0900</lastBuildDate>
     <atom:link href="https://orbis-estate.com/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>상권 범위 설정, 반경 대신 실제 생활권으로 자르는 법</title>
+      <link>https://orbis-estate.com/insights/trade-area-boundary-setting</link>
+      <guid isPermaLink="true">https://orbis-estate.com/insights/trade-area-boundary-setting</guid>
+      <pubDate>Sun, 15 Nov 2026 11:00:00 +0900</pubDate>
+      <category>상권분석</category>
+      <description>상권 범위 설정을 반경 원 하나로 끝내면 숫자가 틀어집니다. 큰길·경사·하천·철도·횡단보도 같은 단절 요소로 실제 생활권을 자르는 순서, 서울시 상권분석서비스의 영역 기준, 현장에서 쓰는 경계 점검표를 정리했습니다.</description>
+    </item>
     <item>
       <title>공실 층 단기 활용, 팝업·공유오피스·스튜디오 비교</title>
       <link>https://orbis-estate.com/insights/vacant-floor-short-term-use</link>
