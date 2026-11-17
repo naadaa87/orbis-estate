@@ -1,6 +1,26 @@
 {
-  "generatedAt": "2026-11-16T11:02:00+09:00",
+  "generatedAt": "2026-11-17T09:56:00+09:00",
   "posts": [
+    {
+      "slug": "competitor-store-analysis",
+      "title": "경쟁점 분석, 거리·규모·가격대·대기 줄을 기록하는 법",
+      "category": "area",
+      "status": "scheduled",
+      "url": "/insights/competitor-store-analysis",
+      "date": "2026-11-17T11:00:00+09:00",
+      "updated": null,
+      "description": "경쟁점 분석은 주변 가게 수를 세는 데서 끝나면 판단에 쓰기 어렵습니다. 직접·간접 경쟁점을 나누는 기준, 거리·규모·가격대·대기 줄을 같은 양식으로 적는 법, 공개 데이터와 현장 기록을 맞춰 보는 순서와 조사표를 정리했습니다.",
+      "keywords": [
+        "경쟁점 분석",
+        "경쟁점 조사",
+        "경쟁 매장 분석",
+        "상권분석 경쟁업체",
+        "창업 경쟁점"
+      ],
+      "readMin": 8,
+      "warnings": [],
+      "errors": []
+    },
     {
       "slug": "seoul-trade-area-change-index",
       "title": "서울 상권변화지표 해석법, LL·LH·HL·HH가 말해 주는 것",
