@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-11-17T09:56:00+09:00",
+  "generatedAt": "2026-11-17T11:02:00+09:00",
   "posts": [
     {
       "slug": "competitor-store-analysis",
       "title": "경쟁점 분석, 거리·규모·가격대·대기 줄을 기록하는 법",
       "category": "area",
-      "status": "scheduled",
+      "status": "published",
       "url": "/insights/competitor-store-analysis",
       "date": "2026-11-17T11:00:00+09:00",
       "updated": null,
