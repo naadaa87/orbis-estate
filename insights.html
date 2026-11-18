@@ -377,7 +377,7 @@
     <div class="ft-copy">© 2026 ORBIS Real Estate Brokerage. All rights reserved.</div>
   </div>
 </div></footer>
-<script src="/app.js?v=20261104"></script><script>
+<script src="/app.js?v=20261118"></script><script>
 (function(){var LIM=12,cur='all',shown=LIM,bs=document.querySelectorAll('.ifilter button'),cs=[].slice.call(document.querySelectorAll('#ilist .pcard')),more=document.getElementById('imore');
 function apply(){var n=0;cs.forEach(function(c){var ok=cur==='all'||c.getAttribute('data-cat')===cur;if(ok){n++;c.hidden=n>shown;}else{c.hidden=true;}});if(more)more.hidden=n<=shown;}
 bs.forEach(function(b){b.addEventListener('click',function(){cur=b.getAttribute('data-cat');shown=LIM;bs.forEach(function(x){var on=x===b;x.classList.toggle('on',on);x.setAttribute('aria-pressed',on?'true':'false');});apply();});});

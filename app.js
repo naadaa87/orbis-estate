@@ -25,6 +25,7 @@ function track(ev, params){
   try{
     window.dataLayer.push(Object.assign({event:ev, page:location.pathname}, params||{}));
     if(window.gtag) gtag('event', ev, params||{});
+    if(window.ORBIS_STAT) ORBIS_STAT(ev, params||{});
   }catch(e){}
 }
 (function(){
@@ -35,6 +36,86 @@ function track(ev, params){
   document.head.appendChild(s);
   window.gtag=function(){dataLayer.push(arguments);};
   gtag('js', new Date()); gtag('config', id);
+})();
+
+/* ---------- 방문 통계 (관리자 화면 → KPI 현황) ----------
+   페이지 조회·머문 시간·클릭을 오르비스 서버(/api/t)에 모읍니다. 개인을 알아볼 수 있는 정보는 보내지 않습니다.
+   관리자 화면에 로그인한 브라우저, 추적 거부(Do Not Track·GPC)를 켠 브라우저, 개인정보처리방침에서
+   '통계 제외'를 누른 브라우저는 수집하지 않습니다.                                                    */
+(function(){
+  var ls, EP='/api/t';
+  try{
+    ls=window.localStorage;
+    if(navigator.webdriver || ls.getItem('orbis_notrack')==='1') return;
+    if(navigator.globalPrivacyControl===true || navigator.doNotTrack==='1' || window.doNotTrack==='1') return;
+    if(location.pathname.indexOf('/admin')===0) return;
+  }catch(e){ return; }
+  function rid(){ return (Date.now().toString(36)+Math.random().toString(36).slice(2,10)).slice(0,18); }
+  var now=Date.now(), vid, isNew=0, ses={}, entry=0;
+  try{
+    vid=ls.getItem('orbis_vid'); if(!vid || !/^[a-z0-9]{6,24}$/.test(vid)){ vid=rid(); ls.setItem('orbis_vid',vid); isNew=1; }
+    try{ ses=JSON.parse(ls.getItem('orbis_ses')||'{}')||{}; }catch(e){ ses={}; }
+    if(!ses.id || !/^[a-z0-9]{6,24}$/.test(ses.id) || now-(ses.t||0)>30*60e3){ ses={id:rid()}; entry=1; }
+    ses.t=now; ls.setItem('orbis_ses',JSON.stringify(ses));
+  }catch(e){ return; }
+  var pv=rid(), path=location.pathname, sent=0;
+  function send(o){
+    if(sent++>80) return;
+    o.p=pv; var b=JSON.stringify(o);
+    try{ if(navigator.sendBeacon && navigator.sendBeacon(EP,new Blob([b],{type:'text/plain'}))) return; }catch(e){}
+    try{ fetch(EP,{method:'POST',body:b,keepalive:true,credentials:'omit',headers:{'Content-Type':'text/plain'}}); }catch(e){}
+  }
+  var q={}; try{ q=new URLSearchParams(location.search); }catch(e){}
+  function qp(k){ try{ return q.get(k)||''; }catch(e){ return ''; } }
+  send({t:'pv',v:vid,s:ses.id,e:entry,n:isNew,u:path,ti:document.title,r:document.referrer||'',us:qp('utm_source'),um:qp('utm_medium'),uc:qp('utm_campaign')});
+
+  /* 머문 시간: 화면이 보이고, 최근 1분 안에 움직임이 있던 시간만 셉니다 */
+  var active=0, last=Date.now(), lastAct=Date.now(), maxSc=0, sentAt=-1;
+  function act(){ lastAct=Date.now(); }
+  ['scroll','mousemove','keydown','touchstart','click'].forEach(function(t){ window.addEventListener(t,act,{passive:true,capture:true}); });
+  setInterval(function(){ var n=Date.now(); if(document.visibilityState==='visible' && n-lastAct<60000) active+=Math.min(n-last,5000); last=n; },1000);
+  function scr(){
+    var h=Math.max(document.documentElement.scrollHeight,document.body?document.body.scrollHeight:0);
+    var p=h>0?Math.round((window.scrollY+window.innerHeight)/h*100):100; if(p>maxSc) maxSc=Math.min(100,p);
+  }
+  var st=0; window.addEventListener('scroll',function(){ if(st) return; st=setTimeout(function(){st=0;scr();},250); },{passive:true});
+  setTimeout(scr,1200);
+  function end(){
+    scr(); if(active===sentAt || (active<500 && maxSc<=0)) return;
+    sentAt=active; send({t:'end',d:active,sc:maxSc});
+    try{ ses.t=Date.now(); ls.setItem('orbis_ses',JSON.stringify(ses)); }catch(e){}
+  }
+  document.addEventListener('visibilitychange',function(){ if(document.visibilityState==='hidden') end(); else last=Date.now(); });
+  window.addEventListener('pagehide',end);
+
+  function ev(name,label,href){ act(); send({t:'ev',v:vid,s:ses.id,u:path,e:name,lb:String(label||'').replace(/\s+/g,' ').trim().slice(0,80),h:String(href||'').slice(0,200)}); }
+  /* track()으로 기록하는 행동(전화 버튼, 상담 버튼, 양식 작성·접수 등) */
+  window.ORBIS_STAT=function(name,p){
+    if(!/^[a-z][a-z0-9_]{1,39}$/.test(name)) return;
+    ev(name, p.label||p.form||p.kw||p.step||'', p.href||'');
+  };
+  /* 모든 링크·버튼 클릭 */
+  document.addEventListener('click',function(e){
+    var a=e.target.closest && e.target.closest('a,button,[role=button],summary,label.chip'); if(!a) return;
+    var label=a.getAttribute('aria-label')||a.innerText||a.textContent||a.getAttribute('title')||a.getAttribute('data-label')||'';
+    label=String(label).replace(/\s+/g,' ').trim();
+    if(label.length>40){ var hd=a.querySelector('b,strong,h2,h3,h4'); if(hd && hd.textContent.trim()) label=hd.textContent.replace(/\s+/g,' ').trim(); }
+    label=label.slice(0,60);
+    var href=a.getAttribute('href')||'';
+    if(/^tel:/i.test(href) && a.getAttribute('data-track')!=='click_phone') ev('click_phone',label,'tel');
+    if(/^mailto:/i.test(href)) ev('click_email',label,'mailto');
+    ev('click',label,href.replace(/^tel:.*/i,'tel').replace(/^mailto:.*/i,'mailto'));
+  },true);
+})();
+
+/* ---------- 방문 통계 제외 버튼 (개인정보처리방침 8항) ---------- */
+(function(){
+  var b=document.querySelector('[data-stat-optout]'); if(!b) return;
+  var st=document.querySelector('[data-stat-state]');
+  function off(){ try{ return localStorage.getItem('orbis_notrack')==='1' || navigator.globalPrivacyControl===true || navigator.doNotTrack==='1'; }catch(e){ return true; } }
+  function show(){ var o=off(); b.textContent=o?'이 브라우저 방문 통계 다시 허용':'이 브라우저 방문 통계 제외'; if(st) st.textContent=o?'지금 이 브라우저는 방문 통계를 보내지 않습니다.':'지금 이 브라우저는 방문 통계를 보냅니다.'; }
+  b.addEventListener('click',function(){ try{ if(localStorage.getItem('orbis_notrack')==='1') localStorage.setItem('orbis_notrack','0'); else { localStorage.setItem('orbis_notrack','1'); localStorage.removeItem('orbis_vid'); localStorage.removeItem('orbis_ses'); } }catch(e){} show(); });
+  show();
 })();
 
 /* ---------- config 반영 (이메일 · 카카오) ---------- */

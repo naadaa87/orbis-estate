@@ -1,3 +1,4 @@
 scripts/content/.out/
 node_modules/
 .wrangler/
+.dev.vars

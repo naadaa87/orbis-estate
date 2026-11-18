@@ -11,10 +11,11 @@
  *   GITHUB_REPO    : 기본값 naadaa87/orbis-estate (선택)
  *   GITHUB_BRANCH  : 기본값 main (선택)
  *   ADMIN_SECRET   : 로그인 유지용 서명 키 (선택 — 없으면 위 값들로 만들어 씁니다)
- *   D1 바인딩(DB)   : 상담 접수 저장소. 상담 접수 메뉴는 깃허브 토큰 없이도 동작합니다.
+ *   D1 바인딩(DB)   : 상담 접수·방문 통계 저장소. 상담 접수와 KPI 현황 메뉴는 깃허브 토큰 없이도 동작합니다.
  */
 
 import { leadDb, ensureSchema } from '../lead.js';
+import { computeKpi, computeMembers } from '../t.js';
 
 const COOKIE = 'orbis_admin';
 const SESSION_HOURS = 12;
@@ -224,6 +225,25 @@ export async function onRequest(context) {
     try { const r = await handleLeads(route, method, url, request, env); if (r) return r; }
     catch (e) { return json({ ok: false, error: 'db', message: '상담 접수 저장소를 읽지 못했습니다. (' + e.message + ')' }, 500); }
     return json({ ok: false, error: 'not_found' }, 404);
+  }
+
+  if (route === '/kpi' || route === '/kpi/members' || route === '/kpi/members.csv') {
+    const db = leadDb(env);
+    if (!db) return json({ ok: false, error: 'no_db', message: 'Cloudflare에 D1 데이터베이스가 연결되지 않았습니다. (Settings → Bindings → D1, 변수 이름 DB)' }, 503);
+    const q = Object.fromEntries(url.searchParams);
+    try {
+      await ensureSchema(db);
+      if (route === '/kpi') return json(await computeKpi(db, { ...q, lite: q.lite === '1' }));
+      if (route === '/kpi/members') return json(await computeMembers(db, q));
+      const m = await computeMembers(db, { ...q, all: true });
+      const subs = q.kind === 'subscribers';
+      const head = subs ? ['이메일', '처음 구독', '최근 신청', '신청 횟수'] : ['성함', '연락처', '이메일', '문의 수', '첫 문의', '최근 문의', '최근 문의 유형', '처리 상태', '최근 접수번호'];
+      const lines = [head.join(',')];
+      if (subs) for (const r of m.subscribers.list) lines.push([r.email, kst(r.first), kst(r.last), r.n].map(csvCell).join(','));
+      else for (const r of m.customers.list) lines.push([r.name, r.phone, r.email, r.n, kst(r.first), kst(r.last), r.type, STATUS_KO[r.status] || r.status, r.id].map(csvCell).join(','));
+      const name = `orbis-${subs ? 'subscribers' : 'customers'}-${kst(new Date().toISOString()).slice(0, 10)}.csv`;
+      return new Response('\ufeff' + lines.join('\r\n'), { headers: { 'Content-Type': 'text/csv; charset=utf-8', 'Content-Disposition': `attachment; filename="${name}"`, 'Cache-Control': 'no-store' } });
+    } catch (e) { return json({ ok: false, error: 'db', message: '통계를 계산하지 못했습니다. (' + e.message + ')' }, 500); }
   }
 
   if (!env.GITHUB_TOKEN) return json({ ok: false, error: 'no_token', message: 'Cloudflare에 GITHUB_TOKEN이 등록되지 않았습니다. 글·매물·설정 저장에 필요합니다.' }, 503);

@@ -1,5 +1,6 @@
 // 오르비스 관리자 화면 — 글·매물·설정 관리 (저장하면 깃허브 → 자동 발행 → Cloudflare 배포)
 import * as G from './sitegen.mjs?v=20261026';
+import { createKpi } from './kpi.js?v=20261118';
 
 const API = '/api/admin';
 const $ = (s, el = document) => el.querySelector(s);
@@ -16,6 +17,7 @@ const ICON = {
   gear: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>',
   seo: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>',
   inbox: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.5 5.1L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.5-6.9A2 2 0 0 0 16.8 4H7.2a2 2 0 0 0-1.7 1.1z"/></svg>',
+  chart: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg>',
   help: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6V14M12 17h.01"/></svg>',
 };
 
@@ -63,20 +65,20 @@ function renderLogin(msg = '') {
   $('#pw').focus();
   $('#lf').onsubmit = async (e) => {
     e.preventDefault(); const b = e.submitter; b.disabled = true; $('#lerr').textContent = '';
-    try { await api('/login', { method: 'POST', body: { password: $('#pw').value } }); state.posts = null; state.me = await api('/me').catch(() => null); route(); }
+    try { await api('/login', { method: 'POST', body: { password: $('#pw').value } }); state.posts = null; state.me = await api('/me').catch(() => null); markStaff(); route(); }
     catch (err) { $('#lerr').textContent = err.data?.error === 'not_configured' ? 'Cloudflare에 ADMIN_PASSWORD를 먼저 등록해 주세요.' : err.message; }
     finally { b.disabled = false; }
   };
 }
 
 // ---------------------------------------------------------------- 셸
-const NAV = [['dashboard', '대시보드', 'home'], ['leads', '상담 접수', 'inbox'], ['posts', '인사이트 글', 'posts'], ['new', '새 글 쓰기', 'pen'], ['properties', '매물', 'prop'], ['settings', '사이트 설정', 'gear'], ['seo', '검색노출 점검', 'seo'], ['help', '사용 안내', 'help']];
+const NAV = [['dashboard', '대시보드', 'home'], ['kpi', 'KPI 현황', 'chart'], ['leads', '상담 접수', 'inbox'], ['posts', '인사이트 글', 'posts'], ['new', '새 글 쓰기', 'pen'], ['properties', '매물', 'prop'], ['settings', '사이트 설정', 'gear'], ['seo', '검색노출 점검', 'seo'], ['help', '사용 안내', 'help']];
 function shell(active, html) {
   app.innerHTML = `<div class="shell"><aside class="side">
     <div class="brand"><img src="/assets/logo-icon.png" alt=""><div><b>오르비스 관리자</b><span>orbis-estate.com</span></div></div>
     ${NAV.map(([k, t, i]) => `<a class="nv${k === active ? ' on' : ''}" href="#/${k}">${ICON[i]}${t}${k === 'leads' && state.me?.leads?.new ? `<em class="nbadge">${state.me.leads.new}</em>` : ''}</a>`).join('')}
     <div class="sp"></div><a class="sm-link" href="/" target="_blank" rel="noopener">사이트 열기 ↗</a><a class="sm-link" href="#" id="logout">로그아웃</a>
-  </aside><main class="main">${state.me && !state.me.github && active !== 'leads' ? '<p class="note" style="margin-bottom:16px">Cloudflare에 GITHUB_TOKEN이 아직 없어 글·매물·설정은 불러오거나 저장할 수 없습니다. 상담 접수는 그대로 쓸 수 있습니다.</p>' : ''}<div id="view">${html}</div></main></div>`;
+  </aside><main class="main">${state.me && !state.me.github && active !== 'leads' && active !== 'kpi' ? '<p class="note" style="margin-bottom:16px">Cloudflare에 GITHUB_TOKEN이 아직 없어 글·매물·설정은 불러오거나 저장할 수 없습니다. 상담 접수와 KPI 현황은 그대로 쓸 수 있습니다.</p>' : ''}<div id="view">${html}</div></main></div>`;
   $('#logout').onclick = async (e) => { e.preventDefault(); try { await api('/logout', { method: 'POST' }); } catch {} renderLogin('로그아웃했습니다.'); };
 }
 
@@ -96,6 +98,7 @@ async function viewDashboard() {
     const ev = { schedule: '정기 발행(11시)', push: '저장 후 반영', workflow_dispatch: '수동 실행' };
     $('#view').innerHTML = `<div class="topline"><div><h2>대시보드</h2><p>새 글은 매일 오전 11시에 공개됩니다. 다음 정기 발행: <b>${fmt(G.isoKst(next11()))}</b></p></div>
       <div class="acts"><a class="btn btn-gold" href="#/new">${ICON.pen.replace('<svg', '<svg width="16" height="16"')} 새 글 쓰기</a><button class="btn btn-line" id="rb">지금 다시 반영</button></div></div>
+    <div class="card lead-card" id="kstrip" style="margin-bottom:16px"><div class="empty sm">방문 통계를 불러오는 중…</div></div>
     <div class="grid g4"><div class="card kpi"><b>${c('published')}</b><span>공개 글</span></div><div class="card kpi"><b>${c('scheduled')}</b><span>예약 글</span></div><div class="card kpi"><b>${c('draft')}</b><span>임시 저장</span></div><div class="card kpi gold"><b>${warn}</b><span>점검 알림이 있는 글</span></div></div>
     <div class="card lead-card" style="margin-top:16px"><div class="lc-head"><h3>상담 접수</h3><a class="btn btn-line btn-sm" href="#/leads">전체 보기</a></div>
       ${lz.error === 'no_db' ? '<p class="note">상담 접수 저장소(D1)가 아직 연결되지 않았습니다. 지금은 문의가 들어와도 여기에 쌓이지 않습니다.</p>'
@@ -115,6 +118,7 @@ async function viewDashboard() {
         <a href="#/settings" id="leadlink">상담 접수 시트<span>설정에서 주소 등록</span></a>
       </div></div>
     </div>`;
+    kpi.strip($('#kstrip'));
     $('#rb').onclick = async (e) => { e.target.disabled = true; try { await api('/rebuild', { method: 'POST' }); toast('반영을 시작했습니다. 1~3분 뒤 사이트에 나타납니다.'); } catch (err) { fail(err); } e.target.disabled = false; };
     api('/file?path=content/settings.json').then((f) => { const s = JSON.parse(f.text); if (s.leadSheetUrl) { const a = $('#leadlink'); a.href = s.leadSheetUrl; a.target = '_blank'; a.querySelector('span').textContent = '구글 시트 열기'; } }).catch(() => {});
   } catch (e) { fail(e); }
@@ -439,6 +443,7 @@ function viewHelp() {
   <div class="card help">
     <h4>저장하면 어떻게 되나요</h4><ol><li>관리자 화면에서 저장하면 원고가 깃허브 저장소(content 폴더)에 올라갑니다.</li><li>깃허브 Actions의 '인사이트 발행'이 글 페이지·목록·사이트맵·RSS를 다시 만듭니다.</li><li>Cloudflare가 새 버전을 배포합니다. 보통 1~3분 걸립니다.</li></ol>
     <h4>매일 자동 발행</h4><p>매일 오전 10시에 Claude가 주제를 고르고 자료를 확인해 글을 써서 '예약 글'로 올립니다. 오전 11시 정기 발행 때 공개되고, 네이버·빙에 새 글 알림(IndexNow)을 보냅니다. 마음에 들지 않는 예약 글은 11시 전에 '임시 저장'으로 바꾸면 공개되지 않습니다. 쓰고 싶은 주제가 있으면 <a href="#/settings" style="text-decoration:underline">사이트 설정</a>의 '다음 글 주제'에 적어 두세요. 같은 곳에서 자동 집필을 잠시 끌 수도 있습니다.</p>
+    <h4>KPI 현황</h4><p>홈페이지 방문자·페이지뷰·머문 시간·유입 경로·많이 본 글·많이 누른 버튼과 문의 접수, 회원(뉴스레터 구독자·문의 고객)을 기간별로 봅니다. 숫자는 사이트가 직접 모아 Cloudflare D1에 저장하며, 13개월이 지나면 자동으로 지워집니다. 관리자 화면에 로그인한 브라우저의 방문은 통계에서 빠집니다. 블로그·문자에 링크를 걸 때 주소 뒤에 <b>?utm_source=blog</b>처럼 붙이면 '캠페인'으로 따로 셀 수 있습니다.</p>
     <h4>예약 글</h4><p>지정한 시각이 지난 뒤 첫 정기 발행(매일 오전 11시) 때 공개됩니다. 다른 글을 저장해도 그때 시각이 지난 예약 글은 함께 공개됩니다.</p>
     <h4>글을 내리고 싶을 때</h4><p>편집 화면에서 '숨기기'로 저장하면 사이트에서 사라지고 원고는 남습니다. '삭제'는 원고까지 지웁니다.</p>
     <h4>점검 오류가 있는 글</h4><p>보장 표현이나 넣지 않기로 한 이름이 있으면 자동 발행에서 빠집니다. 점검 칸의 빨간 항목을 고친 뒤 다시 저장하세요.</p>
@@ -446,11 +451,17 @@ function viewHelp() {
   </div>`);
 }
 
+// ---------------------------------------------------------------- KPI 현황 (admin/kpi.js)
+const kpi = createKpi({ api, shell, $, $$, E, fail });
+// 관리자 화면에 로그인한 브라우저는 홈페이지 방문 통계에서 뺍니다 (KPI 현황 아래에서 되돌릴 수 있음)
+function markStaff() { try { if (localStorage.getItem('orbis_notrack') !== '0') localStorage.setItem('orbis_notrack', '1'); } catch (e) {} }
+
 // ---------------------------------------------------------------- 라우팅
 async function route() {
   const h = location.hash.replace(/^#\/?/, '') || 'dashboard';
   const [v, arg] = h.split('/');
   try {
+    if (v === 'kpi') return kpi.view(arg);
     if (v === 'leads') return viewLeads();
     if (v === 'lead' && arg) return viewLead(arg);
     if (v === 'posts') return viewPosts();
@@ -465,7 +476,7 @@ async function route() {
 }
 window.addEventListener('hashchange', route);
 (async () => {
-  try { state.me = await api('/me'); route(); }
+  try { state.me = await api('/me'); markStaff(); route(); }
   catch (e) {
     if (e.message === 'login') return;
     if (e.data?.error === 'not_configured') return renderLogin('관리자 비밀번호(ADMIN_PASSWORD)가 아직 등록되지 않았습니다. 사용 안내 문서를 참고해 Cloudflare에 등록해 주세요.');
