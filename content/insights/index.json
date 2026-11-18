@@ -1,6 +1,26 @@
 {
-  "generatedAt": "2026-11-17T11:02:00+09:00",
+  "generatedAt": "2026-11-18T09:54:00+09:00",
   "posts": [
+    {
+      "slug": "landlord-change-commercial-tenant-rights",
+      "title": "건물주가 바뀌면 상가 임차인의 권리는 어떻게 되나",
+      "category": "legal",
+      "status": "scheduled",
+      "url": "/insights/landlord-change-commercial-tenant-rights",
+      "date": "2026-11-18T11:00:00+09:00",
+      "updated": null,
+      "description": "상가 건물주가 바뀌었을 때 계약이 그대로 이어지는 조건, 보증금을 누구에게 돌려받는지, 밀린 월세와 따로 맺은 약정이 어떻게 되는지를 상가건물 임대차보호법 제3조와 2026년 대법원 판결 기준으로 정리했습니다. 임차인 점검표와 정산 계산 예시를 담았습니다.",
+      "keywords": [
+        "건물주 바뀌면 상가 임차인",
+        "임대인 지위 승계",
+        "상가 대항력",
+        "건물 매매 임차인 보증금",
+        "상가 새 건물주"
+      ],
+      "readMin": 7,
+      "warnings": [],
+      "errors": []
+    },
     {
       "slug": "competitor-store-analysis",
       "title": "경쟁점 분석, 거리·규모·가격대·대기 줄을 기록하는 법",
