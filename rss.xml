@@ -5,8 +5,16 @@
     <link>https://orbis-estate.com/</link>
     <description>강남 부동산 중개법인 오르비스의 부동산 시장동향·투자·상권분석·점포개발·계약/법률·자산관리 가이드</description>
     <language>ko</language>
-    <lastBuildDate>Tue, 17 Nov 2026 11:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 18 Nov 2026 11:00:00 +0900</lastBuildDate>
     <atom:link href="https://orbis-estate.com/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>건물주가 바뀌면 상가 임차인의 권리는 어떻게 되나</title>
+      <link>https://orbis-estate.com/insights/landlord-change-commercial-tenant-rights</link>
+      <guid isPermaLink="true">https://orbis-estate.com/insights/landlord-change-commercial-tenant-rights</guid>
+      <pubDate>Wed, 18 Nov 2026 11:00:00 +0900</pubDate>
+      <category>계약·법률</category>
+      <description>상가 건물주가 바뀌었을 때 계약이 그대로 이어지는 조건, 보증금을 누구에게 돌려받는지, 밀린 월세와 따로 맺은 약정이 어떻게 되는지를 상가건물 임대차보호법 제3조와 2026년 대법원 판결 기준으로 정리했습니다. 임차인 점검표와 정산 계산 예시를 담았습니다.</description>
+    </item>
     <item>
       <title>경쟁점 분석, 거리·규모·가격대·대기 줄을 기록하는 법</title>
       <link>https://orbis-estate.com/insights/competitor-store-analysis</link>
@@ -318,14 +326,6 @@
       <pubDate>Mon, 26 Oct 2026 18:00:00 +0900</pubDate>
       <category>브랜드·출점</category>
       <description>무인매장 창업이나 로봇카페 입점 전에 건물에서 확인할 조건을 정리했습니다. 건축물 용도와 영업신고, 전기 용량, 통신, 급배수·배기, 바닥 하중, CCTV 안내판, 24시간 운영 규정, 소방, 임대차 특약까지 한 번에 점검할 수 있습니다.</description>
-    </item>
-    <item>
-      <title>무료 상권분석 시스템 · 창업 입지 분석</title>
-      <link>https://orbis-estate.com/analysis</link>
-      <guid isPermaLink="true">https://orbis-estate.com/analysis</guid>
-      <pubDate>Sat, 10 Oct 2026 09:00:00 +0900</pubDate>
-      <category>서비스 소식</category>
-      <description>주소 하나로 반경 상권의 점포 구성과 업종 경쟁, 층별 임대료, 주변 실거래를 확인하고 서울은 유동·배후 인구까지 비교합니다. 회원가입 없이 무료로 쓰는 오르비스 상권분석 시스템입니다.</description>
     </item>
   </channel>
 </rss>
