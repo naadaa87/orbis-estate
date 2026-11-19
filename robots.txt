@@ -3,6 +3,7 @@ User-agent: *
 Allow: /
 Disallow: /api/
 Disallow: /admin/
+Disallow: /cdn-cgi/
 
 Sitemap: https://orbis-estate.com/sitemap.xml
 
