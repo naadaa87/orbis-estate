@@ -1,6 +1,26 @@
 {
-  "generatedAt": "2026-11-18T11:01:00+09:00",
+  "generatedAt": "2026-11-19T09:51:00+09:00",
   "posts": [
+    {
+      "slug": "buying-tenanted-retail-lease-assumption",
+      "title": "임차인 있는 상가를 살 때, 임대차 승계와 보증금 정산",
+      "category": "invest",
+      "status": "scheduled",
+      "url": "/insights/buying-tenanted-retail-lease-assumption",
+      "date": "2026-11-19T11:00:00+09:00",
+      "updated": null,
+      "description": "임차인이 있는 상가·빌딩을 매수할 때 임대인 지위 승계로 넘어오는 의무, 매도인을 거쳐야만 받을 수 있는 임대차 정보, 보증금·선수 월세·연체 차임을 잔금에서 정산하는 방법을 계산 예시(가정)와 확인 서류 체크리스트로 정리했습니다.",
+      "keywords": [
+        "상가 매매 임차인 승계",
+        "상가 매매 보증금 정산",
+        "임차인 있는 상가 매수",
+        "상가 잔금 정산",
+        "임대차 현황서"
+      ],
+      "readMin": 7,
+      "warnings": [],
+      "errors": []
+    },
     {
       "slug": "landlord-change-commercial-tenant-rights",
       "title": "건물주가 바뀌면 상가 임차인의 권리는 어떻게 되나",
