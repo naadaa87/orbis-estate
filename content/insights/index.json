@@ -1,6 +1,26 @@
 {
-  "generatedAt": "2026-11-19T11:02:00+09:00",
+  "generatedAt": "2026-11-20T09:55:00+09:00",
   "posts": [
+    {
+      "slug": "franchise-direct-store-expansion-order",
+      "title": "직영점과 가맹점, 브랜드 확장 순서 정하는 법",
+      "category": "brand",
+      "status": "scheduled",
+      "url": "/insights/franchise-direct-store-expansion-order",
+      "date": "2026-11-20T11:00:00+09:00",
+      "updated": null,
+      "description": "프랜차이즈 직영점을 몇 곳, 얼마나 운영한 뒤 가맹을 열지 판단하는 기준을 정리했습니다. 가맹사업법의 직영점 1년 운영 요건, 지역 테스트 설계, 운영 역량 점검표, 직영·가맹 확장 단계표를 담았습니다.",
+      "keywords": [
+        "프랜차이즈 직영점",
+        "직영점 가맹점 차이",
+        "가맹사업 직영점 1년",
+        "프랜차이즈 확장 전략",
+        "직영점 운영 요건"
+      ],
+      "readMin": 8,
+      "warnings": [],
+      "errors": []
+    },
     {
       "slug": "buying-tenanted-retail-lease-assumption",
       "title": "임차인 있는 상가를 살 때, 임대차 승계와 보증금 정산",
