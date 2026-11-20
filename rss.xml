@@ -5,8 +5,16 @@
     <link>https://orbis-estate.com/</link>
     <description>강남 부동산 중개법인 오르비스의 부동산 시장동향·투자·상권분석·점포개발·계약/법률·자산관리 가이드</description>
     <language>ko</language>
-    <lastBuildDate>Thu, 19 Nov 2026 11:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 20 Nov 2026 11:00:00 +0900</lastBuildDate>
     <atom:link href="https://orbis-estate.com/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>직영점과 가맹점, 브랜드 확장 순서 정하는 법</title>
+      <link>https://orbis-estate.com/insights/franchise-direct-store-expansion-order</link>
+      <guid isPermaLink="true">https://orbis-estate.com/insights/franchise-direct-store-expansion-order</guid>
+      <pubDate>Fri, 20 Nov 2026 11:00:00 +0900</pubDate>
+      <category>브랜드·출점</category>
+      <description>프랜차이즈 직영점을 몇 곳, 얼마나 운영한 뒤 가맹을 열지 판단하는 기준을 정리했습니다. 가맹사업법의 직영점 1년 운영 요건, 지역 테스트 설계, 운영 역량 점검표, 직영·가맹 확장 단계표를 담았습니다.</description>
+    </item>
     <item>
       <title>임차인 있는 상가를 살 때, 임대차 승계와 보증금 정산</title>
       <link>https://orbis-estate.com/insights/buying-tenanted-retail-lease-assumption</link>
@@ -318,14 +326,6 @@
       <pubDate>Mon, 26 Oct 2026 18:20:00 +0900</pubDate>
       <category>공실·자산관리</category>
       <description>렌트프리와 인테리어 지원(TI)을 실효임대료로 환산해 비교하는 계산식과 예시, TI 지원 방식별 차이, 원상복구·중도해지 반환 특약, 임대인과 임차인이 각각 지키려는 것, 계약서 특약 문구 예시를 정리했습니다.</description>
-    </item>
-    <item>
-      <title>건물 매각 전 준비하는 데이터룸 체크리스트</title>
-      <link>https://orbis-estate.com/insights/data-room-checklist-before-sale</link>
-      <guid isPermaLink="true">https://orbis-estate.com/insights/data-room-checklist-before-sale</guid>
-      <pubDate>Mon, 26 Oct 2026 18:10:00 +0900</pubDate>
-      <category>공실·자산관리</category>
-      <description>빌딩 매각 준비 단계에서 매수자 실사에 대비해 권리·공부 서류, 임대차, 운영, 시설 법정 점검, 인허가·위반 여부, 개발 검토, 분쟁·민원 자료를 정리하는 방법과 공개 시점별 데이터룸 폴더 구조를 체크리스트로 제시합니다.</description>
     </item>
   </channel>
 </rss>
