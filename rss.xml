@@ -5,8 +5,16 @@
     <link>https://orbis-estate.com/</link>
     <description>강남 부동산 중개법인 오르비스의 부동산 시장동향·투자·상권분석·점포개발·계약/법률·자산관리 가이드</description>
     <language>ko</language>
-    <lastBuildDate>Fri, 20 Nov 2026 11:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 21 Nov 2026 11:00:00 +0900</lastBuildDate>
     <atom:link href="https://orbis-estate.com/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>임차인 재계약이 새 임차인보다 나은 경우, 공실 비용으로 계산하기</title>
+      <link>https://orbis-estate.com/insights/tenant-renewal-vs-new-tenant-vacancy-cost</link>
+      <guid isPermaLink="true">https://orbis-estate.com/insights/tenant-renewal-vs-new-tenant-vacancy-cost</guid>
+      <pubDate>Sat, 21 Nov 2026 11:00:00 +0900</pubDate>
+      <category>공실·자산관리</category>
+      <description>상가 임차인 재계약과 새 임차인 유치 중 무엇이 나은지 공실 기간·렌트프리·중개보수·수선비를 넣은 계산 예시(가정)로 비교하고, 갱신요구권과 5% 증액 상한, 권리금 회수기회 보호까지 함께 정리했습니다.</description>
+    </item>
     <item>
       <title>직영점과 가맹점, 브랜드 확장 순서 정하는 법</title>
       <link>https://orbis-estate.com/insights/franchise-direct-store-expansion-order</link>
@@ -318,14 +326,6 @@
       <pubDate>Mon, 26 Oct 2026 18:30:00 +0900</pubDate>
       <category>계약·법률</category>
       <description>등기부등본(등기사항전부증명서)의 표제부·갑구·을구 구성과 가압류·가처분·신탁·근저당 채권최고액의 의미, 인터넷등기소 발급 방법과 수수료, 건축물대장과 함께 볼 항목을 기재별 확인표로 정리하고 잔금 전 재확인 순서까지 담았습니다.</description>
-    </item>
-    <item>
-      <title>렌트프리·인테리어 지원(TI) 협상의 기준</title>
-      <link>https://orbis-estate.com/insights/rent-free-ti-negotiation</link>
-      <guid isPermaLink="true">https://orbis-estate.com/insights/rent-free-ti-negotiation</guid>
-      <pubDate>Mon, 26 Oct 2026 18:20:00 +0900</pubDate>
-      <category>공실·자산관리</category>
-      <description>렌트프리와 인테리어 지원(TI)을 실효임대료로 환산해 비교하는 계산식과 예시, TI 지원 방식별 차이, 원상복구·중도해지 반환 특약, 임대인과 임차인이 각각 지키려는 것, 계약서 특약 문구 예시를 정리했습니다.</description>
     </item>
   </channel>
 </rss>

@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-11-21T09:50:00+09:00",
+  "generatedAt": "2026-11-21T11:02:00+09:00",
   "posts": [
     {
       "slug": "tenant-renewal-vs-new-tenant-vacancy-cost",
       "title": "임차인 재계약이 새 임차인보다 나은 경우, 공실 비용으로 계산하기",
       "category": "asset",
-      "status": "scheduled",
+      "status": "published",
       "url": "/insights/tenant-renewal-vs-new-tenant-vacancy-cost",
       "date": "2026-11-21T11:00:00+09:00",
       "updated": null,
