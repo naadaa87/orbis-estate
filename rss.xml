@@ -5,8 +5,16 @@
     <link>https://orbis-estate.com/</link>
     <description>강남 부동산 중개법인 오르비스의 부동산 시장동향·투자·상권분석·점포개발·계약/법률·자산관리 가이드</description>
     <language>ko</language>
-    <lastBuildDate>Sat, 21 Nov 2026 11:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 22 Nov 2026 11:00:00 +0900</lastBuildDate>
     <atom:link href="https://orbis-estate.com/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>금리 상승기와 하락기, 상가 수익률 스프레드 읽는 법</title>
+      <link>https://orbis-estate.com/insights/commercial-yield-spread-interest-rate-cycle</link>
+      <guid isPermaLink="true">https://orbis-estate.com/insights/commercial-yield-spread-interest-rate-cycle</guid>
+      <pubDate>Sun, 22 Nov 2026 11:00:00 +0900</pubDate>
+      <category>시장동향</category>
+      <description>상가 수익률 스프레드를 국고채 금리와 대출금리 두 기준으로 나눠 정리했습니다. 2026년 11월 금리 수준과 3분기 소득수익률 비교, 금리 상승기·하락기에 같은 수익률이 다르게 읽히는 이유, 레버리지 계산 예시(가정)와 국면별 점검표를 담았습니다.</description>
+    </item>
     <item>
       <title>임차인 재계약이 새 임차인보다 나은 경우, 공실 비용으로 계산하기</title>
       <link>https://orbis-estate.com/insights/tenant-renewal-vs-new-tenant-vacancy-cost</link>
@@ -318,14 +326,6 @@
       <pubDate>Mon, 26 Oct 2026 18:40:00 +0900</pubDate>
       <category>시장동향</category>
       <description>강남 사무실 임대 전에 비교할 전용률, 임대료·관리비 포함 항목, 보증금과 렌트프리, 시간외 냉난방, 주차, 원상복구, 중도해지, 상가건물 임대차보호법 적용 기준을 정리하고 후보 A·B·C 비교표 양식을 제공합니다.</description>
-    </item>
-    <item>
-      <title>등기부등본 읽는 법: 갑구·을구에서 꼭 확인할 것</title>
-      <link>https://orbis-estate.com/insights/registry-reading-guide</link>
-      <guid isPermaLink="true">https://orbis-estate.com/insights/registry-reading-guide</guid>
-      <pubDate>Mon, 26 Oct 2026 18:30:00 +0900</pubDate>
-      <category>계약·법률</category>
-      <description>등기부등본(등기사항전부증명서)의 표제부·갑구·을구 구성과 가압류·가처분·신탁·근저당 채권최고액의 의미, 인터넷등기소 발급 방법과 수수료, 건축물대장과 함께 볼 항목을 기재별 확인표로 정리하고 잔금 전 재확인 순서까지 담았습니다.</description>
     </item>
   </channel>
 </rss>
