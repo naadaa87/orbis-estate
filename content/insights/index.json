@@ -1,6 +1,26 @@
 {
-  "generatedAt": "2026-11-22T11:02:00+09:00",
+  "generatedAt": "2026-11-23T09:51:00+09:00",
   "posts": [
+    {
+      "slug": "single-person-households-neighborhood-retail",
+      "title": "1인가구 상권, 혼자 사는 동네에서 업종이 바뀌는 방식",
+      "category": "market",
+      "status": "scheduled",
+      "url": "/insights/single-person-households-neighborhood-retail",
+      "date": "2026-11-23T11:00:00+09:00",
+      "updated": null,
+      "description": "2025년 인구주택총조사에서 1인가구는 824만 가구, 일반가구의 36.6%가 됐습니다. 1인가구 비중이 높은 동네에서 소비 단위와 시간대가 어떻게 달라지는지, 행정동 단위 통계를 찾는 곳과 업종 변화를 확인하는 점검표를 정리했습니다.",
+      "keywords": [
+        "1인가구 상권",
+        "1인가구 비율 동네",
+        "1인가구 창업 업종",
+        "1인 세대 통계",
+        "인구주택총조사 1인가구"
+      ],
+      "readMin": 7,
+      "warnings": [],
+      "errors": []
+    },
     {
       "slug": "commercial-yield-spread-interest-rate-cycle",
       "title": "금리 상승기와 하락기, 상가 수익률 스프레드 읽는 법",
