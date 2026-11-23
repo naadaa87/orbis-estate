@@ -5,8 +5,16 @@
     <link>https://orbis-estate.com/</link>
     <description>강남 부동산 중개법인 오르비스의 부동산 시장동향·투자·상권분석·점포개발·계약/법률·자산관리 가이드</description>
     <language>ko</language>
-    <lastBuildDate>Sun, 22 Nov 2026 11:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 23 Nov 2026 11:00:00 +0900</lastBuildDate>
     <atom:link href="https://orbis-estate.com/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>1인가구 상권, 혼자 사는 동네에서 업종이 바뀌는 방식</title>
+      <link>https://orbis-estate.com/insights/single-person-households-neighborhood-retail</link>
+      <guid isPermaLink="true">https://orbis-estate.com/insights/single-person-households-neighborhood-retail</guid>
+      <pubDate>Mon, 23 Nov 2026 11:00:00 +0900</pubDate>
+      <category>시장동향</category>
+      <description>2025년 인구주택총조사에서 1인가구는 824만 가구, 일반가구의 36.6%가 됐습니다. 1인가구 비중이 높은 동네에서 소비 단위와 시간대가 어떻게 달라지는지, 행정동 단위 통계를 찾는 곳과 업종 변화를 확인하는 점검표를 정리했습니다.</description>
+    </item>
     <item>
       <title>금리 상승기와 하락기, 상가 수익률 스프레드 읽는 법</title>
       <link>https://orbis-estate.com/insights/commercial-yield-spread-interest-rate-cycle</link>
@@ -318,14 +326,6 @@
       <pubDate>Mon, 26 Oct 2026 18:50:00 +0900</pubDate>
       <category>투자전략</category>
       <description>건물 매각 시기와 빌딩 매각 전략을 정하기 전에 보유 목적, 자산 상태, 용도지역·용적률과 용도변경, 시장 국면, 세금·비용, 실행 역량 순서로 점검하는 방법과 네 가지 선택지 비교표, 결정 전 점검 질문 10개를 정리했습니다.</description>
-    </item>
-    <item>
-      <title>강남 사무실 임대, 테헤란로 오피스 고를 때 비교할 조건</title>
-      <link>https://orbis-estate.com/insights/gangnam-office-lease-guide</link>
-      <guid isPermaLink="true">https://orbis-estate.com/insights/gangnam-office-lease-guide</guid>
-      <pubDate>Mon, 26 Oct 2026 18:40:00 +0900</pubDate>
-      <category>시장동향</category>
-      <description>강남 사무실 임대 전에 비교할 전용률, 임대료·관리비 포함 항목, 보증금과 렌트프리, 시간외 냉난방, 주차, 원상복구, 중도해지, 상가건물 임대차보호법 적용 기준을 정리하고 후보 A·B·C 비교표 양식을 제공합니다.</description>
     </item>
   </channel>
 </rss>
