@@ -11,11 +11,14 @@
  *   GITHUB_REPO    : 기본값 naadaa87/orbis-estate (선택)
  *   GITHUB_BRANCH  : 기본값 main (선택)
  *   ADMIN_SECRET   : 로그인 유지용 서명 키 (선택 — 없으면 위 값들로 만들어 씁니다)
- *   D1 바인딩(DB)   : 상담 접수·방문 통계 저장소. 상담 접수와 KPI 현황 메뉴는 깃허브 토큰 없이도 동작합니다.
+ *   D1 바인딩(DB)   : 상담 접수·방문 통계·매물·공동중개·리포트 저장소. 이 메뉴들은 깃허브 토큰 없이도 동작합니다.
+ *   DATA_GO_KR_KEY : (선택) 공공데이터포털 인증키 — 리포트의 건축물대장·실거래가 자동 채움
+ *   VWORLD_KEY     : (선택) 브이월드 인증키 — 리포트의 토지·공시지가·지도 자동 채움
  */
 
 import { leadDb, ensureSchema } from '../lead.js';
 import { computeKpi, computeMembers } from '../t.js';
+import { handleDesk } from '../../_lib/desk.js';
 
 const COOKIE = 'orbis_admin';
 const SESSION_HOURS = 12;
@@ -141,6 +144,8 @@ async function handleLeads(route, method, url, request, env) {
     const q = (url.searchParams.get('q') || '').trim().slice(0, 40);
     const page = Math.max(0, parseInt(url.searchParams.get('page') || '0', 10) || 0);
     const where = []; const args = [];
+    const type = (url.searchParams.get('type') || '').trim().slice(0, 30);
+    if (type) { where.push('type LIKE ?'); args.push(type + '%'); }
     if (status === 'open') where.push("status IN ('new','contacted','progress')");
     else if (LEAD_STATUS.includes(status)) { where.push('status = ?'); args.push(status); }
     else where.push("status != 'spam'");
@@ -245,6 +250,9 @@ export async function onRequest(context) {
       return new Response('\ufeff' + lines.join('\r\n'), { headers: { 'Content-Type': 'text/csv; charset=utf-8', 'Content-Disposition': `attachment; filename="${name}"`, 'Cache-Control': 'no-store' } });
     } catch (e) { return json({ ok: false, error: 'db', message: '통계를 계산하지 못했습니다. (' + e.message + ')' }, 500); }
   }
+
+  // 매물 · 공동중개 · 리포트 · 사진 · 공공데이터 조회 (깃허브 토큰 없이도 동작)
+  { const r = await handleDesk(route, request, env, url, context); if (r) return r; }
 
   if (!env.GITHUB_TOKEN) return json({ ok: false, error: 'no_token', message: 'Cloudflare에 GITHUB_TOKEN이 등록되지 않았습니다. 글·매물·설정 저장에 필요합니다.' }, 503);
   const G = gh(env);

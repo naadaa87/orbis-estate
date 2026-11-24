@@ -4,13 +4,13 @@
   "static": [
     {
       "path": "/",
-      "lastmod": "2026-11-04",
+      "lastmod": "2026-11-24",
       "changefreq": "weekly",
       "priority": "1.0"
     },
     {
       "path": "/about",
-      "lastmod": "2026-10-11",
+      "lastmod": "2026-11-24",
       "changefreq": "monthly",
       "priority": "0.8"
     },
@@ -22,31 +22,31 @@
     },
     {
       "path": "/solutions",
-      "lastmod": "2026-10-11",
+      "lastmod": "2026-11-24",
       "changefreq": "monthly",
       "priority": "0.8"
     },
     {
       "path": "/solution-transaction",
-      "lastmod": "2026-10-11",
+      "lastmod": "2026-11-24",
       "changefreq": "monthly",
       "priority": "0.8"
     },
     {
       "path": "/solution-strategy",
-      "lastmod": "2026-10-11",
+      "lastmod": "2026-11-24",
       "changefreq": "monthly",
       "priority": "0.7"
     },
     {
       "path": "/solution-execution",
-      "lastmod": "2026-10-11",
+      "lastmod": "2026-11-24",
       "changefreq": "monthly",
       "priority": "0.7"
     },
     {
       "path": "/solution-value",
-      "lastmod": "2026-10-11",
+      "lastmod": "2026-11-24",
       "changefreq": "monthly",
       "priority": "0.7"
     },
@@ -64,7 +64,7 @@
     },
     {
       "path": "/strategy",
-      "lastmod": "2026-10-11",
+      "lastmod": "2026-11-24",
       "changefreq": "monthly",
       "priority": "0.8"
     },
@@ -76,7 +76,7 @@
     },
     {
       "path": "/partners",
-      "lastmod": "2026-10-11",
+      "lastmod": "2026-11-24",
       "changefreq": "monthly",
       "priority": "0.8"
     },
@@ -88,25 +88,25 @@
     },
     {
       "path": "/solution-franchise",
-      "lastmod": "2026-10-11",
+      "lastmod": "2026-11-24",
       "changefreq": "monthly",
       "priority": "0.8"
     },
     {
       "path": "/properties",
-      "lastmod": "2026-11-04",
+      "lastmod": "2026-11-24",
       "changefreq": "weekly",
       "priority": "0.8"
     },
     {
       "path": "/lease-request",
-      "lastmod": "2026-11-04",
+      "lastmod": "2026-11-24",
       "changefreq": "monthly",
       "priority": "0.9"
     },
     {
       "path": "/projects",
-      "lastmod": "2026-10-11",
+      "lastmod": "2026-11-24",
       "changefreq": "monthly",
       "priority": "0.6"
     },
@@ -130,13 +130,13 @@
     },
     {
       "path": "/owners",
-      "lastmod": "2026-10-11",
+      "lastmod": "2026-11-24",
       "changefreq": "monthly",
       "priority": "0.9"
     },
     {
       "path": "/contact",
-      "lastmod": "2026-11-04",
+      "lastmod": "2026-11-24",
       "changefreq": "monthly",
       "priority": "0.8"
     },
@@ -163,6 +163,18 @@
       "lastmod": "2026-10-10",
       "changefreq": "yearly",
       "priority": "0.3"
+    },
+    {
+      "path": "/valuation",
+      "lastmod": "2026-11-24",
+      "changefreq": "weekly",
+      "priority": "0.9"
+    },
+    {
+      "path": "/cobroke",
+      "lastmod": "2026-11-24",
+      "changefreq": "weekly",
+      "priority": "0.7"
     }
   ],
   "pagesLastmod": {

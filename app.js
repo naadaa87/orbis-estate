@@ -219,7 +219,8 @@ function kakao(){
    <form class="lead" data-type="건물주" data-subject="건물주 1차 진단">
    서버(LEAD_ENDPOINT) 접수 → 실패 시 메일 작성 화면으로 전환                 */
 (function(){
-  document.querySelectorAll('form.lead').forEach(function(f){
+  function bindLead(f){
+    if(f._orbisBound) return; f._orbisBound=true;
     var started=false;
     f.addEventListener('input',function(){ if(!started){started=true; track('form_start',{form:f.getAttribute('data-type')||'general'});} });
     f.addEventListener('submit',function(e){
@@ -260,7 +261,10 @@ function kakao(){
         })
         .finally(function(){ if(btn){btn.disabled=false;btn.textContent=orig;} });
     });
-  });
+  }
+  document.querySelectorAll('form.lead').forEach(bindLead);
+  /* 화면에서 나중에 만든 양식(매물 상세 문의 등)도 같은 방식으로 접수합니다 */
+  window.ORBIS_BIND_FORMS=function(root){ (root||document).querySelectorAll('form.lead').forEach(bindLead); };
   /* newsletter */
   document.querySelectorAll('form.news').forEach(function(f){
     f.addEventListener('submit',function(e){

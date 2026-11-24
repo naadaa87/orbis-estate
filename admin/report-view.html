@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="referrer" content="no-referrer">
+<title>오르비스 리포트</title>
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/admin/report.css?v=20261124">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:#E9ECF1;color:#1F2733;font-family:'Pretendard Variable','Pretendard',-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;font-size:14px;line-height:1.6;word-break:keep-all}
+.rv-tools{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:9px 16px;background:#14243E;color:#fff}
+.rv-tools b{font-size:14px;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rv-tools span{font-size:12.5px;color:#C9CED8;white-space:nowrap}
+.rv-tools div{display:flex;align-items:center;gap:12px;min-width:0}
+.rv-tools button{flex:none;border:0;border-radius:8px;padding:8px 14px;background:#C5A15A;color:#1C1507;font:inherit;font-weight:700;font-size:13.5px;cursor:pointer}
+.rv-tools button:hover{background:#B9964F}
+.rv-msg{max-width:520px;margin:90px auto;padding:28px 26px;background:#fff;border:1px solid #E3E6EB;border-radius:14px;text-align:center}
+.rv-msg h1{margin:0 0 8px;font-size:18px;color:#14243E}
+.rv-msg p{margin:0;color:#5B6576;font-size:14px}
+body.embed{background:#E9ECF1}
+body.embed .rv-tools{display:none}
+body.embed .rv-pages{padding:12px 10px 40px;gap:12px}
+</style>
+<style id="pageRule"></style>
+</head>
+<body>
+<div class="rv-tools" id="tools" hidden><div><b id="tTitle"></b><span id="tInfo"></span></div><button type="button" id="btnPrint">PDF로 저장(인쇄)</button></div>
+<main class="rv-pages" id="pages" aria-live="polite"></main>
+<script type="module">
+import { renderReport } from '/admin/report-tpl.js?v=20261124';
+
+const qs = new URLSearchParams(location.search);
+const $ = (id) => document.getElementById(id);
+const MM = 96 / 25.4;
+const embed = qs.get('embed') === '1';
+if (embed) document.body.classList.add('embed');
+let current = null;
+
+function message(title, text) {
+  $('pages').innerHTML = `<div class="rv-msg"><h1></h1><p></p></div>`;
+  $('pages').querySelector('h1').textContent = title; $('pages').querySelector('p').textContent = text;
+}
+function fit() {
+  if (!current) return;
+  const w = current.size.w * MM; const h = current.size.h * MM;
+  const avail = document.documentElement.clientWidth - (embed ? 20 : 24);
+  const k = Math.min(1, avail / w);
+  document.querySelectorAll('.rv-item').forEach((it) => {
+    it.style.width = w * k + 'px'; it.style.height = h * k + 'px';
+    const pg = it.firstElementChild; if (pg) pg.style.transform = k === 1 ? '' : `scale(${k})`;
+  });
+}
+/** 글이 길어 쪽을 넘치면 그 쪽의 본문만 조금씩 줄여 맞춥니다 (최소 72%) */
+function autoFit() {
+  document.querySelectorAll('.pg .pb').forEach((pb) => {
+    pb.style.zoom = '';
+    const over = () => pb.scrollHeight > pb.clientHeight + 1 || [...pb.querySelectorAll('.row,.col,.cd,.hc,.fc,.lc,.key,.sg,.tr,.sp,.dis')].some((e) => e.scrollHeight > e.clientHeight + 2);
+    let k = 1; while (over() && k > 0.72) { k = Math.round((k - 0.04) * 100) / 100; pb.style.zoom = String(k); }
+  });
+}
+function show(doc) {
+  const keep = window.scrollY;
+  let r;
+  try { r = renderReport(doc); } catch (e) { console.error(e); message('리포트를 그리지 못했습니다', '자료 형식을 확인해 주세요. (' + e.message + ')'); return; }
+  current = r;
+  $('pageRule').textContent = `@page{size:${r.size.w}mm ${r.size.h}mm;margin:0}`;
+  $('pages').innerHTML = r.pages.map((p) => `<div class="rv-item">${p}</div>`).join('');
+  document.title = `${r.title || '리포트'} | 오르비스중개법인`;
+  $('tTitle').textContent = r.title || '리포트';
+  $('tInfo').textContent = `${r.kind === 'im' ? '매각 투자안내서(IM)' : '매각 가격 검토 보고서'} · ${r.pages.length}쪽 · ${r.size.label}`;
+  $('tools').hidden = embed;
+  fit(); autoFit();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(autoFit);
+  if (embed) { window.scrollTo(0, keep); parent.postMessage({ type: 'orbis-report-pages', n: r.pages.length }, location.origin); }
+}
+async function ready() {
+  try { await document.fonts.ready; } catch (e) {}
+  await Promise.all([...document.images].map((im) => (im.complete ? null : new Promise((res) => { im.onload = im.onerror = res; }))));
+}
+async function getJSON(url) {
+  const r = await fetch(url, { credentials: 'same-origin', cache: 'no-store' });
+  let d = {}; try { d = await r.json(); } catch (e) {}
+  if (!r.ok || d.ok === false) { const e = new Error(d.message || d.error || '오류 ' + r.status); e.status = r.status; e.code = d.error; throw e; }
+  return d;
+}
+
+$('btnPrint').addEventListener('click', async () => { await ready(); window.print(); });
+window.addEventListener('resize', fit);
+
+(async () => {
+  const token = qs.get('t') || (location.pathname.match(/^\/r\/([A-Za-z0-9_-]{8,})/) || [])[1];
+  try {
+    if (embed) {
+      window.addEventListener('message', (e) => { if (e.origin === location.origin && e.data && e.data.type === 'orbis-report' && e.data.doc) show(e.data.doc); });
+      parent.postMessage({ type: 'orbis-report-ready' }, location.origin);
+      return;
+    }
+    if (qs.get('preview') === '1') {
+      let raw = null; try { raw = sessionStorage.getItem('orbis_report_preview') || localStorage.getItem('orbis_report_preview'); } catch (e) {}
+      if (!raw) return message('미리 볼 리포트가 없습니다', '관리자 화면의 리포트 편집기에서 다시 열어 주세요.');
+      show(JSON.parse(raw));
+    } else if (token) {
+      const d = await getJSON('/api/report?t=' + encodeURIComponent(token));
+      show({ ...(d.report.data || {}), kind: d.report.kind || (d.report.data || {}).kind, title: (d.report.data || {}).title || d.report.title });
+    } else if (qs.get('id')) {
+      const d = await getJSON('/api/admin/report?id=' + encodeURIComponent(qs.get('id')));
+      show({ ...(d.report.data || {}), kind: d.report.kind || (d.report.data || {}).kind, title: (d.report.data || {}).title || d.report.title });
+    } else return message('리포트 주소가 올바르지 않습니다', '받으신 링크를 다시 확인해 주세요.');
+    if (qs.get('print') === '1') { await ready(); setTimeout(() => window.print(), 250); }
+  } catch (e) {
+    if (e.status === 401) message('로그인이 필요합니다', '관리자 화면에 로그인한 뒤 다시 열어 주세요.');
+    else if (e.status === 404) message('리포트를 찾을 수 없습니다', '공유가 종료됐거나 주소가 바뀌었을 수 있습니다. 보내 주신 분께 확인해 주세요.');
+    else message('리포트를 불러오지 못했습니다', e.message || '잠시 뒤 다시 시도해 주세요.');
+  }
+})();
+</script>
+</body>
+</html>

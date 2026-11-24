@@ -1,6 +1,8 @@
 // 오르비스 관리자 화면 — 글·매물·설정 관리 (저장하면 깃허브 → 자동 발행 → Cloudflare 배포)
 import * as G from './sitegen.mjs?v=20261026';
-import { createKpi } from './kpi.js?v=20261118';
+import { createKpi } from './kpi.js?v=20261124';
+import { createListings } from './listings.js?v=20261124';
+import { createGeo } from './geo.js?v=20261124';
 
 const API = '/api/admin';
 const $ = (s, el = document) => el.querySelector(s);
@@ -18,6 +20,8 @@ const ICON = {
   seo: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>',
   inbox: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.5 5.1L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.5-6.9A2 2 0 0 0 16.8 4H7.2a2 2 0 0 0-1.7 1.1z"/></svg>',
   chart: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg>',
+  hands: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 12l4-4 4 2 3-3 7 5-3 6-5 2-4-3H6z"/><path d="M11 10l3 3"/></svg>',
+  doc: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 13h6M9 17h6M9 9h2"/></svg>',
   help: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6V14M12 17h.01"/></svg>',
 };
 
@@ -72,13 +76,13 @@ function renderLogin(msg = '') {
 }
 
 // ---------------------------------------------------------------- 셸
-const NAV = [['dashboard', '대시보드', 'home'], ['kpi', 'KPI 현황', 'chart'], ['leads', '상담 접수', 'inbox'], ['posts', '인사이트 글', 'posts'], ['new', '새 글 쓰기', 'pen'], ['properties', '매물', 'prop'], ['settings', '사이트 설정', 'gear'], ['seo', '검색노출 점검', 'seo'], ['help', '사용 안내', 'help']];
+const NAV = [['dashboard', '대시보드', 'home'], ['kpi', 'KPI 현황', 'chart'], ['leads', '상담 접수', 'inbox'], ['listings', '매물 관리', 'prop'], ['cobroke', '공동중개', 'hands'], ['reports', '리포트', 'doc'], ['posts', '인사이트 글', 'posts'], ['new', '새 글 쓰기', 'pen'], ['settings', '사이트 설정', 'gear'], ['seo', '검색노출 점검', 'seo'], ['help', '사용 안내', 'help']];
 function shell(active, html) {
   app.innerHTML = `<div class="shell"><aside class="side">
     <div class="brand"><img src="/assets/logo-icon.png" alt=""><div><b>오르비스 관리자</b><span>orbis-estate.com</span></div></div>
     ${NAV.map(([k, t, i]) => `<a class="nv${k === active ? ' on' : ''}" href="#/${k}">${ICON[i]}${t}${k === 'leads' && state.me?.leads?.new ? `<em class="nbadge">${state.me.leads.new}</em>` : ''}</a>`).join('')}
     <div class="sp"></div><a class="sm-link" href="/" target="_blank" rel="noopener">사이트 열기 ↗</a><a class="sm-link" href="#" id="logout">로그아웃</a>
-  </aside><main class="main">${state.me && !state.me.github && active !== 'leads' && active !== 'kpi' ? '<p class="note" style="margin-bottom:16px">Cloudflare에 GITHUB_TOKEN이 아직 없어 글·매물·설정은 불러오거나 저장할 수 없습니다. 상담 접수와 KPI 현황은 그대로 쓸 수 있습니다.</p>' : ''}<div id="view">${html}</div></main></div>`;
+  </aside><main class="main">${state.me && !state.me.github && ['dashboard', 'posts', 'new', 'settings', 'seo'].includes(active) ? '<p class="note" style="margin-bottom:16px">Cloudflare에 GITHUB_TOKEN이 아직 없어 인사이트 글과 사이트 설정은 불러오거나 저장할 수 없습니다. 상담 접수·KPI 현황·매물 관리·공동중개·리포트는 그대로 쓸 수 있습니다.</p>' : ''}<div id="view">${html}</div></main></div>`;
   $('#logout').onclick = async (e) => { e.preventDefault(); try { await api('/logout', { method: 'POST' }); } catch {} renderLogin('로그아웃했습니다.'); };
 }
 
@@ -99,6 +103,7 @@ async function viewDashboard() {
     $('#view').innerHTML = `<div class="topline"><div><h2>대시보드</h2><p>새 글은 매일 오전 11시에 공개됩니다. 다음 정기 발행: <b>${fmt(G.isoKst(next11()))}</b></p></div>
       <div class="acts"><a class="btn btn-gold" href="#/new">${ICON.pen.replace('<svg', '<svg width="16" height="16"')} 새 글 쓰기</a><button class="btn btn-line" id="rb">지금 다시 반영</button></div></div>
     <div class="card lead-card" id="kstrip" style="margin-bottom:16px"><div class="empty sm">방문 통계를 불러오는 중…</div></div>
+    <div class="card lead-card" id="dstrip" style="margin-bottom:16px"><div class="empty sm">매물·리포트 현황을 불러오는 중…</div></div>
     <div class="grid g4"><div class="card kpi"><b>${c('published')}</b><span>공개 글</span></div><div class="card kpi"><b>${c('scheduled')}</b><span>예약 글</span></div><div class="card kpi"><b>${c('draft')}</b><span>임시 저장</span></div><div class="card kpi gold"><b>${warn}</b><span>점검 알림이 있는 글</span></div></div>
     <div class="card lead-card" style="margin-top:16px"><div class="lc-head"><h3>상담 접수</h3><a class="btn btn-line btn-sm" href="#/leads">전체 보기</a></div>
       ${lz.error === 'no_db' ? '<p class="note">상담 접수 저장소(D1)가 아직 연결되지 않았습니다. 지금은 문의가 들어와도 여기에 쌓이지 않습니다.</p>'
@@ -119,6 +124,11 @@ async function viewDashboard() {
       </div></div>
     </div>`;
     kpi.strip($('#kstrip'));
+    api('/desk/summary').then((d) => {
+      const el = $('#dstrip'); if (!el) return; const L = d.listings || {}; const inbox = Object.values(d.inbox || {}).reduce((a, b) => a + b, 0);
+      el.innerHTML = `<div class="lc-head"><h3>매물 · 공동중개 · 리포트</h3><div class="acts"><a class="btn btn-line btn-sm" href="#/listings/new">매물 등록</a><a class="btn btn-line btn-sm" href="#/listings/import">일괄 등록</a><a class="btn btn-line btn-sm" href="#/reports">리포트 만들기</a></div></div>
+        <div class="kdash"><a href="#/listings" class="lc-k"><b>${L.public || 0}<small>건</small></b><span>공개 매물</span></a><a href="#/listings" class="lc-k"><b>${L.draft || 0}<small>건</small></b><span>임시 저장 매물</span></a><a href="#/cobroke" class="lc-k${inbox ? ' hot' : ''}"><b>${d.wanted || 0}<small>건</small></b><span>구하는 물건 공고${inbox ? ` · 새 접수 ${inbox}` : ''}</span></a><a href="#/reports" class="lc-k"><b>${d.reports || 0}<small>건</small></b><span>리포트</span></a></div>`;
+    }).catch(() => { const el = $('#dstrip'); if (el) el.remove(); });
     $('#rb').onclick = async (e) => { e.target.disabled = true; try { await api('/rebuild', { method: 'POST' }); toast('반영을 시작했습니다. 1~3분 뒤 사이트에 나타납니다.'); } catch (err) { fail(err); } e.target.disabled = false; };
     api('/file?path=content/settings.json').then((f) => { const s = JSON.parse(f.text); if (s.leadSheetUrl) { const a = $('#leadlink'); a.href = s.leadSheetUrl; a.target = '_blank'; a.querySelector('span').textContent = '구글 시트 열기'; } }).catch(() => {});
   } catch (e) { fail(e); }
@@ -168,7 +178,7 @@ async function viewLead(id) {
   const rows = Object.entries(data).filter(([k]) => !skip.has(k));
   const smsBody = encodeURIComponent(`[오르비스중개법인] 안녕하세요, ${l.name || ''}님. 남겨 주신 문의 확인하고 연락드립니다.`);
   $('#view').innerHTML = `<div class="topline"><div><a href="#/leads" class="back">← 상담 접수</a><h2>${E(l.name || '이름 없음')} <span style="font-size:15px;color:var(--slate)">${E(l.type || '')}</span></h2><p>접수 ${fmt(l.created_at)} · 접수번호 ${E(l.id)}${l.updated_at && l.updated_at !== l.created_at ? ' · 최근 수정 ' + fmt(l.updated_at) : ''}</p></div>
-    <div class="acts">${l.phone ? `<a class="btn btn-navy" href="${telHref(l.phone)}">전화 걸기</a><a class="btn btn-line" href="sms:${E(String(l.phone).replace(/[^0-9+]/g, ''))}?&body=${smsBody}">문자 보내기</a>` : ''}${l.email ? `<a class="btn btn-line" href="mailto:${E(l.email)}">메일</a>` : ''}</div></div>
+    <div class="acts">${l.phone ? `<a class="btn btn-navy" href="${telHref(l.phone)}">전화 걸기</a><a class="btn btn-line" href="sms:${E(String(l.phone).replace(/[^0-9+]/g, ''))}?&body=${smsBody}">문자 보내기</a>` : ''}${l.email ? `<a class="btn btn-line" href="mailto:${E(l.email)}">메일</a>` : ''}${/공동중개|매물 등록|매각|건물주/.test(l.type || '') ? `<a class="btn btn-line" href="#/listings/new?from=lead:${E(l.id)}">매물로 등록</a>` : ''}${/매각|건물주|매물 등록/.test(l.type || '') ? `<a class="btn btn-line" href="#/reports/new/valuation?from=lead:${E(l.id)}">매각가 검토 보고서</a>` : ''}</div></div>
     <div class="ed"><div class="card"><h3>접수 내용</h3>
       <dl class="ldl"><div><dt>성함·업체명</dt><dd>${E(l.name || '-')}</dd></div><div><dt>연락처</dt><dd>${l.phone ? `<a href="${telHref(l.phone)}">${E(l.phone)}</a>` : '-'}</dd></div>${l.email ? `<div><dt>이메일</dt><dd>${E(l.email)}</dd></div>` : ''}
       ${rows.map(([k, v]) => `<div><dt>${E(k)}</dt><dd>${E(String(v)).replace(/\n/g, '<br>')}</dd></div>`).join('')}
@@ -340,45 +350,6 @@ async function viewEditor(slug) {
 }
 
 // ---------------------------------------------------------------- 매물
-async function viewProperties() {
-  shell('properties', '<div class="empty">불러오는 중…</div>');
-  let f; try { f = await api('/file?path=content/properties.json'); } catch (e) { return fail(e); }
-  let data = JSON.parse(f.text); data.items = data.items || []; let sha = f.sha;
-  const ST = { public: ['공개', 'ok'], done: ['거래완료', 'draft'], hidden: ['내림', 'hid'] };
-  const save = async (msg) => { try { const d = await api('/file', { method: 'PUT', body: { path: 'content/properties.json', text: JSON.stringify(data, null, 2) + '\n', sha } }); sha = d.sha; toast(msg); } catch (e) { fail(e); } };
-  const list = () => {
-    $('#view').innerHTML = `<div class="topline"><div><h2>매물</h2><p>공개한 매물은 매물·딜 페이지에 법정 표시사항과 함께 게시됩니다. 실제 의뢰를 확인한 자산만 올려 주세요.</p></div><div class="acts"><button class="btn btn-gold" id="add">매물 추가</button></div></div>
-    <div class="tbl-wrap"><table><thead><tr><th>매물번호</th><th>제목</th><th>거래</th><th>가격</th><th>상태</th><th>확인일</th><th></th></tr></thead><tbody>${data.items.length ? data.items.map((x, i) => `<tr><td class="nowrap">${E(x.id)}</td><td><div class="ttl">${E(x.title)}</div><div class="sub">${E(x.location || '')}</div></td><td class="nowrap">${E(x.deal || '')}</td><td>${E(x.price || '')}</td><td class="nowrap"><span class="pill ${ST[x.status]?.[1] || 'draft'}">${ST[x.status]?.[0] || x.status}</span></td><td class="nowrap">${E(x.updated || x.posted || '')}</td><td class="nowrap"><button class="btn btn-line btn-sm" data-i="${i}">편집</button></td></tr>`).join('') : '<tr><td colspan="7" class="empty">등록된 매물이 없습니다. 매물이 없으면 페이지에는 \'공개 매물 준비 중\'이 그대로 보입니다.</td></tr>'}</tbody></table></div>
-    <p class="note cool" style="margin-top:14px">인터넷 매물 광고는 공인중개사법 제18조의2와 국토교통부 고시 「중개대상물의 표시·광고 명시사항 세부기준」에 따라 소재지(층수 포함), 전용면적, 가격, 중개대상물 종류, 거래 형태, 총 층수, 입주 가능일, 욕실 수, 사용승인일, 주차대수, 방향을 빠짐없이 적고, 위반건축물이면 그 사실도 표시합니다. 실제로 거래할 수 없거나 중개할 의사가 없는 매물은 올리지 않고, 거래가 끝나면 바로 '거래완료' 또는 '내림'으로 바꿔 주세요.</p>`;
-    $('#add').onclick = () => edit(-1);
-    $$('[data-i]').forEach((b) => b.onclick = () => edit(Number(b.dataset.i)));
-  };
-  const edit = (i) => {
-    const today = G.ymd(new Date());
-    const x = i >= 0 ? { ...data.items[i] } : { id: `OR-${today.slice(0, 4)}-${String(data.items.length + 1).padStart(3, '0')}`, status: 'public', posted: today };
-    $('#view').innerHTML = `<div class="topline"><div><h2>${i >= 0 ? '매물 편집' : '매물 추가'}</h2><p>* 표시는 공개 시 꼭 적어야 하는 항목입니다.</p></div><div class="acts"><button class="btn btn-line" id="back">목록</button>${i >= 0 ? '<button class="btn btn-bad" id="rm">삭제</button>' : ''}<button class="btn btn-gold" id="sv">저장</button></div></div>
-    <div class="card"><div class="fgrid">
-      <div class="f"><label for="p-id">매물번호</label><input type="text" id="p-id" value="${E(x.id)}"></div>
-      <div class="f"><label for="p-status">상태</label><select id="p-status">${Object.entries(ST).map(([k, [t]]) => `<option value="${k}"${x.status === k ? ' selected' : ''}>${t}</option>`).join('')}</select></div>
-      <div class="f full"><label for="p-title">제목 *</label><input type="text" id="p-title" value="${E(x.title || '')}" placeholder="예: 역삼역 도보 5분 대로변 1층 상가"></div>
-      <div class="f full"><label for="p-summary">한 줄 소개</label><input type="text" id="p-summary" value="${E(x.summary || '')}"></div>
-      ${G.PROPERTY_FIELDS.map(([k, label, req, hint]) => `<div class="f"><label for="p-${k}">${label}${req ? ' *' : ''}</label><input type="text" id="p-${k}" value="${E(x[k] || '')}" placeholder="${E(hint)}"></div>`).join('')}
-      <div class="f"><label for="p-posted">게시일</label><input type="date" id="p-posted" value="${E(x.posted || today)}"></div>
-    </div></div>`;
-    $('#back').onclick = list;
-    if ($('#rm')) $('#rm').onclick = async () => { if (!confirm('이 매물을 목록에서 삭제할까요? (거래완료 표시가 필요하면 상태를 바꾸세요)')) return; data.items.splice(i, 1); await save('삭제했습니다.'); list(); };
-    $('#sv').onclick = async () => {
-      const y = { ...x, id: $('#p-id').value.trim(), status: $('#p-status').value, title: $('#p-title').value.trim(), summary: $('#p-summary').value.trim(), posted: $('#p-posted').value, updated: today };
-      for (const [k] of G.PROPERTY_FIELDS) y[k] = $('#p-' + k).value.trim();
-      const miss = G.PROPERTY_FIELDS.filter(([k, , req]) => req && !y[k]).map(([, l]) => l);
-      if (y.status === 'public' && (miss.length || !y.title)) return toast('공개하려면 필수 항목을 채워 주세요: ' + (y.title ? '' : '제목 ') + miss.join(', '), true);
-      if (i >= 0) data.items[i] = y; else data.items.unshift(y);
-      await save('저장했습니다. 1~2분 뒤 매물·딜 페이지에 반영됩니다.'); list();
-    };
-  };
-  list();
-}
-
 // ---------------------------------------------------------------- 설정
 async function viewSettings() {
   shell('settings', '<div class="empty">불러오는 중…</div>');
@@ -443,12 +414,28 @@ function viewHelp() {
   <div class="card help">
     <h4>저장하면 어떻게 되나요</h4><ol><li>관리자 화면에서 저장하면 원고가 깃허브 저장소(content 폴더)에 올라갑니다.</li><li>깃허브 Actions의 '인사이트 발행'이 글 페이지·목록·사이트맵·RSS를 다시 만듭니다.</li><li>Cloudflare가 새 버전을 배포합니다. 보통 1~3분 걸립니다.</li></ol>
     <h4>매일 자동 발행</h4><p>매일 오전 10시에 Claude가 주제를 고르고 자료를 확인해 글을 써서 '예약 글'로 올립니다. 오전 11시 정기 발행 때 공개되고, 네이버·빙에 새 글 알림(IndexNow)을 보냅니다. 마음에 들지 않는 예약 글은 11시 전에 '임시 저장'으로 바꾸면 공개되지 않습니다. 쓰고 싶은 주제가 있으면 <a href="#/settings" style="text-decoration:underline">사이트 설정</a>의 '다음 글 주제'에 적어 두세요. 같은 곳에서 자동 집필을 잠시 끌 수도 있습니다.</p>
+    <h4>매물 관리</h4><p>매물은 저장 즉시 홈페이지 '매물' 페이지에 반영됩니다. 법정 표시사항(종류·층·면적·가격·입주 가능일·사용승인일·주차·방향·욕실 수·위반건축물 여부)이 빈 매물은 '공개'로 바뀌지 않고 임시 저장으로 남습니다. PM사 공실 리스트는 <b>엑셀·붙여넣기 일괄 등록</b>으로 한꺼번에 올릴 수 있고, 담당자·연락처는 내부 정보로만 보관됩니다.</p>
+    <h4>공동중개</h4><p>찾고 있는 물건을 '구하는 물건 공고'로 올리면 홈페이지 공동중개 페이지에 실립니다. 다른 중개사무소가 접수한 물건은 '접수함'에 쌓이고, '매물로 등록'을 누르면 내용이 채워진 매물 초안이 열립니다.</p>
+    <h4>리포트</h4><p>지번 주소를 넣으면 토지·건물 정보와 인근 거래사례를 불러와 <b>매각 가격 검토 보고서</b>(A4)와 <b>매각 투자안내서 IM</b>(16:9)을 만듭니다. 자동 채움에는 Cloudflare 환경변수 <b>DATA_GO_KR_KEY</b>(공공데이터포털: 건축물대장·실거래가)와 <b>VWORLD_KEY</b>(브이월드: 토지·공시지가·지도)가 필요합니다. 키가 없어도 직접 입력해 같은 양식으로 만들 수 있습니다. 완성한 리포트는 PDF로 저장하거나 공유 링크로 보낼 수 있습니다.</p>
     <h4>KPI 현황</h4><p>홈페이지 방문자·페이지뷰·머문 시간·유입 경로·많이 본 글·많이 누른 버튼과 문의 접수, 회원(뉴스레터 구독자·문의 고객)을 기간별로 봅니다. 숫자는 사이트가 직접 모아 Cloudflare D1에 저장하며, 13개월이 지나면 자동으로 지워집니다. 관리자 화면에 로그인한 브라우저의 방문은 통계에서 빠집니다. 블로그·문자에 링크를 걸 때 주소 뒤에 <b>?utm_source=blog</b>처럼 붙이면 '캠페인'으로 따로 셀 수 있습니다.</p>
     <h4>예약 글</h4><p>지정한 시각이 지난 뒤 첫 정기 발행(매일 오전 11시) 때 공개됩니다. 다른 글을 저장해도 그때 시각이 지난 예약 글은 함께 공개됩니다.</p>
     <h4>글을 내리고 싶을 때</h4><p>편집 화면에서 '숨기기'로 저장하면 사이트에서 사라지고 원고는 남습니다. '삭제'는 원고까지 지웁니다.</p>
     <h4>점검 오류가 있는 글</h4><p>보장 표현이나 넣지 않기로 한 이름이 있으면 자동 발행에서 빠집니다. 점검 칸의 빨간 항목을 고친 뒤 다시 저장하세요.</p>
     <h4>보안</h4><ul><li>비밀번호는 Cloudflare 환경변수 ADMIN_PASSWORD에서 바꿉니다. 바꾸면 기존 로그인은 모두 풀립니다.</li><li>로그인은 12시간 유지됩니다. 공용 컴퓨터에서는 꼭 로그아웃하세요.</li><li>저장소가 공개 상태이면 임시 저장 원고도 깃허브에서 보일 수 있습니다.</li></ul>
   </div>`);
+}
+
+// ---------------------------------------------------------------- 매물·공동중개(admin/listings.js) · 리포트(admin/reports.js)
+const geo = createGeo({ api });
+const listings = createListings({ api, shell, $, $$, E, fail, toast, geo });
+let reportsMod = null;
+async function viewReports(parts) {
+  if (!reportsMod) {
+    shell('reports', '<div class="empty">불러오는 중…</div>');
+    const m = await import('./reports.js?v=20261124');
+    reportsMod = m.createReports({ api, shell, $, $$, E, fail, toast, geo });
+  }
+  return reportsMod.view(parts);
 }
 
 // ---------------------------------------------------------------- KPI 현황 (admin/kpi.js)
@@ -458,16 +445,19 @@ function markStaff() { try { if (localStorage.getItem('orbis_notrack') !== '0') 
 
 // ---------------------------------------------------------------- 라우팅
 async function route() {
-  const h = location.hash.replace(/^#\/?/, '') || 'dashboard';
-  const [v, arg] = h.split('/');
+  const h = (location.hash.replace(/^#\/?/, '') || 'dashboard').split('?')[0];
+  const [v, arg, ...more] = h.split('/');
+  const rest = [arg, ...more].filter((x) => x != null && x !== '');
   try {
+    if (v === 'listings' || v === 'properties') return listings.view(rest);
+    if (v === 'cobroke') return listings.cobroke(rest);
+    if (v === 'reports') return viewReports(rest);
     if (v === 'kpi') return kpi.view(arg);
     if (v === 'leads') return viewLeads();
     if (v === 'lead' && arg) return viewLead(arg);
     if (v === 'posts') return viewPosts();
     if (v === 'new') return viewEditor(null);
     if (v === 'edit' && arg) return viewEditor(arg);
-    if (v === 'properties') return viewProperties();
     if (v === 'settings') return viewSettings();
     if (v === 'seo') return viewSeo();
     if (v === 'help') return viewHelp();

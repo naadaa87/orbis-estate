@@ -9,13 +9,15 @@
 
 - 상호: 오르비스중개법인 / 대표 이상민 / 중개사무소 개설등록번호 11680-2025-00157
 - 소재지: 서울특별시 강남구 테헤란로 123, 6층 615호 / 전화 010-7379-5265 / 사이트 https://orbis-estate.com
-- 본업: 중소형 빌딩·상가·오피스의 매매·임대차 중개
+- 본업: 중소형 빌딩·상가·오피스의 매매·임대차 중개. 서비스는 프랜차이즈 임대차 → 공실 해소 → 자산관리(PM) → 매입·매각 자문의 네 축으로 설명합니다.
 - 서비스와 주소(본문 내부 링크로 사용)
-  - /solution-transaction 거래 자문 · /solution-strategy 전략·기획(최유효이용·MD) · /solution-execution 공실개발·공간 실행(관계사 연계, 별도 계약) · /solution-value 자산가치·매각전략
+  - /solution-franchise 프랜차이즈 임대차 자문 · /solution-execution 공실 해소 솔루션(관계사 연계 실행은 별도 계약) · /solution-strategy 리포지셔닝·MD 기획 · /solution-value 자산관리(PM) · /solution-transaction 매입·매각 자문
   - /analysis 상권분석 시스템 소개 · /analysis-tool 무료 상권분석 바로 하기 · /analysis-data 데이터·지표 안내 · /strategy 브랜딩·확장·오픈 전략
-  - /solution-franchise 프랜차이즈 출점 · /partners 협력사업 · /partner-loungex 라운지엑스("라운지엑스 파트너사", 역할 "점포개발 상권분석자문")
-  - /owners 건물 1차 진단 · /properties 매물·딜 · /contact 문의(?type=owner·investor·brand·franchise·loungex·analysis) · /glossary 용어사전 · /faq 자주 묻는 질문
+  - /partners 협력사업 · /partner-loungex 라운지엑스("라운지엑스 파트너사", 역할 "점포개발 상권분석자문")
+  - /owners 건물 1차 진단 · /properties 공개 매물 · /lease-request 맞춤 매물 의뢰 · /valuation 매각가 검토 리포트(매각·가격 글에서 연결) · /cobroke 공동중개 · /contact 문의(?type=owner·investor·brand·franchise·loungex·analysis) · /glossary 용어사전 · /faq 자주 묻는 질문
 - 설계·시공·운영·법무·세무는 관계사·외부 전문기관이 별도 계약으로 수행합니다. 오르비스는 공인중개사법이 정한 범위에서 부동산의 이용·개발·거래 상담과 중개를 맡습니다.
+
+- 용어 기준(2026-11-24): 임대 자문·임차 자문, 공실 해소·리포지셔닝, 자산관리(PM)·임대차 관리(LM)·시설관리(FM), 운영비(OPEX)·순영업소득(NOI), 매각가 검토·매각 투자안내서(IM)·매수의향서(LOI)·실사, 임차인(‘세입자’ 대신), 매수인(‘매수자’ 대신). 영문 약어는 글에서 처음 나올 때 한 번만 풀어 씁니다. 검색어로 필요한 ‘꼬마빌딩’은 ‘중소형 빌딩’과 함께 씁니다.
 
 ## 2. 반드시 지킬 원칙
 

@@ -18,6 +18,8 @@ const EVENTS = [
   ['form_submit', '문의 접수 완료', '양식 제출이 끝난 횟수'],
   ['form_invalid', '양식 입력 오류', '필수 항목이 비어 제출이 막힌 횟수'],
   ['newsletter_signup', '뉴스레터 구독', '구독 신청 완료'],
+  ['listing_open', '매물 상세 열기', '매물 카드를 눌러 상세를 본 횟수'],
+  ['valuation_preview', '매각가 거래사례 조회', '지번으로 인근 거래사례를 조회한 횟수'],
   ['download_profile', '회사소개서 내려받기', '소개서 파일을 연 횟수'],
   ['analysis_run', '상권분석 실행', '상권분석 화면에서 분석을 돌린 횟수'],
   ['analysis_consult', '상권분석 → 상담', '분석 결과로 상담 받기를 누른 횟수'],

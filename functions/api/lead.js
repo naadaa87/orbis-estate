@@ -16,7 +16,7 @@
 
 const SITE = 'https://orbis-estate.com';
 export const RETENTION_DAYS = 365; // 개인정보처리방침: 수집일로부터 1년 (계약 단계는 제외)
-const SUMMARY_KEYS = ['희망 지역', '예상 용도', '희망 면적', '예상 보증금', '예상 월 임대료', '자산 소재지', '자산유형', '관심 지역', '예산', '업종', '검토 주소', '관심 업종', '브랜드', '목표 지역', '문의 구분', '제목'];
+const SUMMARY_KEYS = ['매물번호', '관련 공고', '물건 소재지', '물건 유형', '거래 형태', '가격', '희망 매각가', '희망 지역', '예상 용도', '희망 면적', '예상 보증금', '예상 월 임대료', '자산 소재지', '자산유형', '관심 지역', '예산', '업종', '검토 주소', '관심 업종', '브랜드', '목표 지역', '문의 구분', '제목'];
 const SCHEMA = [
   `CREATE TABLE IF NOT EXISTS leads (id TEXT PRIMARY KEY, created_at TEXT NOT NULL, updated_at TEXT, type TEXT, name TEXT, phone TEXT, email TEXT, page TEXT, summary TEXT, status TEXT NOT NULL DEFAULT 'new', memo TEXT, data TEXT NOT NULL, notified INTEGER NOT NULL DEFAULT 0, ip_hash TEXT, country TEXT)`,
   `CREATE INDEX IF NOT EXISTS leads_created ON leads(created_at)`,

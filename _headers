@@ -17,6 +17,13 @@
 /data/*
   Cache-Control: public, max-age=3600
 
+/llms.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=3600
+
+/r/*
+  X-Robots-Tag: noindex, nofollow
+
 # 검색 노출용 대표 주소는 https://orbis-estate.com 하나만 씁니다.
 # Cloudflare 기본 주소(pages.dev)와 미리보기 주소, www 주소는 검색 결과에 나오지 않게 합니다.
 https://:project.pages.dev/*
