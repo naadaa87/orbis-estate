@@ -5,8 +5,16 @@
     <link>https://orbis-estate.com/</link>
     <description>강남 부동산 중개법인 오르비스의 부동산 시장동향·투자·상권분석·점포개발·계약/법률·자산관리 가이드</description>
     <language>ko</language>
-    <lastBuildDate>Mon, 23 Nov 2026 11:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 24 Nov 2026 11:00:00 +0900</lastBuildDate>
     <atom:link href="https://orbis-estate.com/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>상가 임장 체크리스트, 요일·시간대별로 나눠 보는 법</title>
+      <link>https://orbis-estate.com/insights/retail-site-visit-checklist</link>
+      <guid isPermaLink="true">https://orbis-estate.com/insights/retail-site-visit-checklist</guid>
+      <pubDate>Tue, 24 Nov 2026 11:00:00 +0900</pubDate>
+      <category>상권분석</category>
+      <description>상가 임장은 한 번 가서 분위기를 보는 일이 아니라 요일과 시간대를 나눠 같은 항목을 반복해 기록하는 일입니다. 평일·주말, 출근·점심·저녁·심야별 관찰 포인트와 점포 자체 점검 항목, 그대로 쓸 수 있는 기록 양식을 정리했습니다.</description>
+    </item>
     <item>
       <title>1인가구 상권, 혼자 사는 동네에서 업종이 바뀌는 방식</title>
       <link>https://orbis-estate.com/insights/single-person-households-neighborhood-retail</link>
@@ -318,14 +326,6 @@
       <pubDate>Mon, 26 Oct 2026 19:00:00 +0900</pubDate>
       <category>브랜드·출점</category>
       <description>브랜드 첫 매장을 테스트 매장, 플래그십 스토어, 수익 기반 매장 중 무엇으로 여느냐에 따라 입지 기준과 계약 기간·중도해지·원상복구 조건, 성공 지표가 달라집니다. 팝업스토어 검증과 두 번째 매장 판단 기준까지 정리했습니다.</description>
-    </item>
-    <item>
-      <title>보유 건물, 매각·임대·개발 중 무엇을 먼저 검토할까</title>
-      <link>https://orbis-estate.com/insights/sell-lease-or-develop</link>
-      <guid isPermaLink="true">https://orbis-estate.com/insights/sell-lease-or-develop</guid>
-      <pubDate>Mon, 26 Oct 2026 18:50:00 +0900</pubDate>
-      <category>투자전략</category>
-      <description>건물 매각 시기와 빌딩 매각 전략을 정하기 전에 보유 목적, 자산 상태, 용도지역·용적률과 용도변경, 시장 국면, 세금·비용, 실행 역량 순서로 점검하는 방법과 네 가지 선택지 비교표, 결정 전 점검 질문 10개를 정리했습니다.</description>
     </item>
   </channel>
 </rss>
