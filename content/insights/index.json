@@ -1,6 +1,26 @@
 {
-  "generatedAt": "2026-11-23T11:01:00+09:00",
+  "generatedAt": "2026-11-24T09:50:00+09:00",
   "posts": [
+    {
+      "slug": "retail-site-visit-checklist",
+      "title": "상가 임장 체크리스트, 요일·시간대별로 나눠 보는 법",
+      "category": "area",
+      "status": "scheduled",
+      "url": "/insights/retail-site-visit-checklist",
+      "date": "2026-11-24T11:00:00+09:00",
+      "updated": null,
+      "description": "상가 임장은 한 번 가서 분위기를 보는 일이 아니라 요일과 시간대를 나눠 같은 항목을 반복해 기록하는 일입니다. 평일·주말, 출근·점심·저녁·심야별 관찰 포인트와 점포 자체 점검 항목, 그대로 쓸 수 있는 기록 양식을 정리했습니다.",
+      "keywords": [
+        "상가 임장 체크리스트",
+        "상가 임장 방법",
+        "점포 임장",
+        "창업 입지 현장 조사",
+        "상권 임장"
+      ],
+      "readMin": 6,
+      "warnings": [],
+      "errors": []
+    },
     {
       "slug": "single-person-households-neighborhood-retail",
       "title": "1인가구 상권, 혼자 사는 동네에서 업종이 바뀌는 방식",
