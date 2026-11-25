@@ -1,6 +1,26 @@
 {
-  "generatedAt": "2026-11-24T11:02:00+09:00",
+  "generatedAt": "2026-11-25T09:58:00+09:00",
   "posts": [
+    {
+      "slug": "commercial-lease-registration-order",
+      "title": "상가 보증금을 못 돌려받을 때, 임차권등기명령 요건과 절차",
+      "category": "legal",
+      "status": "scheduled",
+      "url": "/insights/commercial-lease-registration-order",
+      "date": "2026-11-25T11:00:00+09:00",
+      "updated": null,
+      "description": "상가 계약이 끝났는데 보증금을 돌려받지 못했을 때 쓰는 임차권등기명령의 신청 요건, 첨부서류, 등기까지의 순서, 등기 뒤의 효과를 상가건물 임대차보호법 제6조 기준으로 정리했습니다. 환산보증금 판단표와 이사 전 점검표를 담았습니다.",
+      "keywords": [
+        "임차권등기명령 상가",
+        "상가 보증금 반환",
+        "상가 임차권등기",
+        "임차권등기명령 신청",
+        "상가 보증금 못 받을 때"
+      ],
+      "readMin": 8,
+      "warnings": [],
+      "errors": []
+    },
     {
       "slug": "retail-site-visit-checklist",
       "title": "상가 임장 체크리스트, 요일·시간대별로 나눠 보는 법",
