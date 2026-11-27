@@ -21,6 +21,14 @@
   Content-Type: text/plain; charset=utf-8
   Cache-Control: public, max-age=3600
 
+/llms-full.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=3600
+
+/search-index.json
+  X-Robots-Tag: noindex
+  Cache-Control: public, max-age=600
+
 /r/*
   X-Robots-Tag: noindex, nofollow
 

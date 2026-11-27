@@ -3,7 +3,7 @@
 # - content/ 폴더가 바뀔 때(관리자 화면 저장, 자동 집필): 바로 사이트 파일을 다시 만듭니다
 # - 직접 실행: 저장소 → Actions → "인사이트 발행" → Run workflow
 # 사이트 파일이 바뀌면 커밋해 두고, Cloudflare Pages가 자동으로 배포합니다.
-# 새로 공개된 글은 IndexNow로 네이버 서치어드바이저·빙에 알립니다.
+# 새로 공개된 글과 바뀐 페이지(고정 페이지·길잡이·계산기·용어)는 IndexNow로 네이버 서치어드바이저·빙에 알립니다.
 name: 인사이트 발행
 
 on:
@@ -12,6 +12,10 @@ on:
     paths:
       - "content/**"
       - "scripts/content/**"
+      - "*.html"
+      - "glossary/**"
+      - "tools/**"
+      - "guides/**"
   schedule:
     - cron: "45 1 * * *"
   workflow_dispatch:
@@ -50,7 +54,7 @@ jobs:
             git fetch --quiet origin main
             git reset --quiet --hard origin/main
             node scripts/content/build.mjs
-            git add -A -- insights '*.html' app.js sitemap.xml rss.xml content/insights/index.json admin/sitegen.mjs
+            git add -A -- insights glossary tools guides '*.html' app.js sitemap.xml rss.xml search-index.json llms.txt llms-full.txt content/insights/index.json admin/sitegen.mjs admin/seo-data.json
             if git diff --cached --quiet; then echo "바뀐 사이트 파일이 없습니다."; break; fi
             git commit --quiet -m "인사이트 발행 $(TZ=Asia/Seoul date +'%Y-%m-%d %H:%M')"
             if git push --quiet origin HEAD:main; then changed=1; break; fi

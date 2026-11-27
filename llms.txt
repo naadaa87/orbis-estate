@@ -1,6 +1,6 @@
 # 오르비스중개법인 (ORBIS Real Estate Brokerage)
 
-> 서울 강남구 테헤란로의 상업용 부동산 중개법인입니다. 프랜차이즈 임대차, 공실 해소, 자산관리(PM), 중소형 빌딩 매입·매각 자문을 한 흐름으로 맡습니다. 이 파일은 검색·AI 서비스가 사이트 내용을 정확히 읽도록 정리한 요약입니다.
+> 서울 강남구 테헤란로의 상업용 부동산 중개법인입니다. 프랜차이즈 임대차, 공실 해소, 자산관리(PM), 중소형 빌딩 매입·매각 자문을 한 흐름으로 맡습니다. 이 파일은 검색·AI 서비스가 사이트 내용을 정확히 읽도록 정리한 요약입니다. 전체 요약본은 https://orbis-estate.com/llms-full.txt 에 있습니다.
 
 - 상호: 오르비스중개법인 · 대표 이상민
 - 중개사무소 개설등록번호: 11680-2025-00157
@@ -11,34 +11,70 @@
 
 ## 서비스 (임차인 유치에서 매각까지 4단계)
 
-1. 프랜차이즈 임대차 자문 — 브랜드 출점 기준 정리, 후보지 소싱, 상권분석, 임대차 조건 협상(렌트프리·인도 조건 등). https://orbis-estate.com/solution-franchise
-2. 공실 해소 솔루션 — 비어 있는 층의 용도와 임차인 구성(MD)을 다시 짜는 리포지셔닝, 임대 마케팅. https://orbis-estate.com/solution-execution · 기획 단계: https://orbis-estate.com/solution-strategy
-3. 자산관리(PM) — 임대차 관리, 시설관리, 운영비(OPEX) 점검으로 순영업소득(NOI) 개선. https://orbis-estate.com/solution-value
-4. 매입·매각 자문 — 거래사례 비교로 매각가 검토, 매각 투자안내서(IM) 작성, 매수인 마케팅, 매수의향서(LOI)·매매계약 진행. https://orbis-estate.com/solution-transaction
+1. [프랜차이즈 임대차 자문](https://orbis-estate.com/solution-franchise): 브랜드 출점 기준 정리, 후보지 소싱, 상권분석, 임대차 조건 협상(렌트프리·인도 조건 등).
+2. [공실 해소 솔루션](https://orbis-estate.com/solution-execution): 비어 있는 층의 용도와 임차인 구성(MD)을 다시 짜는 리포지셔닝, 임대 마케팅. 기획 단계는 [리포지셔닝·MD 기획](https://orbis-estate.com/solution-strategy).
+3. [자산관리(PM)](https://orbis-estate.com/solution-value): 임대차 관리, 시설관리, 운영비(OPEX) 점검으로 순영업소득(NOI) 개선.
+4. [매입·매각 자문](https://orbis-estate.com/solution-transaction): 거래사례 비교로 매각가 검토, 매각 투자안내서(IM) 작성, 매수인 마케팅, 매수의향서(LOI)·매매계약 진행.
 
 기본 생각: 자산가치 ≈ 순영업소득(NOI) ÷ 환원수익률(Cap Rate). 임대수익을 안정시키고 운영비를 줄이는 일이 매각가의 근거가 됩니다. 결과는 자산과 시장 여건에 따라 달라지며 수익을 보장하지 않습니다.
 
 ## 바로 쓸 수 있는 것
 
-- 공개 매물(사무실·상가 임대, 중소형 빌딩 매매): https://orbis-estate.com/properties — 실제 의뢰받은 매물만 법정 표시사항과 함께 게시합니다.
-- 맞춤 매물 의뢰(지역·면적·예산을 남기면 찾아 드림): https://orbis-estate.com/lease-request
-- 매각가 검토 리포트(지번을 알려 주면 인근 실거래 사례·공시지가·건축물대장으로 매각 가격을 검토): https://orbis-estate.com/valuation — 매각 검토용 참고자료이며 감정평가서가 아닙니다.
-- 공동중개(구하는 물건 공고, 중개사무소 물건 접수): https://orbis-estate.com/cobroke
-- 건물주 1차 진단(공실·임대·매각 방향): https://orbis-estate.com/owners
-- 상권분석 시스템(주소 반경의 점포 구성, 임대료 참고값, 실거래): https://orbis-estate.com/analysis-tool
+- [공개 매물](https://orbis-estate.com/properties): 사무실·상가 임대, 중소형 빌딩 매매. 실제 의뢰받은 매물만 법정 표시사항과 함께 게시합니다.
+- [맞춤 매물 의뢰](https://orbis-estate.com/lease-request): 지역·면적·예산을 남기면 조건에 맞는 공간을 찾아 안내합니다.
+- [매각가 검토 리포트](https://orbis-estate.com/valuation): 지번을 알려 주면 인근 실거래 사례·공시지가·건축물대장으로 매각 가격을 검토합니다. 감정평가서가 아닌 참고자료입니다.
+- [공동중개](https://orbis-estate.com/cobroke): 구하는 물건 공고와 중개사무소 물건 접수.
+- [건물 1차 진단](https://orbis-estate.com/owners): 공실·임대·매각 방향을 무료로 1차 검토합니다.
+- [상권분석 시스템](https://orbis-estate.com/analysis-tool): 주소 반경의 점포 구성, 임대료 참고값, 실거래를 무료로 봅니다.
 
-## 파트너
+## 계산기 (2026년 11월 현행 기준, 무료)
 
-- 라운지엑스 파트너사 — 점포개발 상권분석자문. https://orbis-estate.com/partner-loungex
+- [부동산 중개보수 계산기](https://orbis-estate.com/tools/brokerage-fee): 상가·사무실·주택·오피스텔의 상한 요율과 금액.
+- [환산보증금 계산기](https://orbis-estate.com/tools/converted-deposit): 상가건물 임대차보호법이 어디까지 적용되는지 확인.
+- [상가·빌딩 수익률 계산기](https://orbis-estate.com/tools/yield): 표면수익률·캡레이트·대출 반영 자기자본 수익률.
+- [평수·전용률 계산기](https://orbis-estate.com/tools/area): ㎡↔평 변환, 전용률, 전용 평당 임대료(NOC).
+- [상가·빌딩 취득 비용 계산기](https://orbis-estate.com/tools/acquisition-cost): 취득세 4.6%·중개보수·등기 비용과 필요 자기자본.
+- [실효임대료 계산기](https://orbis-estate.com/tools/effective-rent): 렌트프리·TI를 반영한 실제 월 임대료.
+- [상가 임대료 인상·월세 전환 계산기](https://orbis-estate.com/tools/rent-increase): 5% 증액 상한과 보증금→월세 전환 한도.
+
+## 실무 길잡이 (단계별 안내)
+
+- [건물 매각 가이드](https://orbis-estate.com/guides/building-sale): 보유 판단, 매각가 검토, 자료 준비, 실사와 계약.
+- [꼬마빌딩 매입 가이드](https://orbis-estate.com/guides/small-building-purchase): 자금 계획, 수익률 검토, 권리 확인, 실사와 비용.
+- [상가 임대차 가이드](https://orbis-estate.com/guides/retail-lease): 계약 전 확인, 권리금, 대항력, 인상·갱신·원상복구.
+- [사무실 임대 가이드](https://orbis-estate.com/guides/office-lease): 권역 선택, 전용률, 임대료·관리비, 렌트프리 협상.
+- [프랜차이즈 출점 가이드](https://orbis-estate.com/guides/franchise-expansion): 출점 기준, 상권분석, 후보 점포 평가, 조건 협상.
+- [공실 해소 가이드](https://orbis-estate.com/guides/vacancy): 원인 진단, 임대 조건, MD·리포지셔닝, 시설 개선.
+- [상권분석 가이드](https://orbis-estate.com/guides/trade-area-analysis): 상권 범위, 배후수요, 유동·동선, 경쟁, 현장 확인.
 
 ## 읽을거리
 
-- 인사이트(시장 동향·투자·상권분석·계약·법률, 매일 새 글): https://orbis-estate.com/insights
-- 부동산 용어사전: https://orbis-estate.com/glossary
-- 자주 묻는 질문: https://orbis-estate.com/faq
-- 회사 소개: https://orbis-estate.com/about
+- [인사이트](https://orbis-estate.com/insights): 시장 동향·투자·상권분석·계약·법률 실무 글 49편, 매일 새 글.
+- [부동산 용어사전](https://orbis-estate.com/glossary): 임대차·투자·상권·등기 용어 70개, 용어마다 개별 페이지.
+- [자주 묻는 질문](https://orbis-estate.com/faq)
+- [회사 소개](https://orbis-estate.com/about) · [대표 소개](https://orbis-estate.com/leadership)
+
+### 최근 글
+
+- [상가 경매 전에 확인할 권리분석 기초](https://orbis-estate.com/insights/commercial-auction-rights-analysis): 상가 경매에 들어가기 전 말소기준권리를 찾는 순서, 상가 임차인의 대항력과 보증금 인수 여부, 소액임차인 최우선변제 기준, 등기부에 나오지 않는…
+- [상가 보증금을 못 돌려받을 때, 임차권등기명령 요건과 절차](https://orbis-estate.com/insights/commercial-lease-registration-order): 상가 계약이 끝났는데 보증금을 돌려받지 못했을 때 쓰는 임차권등기명령의 신청 요건, 첨부서류, 등기까지의 순서, 등기 뒤의 효과를 상가건물 임대차보호법 제6조…
+- [상가 임장 체크리스트, 요일·시간대별로 나눠 보는 법](https://orbis-estate.com/insights/retail-site-visit-checklist): 상가 임장은 한 번 가서 분위기를 보는 일이 아니라 요일과 시간대를 나눠 같은 항목을 반복해 기록하는 일입니다.
+- [1인가구 상권, 혼자 사는 동네에서 업종이 바뀌는 방식](https://orbis-estate.com/insights/single-person-households-neighborhood-retail): 2025년 인구주택총조사에서 1인가구는 824만 가구, 일반가구의 36.6%가 됐습니다.
+- [금리 상승기와 하락기, 상가 수익률 스프레드 읽는 법](https://orbis-estate.com/insights/commercial-yield-spread-interest-rate-cycle): 상가 수익률 스프레드를 국고채 금리와 대출금리 두 기준으로 나눠 정리했습니다. 2026년 11월 금리 수준과 3분기 소득수익률 비교, 금리 상승기·하락기에 같은…
+- [임차인 재계약이 새 임차인보다 나은 경우, 공실 비용으로 계산하기](https://orbis-estate.com/insights/tenant-renewal-vs-new-tenant-vacancy-cost): 상가 임차인 재계약과 새 임차인 유치 중 무엇이 나은지 공실 기간·렌트프리·중개보수·수선비를 넣은 계산 예시(가정)로 비교하고, 갱신요구권과 5% 증액 상한,…
+- [직영점과 가맹점, 브랜드 확장 순서 정하는 법](https://orbis-estate.com/insights/franchise-direct-store-expansion-order): 프랜차이즈 직영점을 몇 곳, 얼마나 운영한 뒤 가맹을 열지 판단하는 기준을 정리했습니다.
+- [임차인 있는 상가를 살 때, 임대차 승계와 보증금 정산](https://orbis-estate.com/insights/buying-tenanted-retail-lease-assumption): 임차인이 있는 상가·빌딩을 매수할 때 임대인 지위 승계로 넘어오는 의무, 매도인을 거쳐야만 받을 수 있는 임대차 정보, 보증금·선수 월세·연체 차임을 잔금에서…
+- [건물주가 바뀌면 상가 임차인의 권리는 어떻게 되나](https://orbis-estate.com/insights/landlord-change-commercial-tenant-rights): 상가 건물주가 바뀌었을 때 계약이 그대로 이어지는 조건, 보증금을 누구에게 돌려받는지, 밀린 월세와 따로 맺은 약정이 어떻게 되는지를 상가건물 임대차보호법…
+- [경쟁점 분석, 거리·규모·가격대·대기 줄을 기록하는 법](https://orbis-estate.com/insights/competitor-store-analysis): 경쟁점 분석은 주변 가게 수를 세는 데서 끝나면 판단에 쓰기 어렵습니다. 직접·간접 경쟁점을 나누는 기준, 거리·규모·가격대·대기 줄을 같은 양식으로 적는 법,…
+- [서울 상권변화지표 해석법, LL·LH·HL·HH가 말해 주는 것](https://orbis-estate.com/insights/seoul-trade-area-change-index): 서울시 상권분석서비스의 상권변화지표를 업종 선택과 임대 전략에 쓰는 법을 정리했습니다.
+- [상권 범위 설정, 반경 대신 실제 생활권으로 자르는 법](https://orbis-estate.com/insights/trade-area-boundary-setting): 상권 범위 설정을 반경 원 하나로 끝내면 숫자가 틀어집니다. 큰길·경사·하천·철도·횡단보도 같은 단절 요소로 실제 생활권을 자르는 순서, 서울시 상권분석서비스의…
+
+## 파트너
+
+- [라운지엑스 파트너사](https://orbis-estate.com/partner-loungex): 점포개발 상권분석자문.
 
 ## 알아 둘 점
 
 - 중개보수는 공인중개사법령이 정한 상한 안에서 계약 전에 협의합니다.
 - 사이트의 수치와 사례는 작성 시점 기준이며, 개별 거래의 결과를 약속하지 않습니다.
+- 법령·요율·기준금리처럼 바뀌는 값에는 기준 시점을 적었습니다. 인용할 때 기준 시점을 함께 밝혀 주세요.

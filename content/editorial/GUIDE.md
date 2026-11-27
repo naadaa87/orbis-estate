@@ -14,7 +14,9 @@
   - /solution-franchise 프랜차이즈 임대차 자문 · /solution-execution 공실 해소 솔루션(관계사 연계 실행은 별도 계약) · /solution-strategy 리포지셔닝·MD 기획 · /solution-value 자산관리(PM) · /solution-transaction 매입·매각 자문
   - /analysis 상권분석 시스템 소개 · /analysis-tool 무료 상권분석 바로 하기 · /analysis-data 데이터·지표 안내 · /strategy 브랜딩·확장·오픈 전략
   - /partners 협력사업 · /partner-loungex 라운지엑스("라운지엑스 파트너사", 역할 "점포개발 상권분석자문")
-  - /owners 건물 1차 진단 · /properties 공개 매물 · /lease-request 맞춤 매물 의뢰 · /valuation 매각가 검토 리포트(매각·가격 글에서 연결) · /cobroke 공동중개 · /contact 문의(?type=owner·investor·brand·franchise·loungex·analysis) · /glossary 용어사전 · /faq 자주 묻는 질문
+  - /owners 건물 1차 진단 · /properties 공개 매물 · /lease-request 맞춤 매물 의뢰 · /valuation 매각가 검토 리포트(매각·가격 글에서 연결) · /cobroke 공동중개 · /contact 문의(?type=owner·investor·brand·franchise·loungex·analysis) · /glossary 용어사전(용어마다 /glossary/<주소> 개별 페이지) · /faq 자주 묻는 질문
+  - /tools 부동산 계산기: /tools/brokerage-fee 중개보수 · /tools/converted-deposit 환산보증금 · /tools/yield 수익률 · /tools/area 평수·전용률 · /tools/acquisition-cost 취득 비용 · /tools/effective-rent 실효임대료 · /tools/rent-increase 임대료 인상·월세 전환
+  - /guides 실무 길잡이: /guides/building-sale 건물 매각 · /guides/small-building-purchase 꼬마빌딩 매입 · /guides/retail-lease 상가 임대차 · /guides/office-lease 사무실 임대 · /guides/franchise-expansion 프랜차이즈 출점 · /guides/vacancy 공실 해소 · /guides/trade-area-analysis 상권분석
 - 설계·시공·운영·법무·세무는 관계사·외부 전문기관이 별도 계약으로 수행합니다. 오르비스는 공인중개사법이 정한 범위에서 부동산의 이용·개발·거래 상담과 중개를 맡습니다.
 
 - 용어 기준(2026-11-24): 임대 자문·임차 자문, 공실 해소·리포지셔닝, 자산관리(PM)·임대차 관리(LM)·시설관리(FM), 운영비(OPEX)·순영업소득(NOI), 매각가 검토·매각 투자안내서(IM)·매수의향서(LOI)·실사, 임차인(‘세입자’ 대신), 매수인(‘매수자’ 대신). 영문 약어는 글에서 처음 나올 때 한 번만 풀어 씁니다. 검색어로 필요한 ‘꼬마빌딩’은 ‘중소형 빌딩’과 함께 씁니다.
@@ -46,6 +48,20 @@
 - 내부 링크 2~4개(서비스 페이지 1~2개 + 다른 인사이트 글 1~2개). 링크 글자는 내용을 설명하는 말로.
 - FAQ 3~5개: 검색창에 실제로 칠 법한 질문 형태.
 - 최근 60일 안에 쓴 글과 핵심 검색어가 겹치지 않게 합니다(content/insights/index.json 확인).
+
+### 검색과 AI 답변에 함께 잘 잡히는 글 (2026-11-27 보강)
+
+구글은 AI 개요·AI 모드에도 일반 검색과 같은 기준을 쓴다고 밝혔고, 네이버 AI 브리핑은 개념·방법·도구를 설명하는 글에서 기업 사이트를 출처로 올리는 편입니다. 따로 꾸미는 기술보다 아래 기본을 지킵니다.
+
+- **질문에 먼저 답합니다.** 도입 문단과 각 H2 바로 아래 첫 문장에서 그 소제목의 답을 한두 문장으로 말하고, 근거와 예외는 그 뒤에 씁니다. 답이 문단 끝에 가서야 나오는 구성을 피합니다.
+- **소제목 한두 개는 검색창에 치는 말 그대로 씁니다.** 예: "환산보증금이 9억원을 넘으면 어떻게 되나", "상가 월세는 1년에 얼마까지 올릴 수 있나". 전부를 질문으로 바꾸지는 않습니다.
+- **숫자에는 기준 시점과 출처를 붙입니다.** "2026년 11월 현재", "한국부동산원 2026년 3분기"처럼 씁니다. AI는 날짜와 출처가 붙은 문장을 인용하기 쉽습니다.
+- **남의 글을 요약한 내용만으로 채우지 않습니다.** 계산 예시(가정), 비교표, 점검 질문, 현장에서 확인하는 순서처럼 이 글에서만 얻을 수 있는 것을 한 가지 이상 넣습니다.
+- **용어는 용어사전에 있는 이름으로 씁니다.** 본문에 처음 나오는 용어는 사이트가 자동으로 용어 페이지에 연결합니다(글마다 최대 8개). 용어사전에 없는 새 용어를 설명했다면 `content/pages/glossary.md`와 `glossary-extra.json`에 추가하는 것을 검토합니다.
+- **계산이 나오는 글은 계산기를 연결합니다.** 중개보수·환산보증금·수익률·전용률·취득 비용·실효임대료·임대료 인상을 다루면 본문에서 해당 `/tools/...`를 한 번 링크합니다(글 끝에는 자동으로 붙습니다).
+- **길잡이에 들어갈 글인지 봅니다.** 새 글이 `/guides/...`의 어느 단계에 해당하면 `scripts/content/extra-data.mjs`의 그 단계 목록에 slug를 넣습니다. 넣지 않아도 같은 분야 글은 길잡이 아래 '더 읽을 글'에 자동으로 실립니다.
+- **같은 검색어를 노린 글을 늘리지 않습니다.** 검색어만 조금 바꾼 비슷한 글을 여러 편 쓰는 것은 구글의 대량 생성 콘텐츠 정책에 걸립니다. 기존 글을 고치고 `updated`를 넣는 편이 낫습니다.
+- FAQ의 질문은 본문에서 이미 답한 내용을 한 줄로 다시 묻는 형태가 좋습니다. 답은 2~3문장으로 그 자체로 읽히게 씁니다.
 
 ## 5. 분량과 구성
 
@@ -123,7 +139,7 @@ related: [다른-글-slug, 다른-글-slug]
    - 사람 이름은 대표 외에 없다
    - 사람이 쓴 듯 자연스럽고, 독자가 바로 쓸 도구가 있다
 8. 원고와 이미지, topics.md(그리고 nextTopic을 비웠다면 settings.json)만 커밋합니다(사이트 파일은 깃허브 Actions '인사이트 발행'이 만듭니다). 커밋 메시지: `인사이트 예약: <제목> (<날짜> 11:00 공개)`.
-9. 깃허브 Actions의 정기 발행은 몇 시간씩 늦게 시작되는 날이 많으므로 기다리지 않습니다. 11시가 지나면 `git pull --rebase` 후 `node scripts/content/build.mjs`를 실행하고, 바뀐 사이트 파일(`git add -A -- insights '*.html' app.js sitemap.xml rss.xml content/insights/index.json admin/sitegen.mjs`)을 커밋·푸시합니다. 푸시하면 Actions가 새 글 주소를 IndexNow로 네이버·빙에 알립니다.
+9. 깃허브 Actions의 정기 발행은 몇 시간씩 늦게 시작되는 날이 많으므로 기다리지 않습니다. 11시가 지나면 `git pull --rebase` 후 `node scripts/content/build.mjs`를 실행하고, 바뀐 사이트 파일(`git add -A -- insights glossary tools guides '*.html' app.js sitemap.xml rss.xml search-index.json llms.txt llms-full.txt content/insights/index.json admin/sitegen.mjs admin/seo-data.json`)을 커밋·푸시합니다. 푸시하면 Actions가 새 글 주소를 IndexNow로 네이버·빙에 알립니다.
 10. 3분쯤 뒤 https://orbis-estate.com/insights/<slug> 가 열리는지 확인합니다.
 
 ## 9. 고칠 때

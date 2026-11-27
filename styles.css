@@ -1521,3 +1521,202 @@ a.vc-step:hover .vc-go{color:var(--gold-t)}
   .vl-search{flex-direction:column}.vl-stats{grid-template-columns:minmax(0,1fr)}
 }
 @media(max-width:560px){.ls-grid,.ls-grid.four,.qa-grid,.vl-pages,.co-steps{grid-template-columns:minmax(0,1fr)}.ls-filter input[type=search]{width:100%}.ls-filter select{flex:1}.ld-dl div{grid-template-columns:100px 1fr}}
+
+/* ============================================================
+   v6 (2026.11.27) 검색 노출 보강 — 용어 개별 페이지 · 계산기 · 길잡이 · 사이트 검색
+   ============================================================ */
+/* 헤더 검색 버튼 */
+.nav-search{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;color:var(--navy);transition:.16s;flex:none}
+.nav-search svg{width:19px;height:19px}
+.nav-search:hover{background:var(--soft);color:var(--gold-t)}
+.drawer a.d-search{display:flex;align-items:center;gap:10px}
+.drawer a.d-search svg{width:18px;height:18px;opacity:.8}
+@media(max-width:1180px){.nav-tel{display:none}}
+@media(max-width:560px){.nav-cta .btn.sm{display:none}}
+
+/* 본문 속 용어 링크 · 용어 칩 */
+.a-body a.gl{color:inherit;text-decoration:underline;text-decoration-style:dotted;text-decoration-color:var(--gold);text-underline-offset:4px;text-decoration-thickness:1.5px}
+.a-body a.gl:hover{color:var(--gold-t);text-decoration-style:solid}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips a{font-size:14px;font-weight:600;color:var(--navy);background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 14px;transition:.16s}
+.chips a:hover{border-color:var(--gold);color:var(--gold-t)}
+.chips a.all{background:transparent;border-color:transparent;color:var(--gold-t);display:inline-flex;align-items:center;gap:6px}
+.chips a.all svg{width:13px;height:13px}
+.a-terms{margin-top:42px}
+.a-terms h2{font-size:20px;margin:0 0 14px}
+.a-tools{margin:34px 0 0;background:var(--gold-soft);border:1px solid #E8DCBE;border-radius:14px;padding:20px 22px}
+.a-tools>b{display:block;font-size:13px;letter-spacing:.04em;color:var(--gold-t);margin-bottom:12px}
+.a-tools>div{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.a-tools a{display:flex;flex-direction:column;gap:3px;background:#fff;border:1px solid #EADFC5;border-radius:11px;padding:13px 16px;transition:.16s}
+.a-tools a:hover{border-color:var(--gold);box-shadow:var(--sh-sm);transform:translateY(-1px)}
+.a-tools a strong{font-size:15px;color:var(--navy)}
+.a-tools a span{font-size:13px;color:var(--slate);line-height:1.5}
+.a-faq a.src{display:inline-block;margin-top:6px;font-size:13.5px;font-weight:700;color:var(--gold-t)}
+.a-faq a.src:hover{text-decoration:underline}
+
+/* 용어사전 목록: 용어 제목 링크 */
+.a-body.glossary h3 a.g-term{display:inline-flex;align-items:baseline;gap:10px}
+.a-body.glossary h3 a.g-term span{font-size:12px;font-weight:700;color:var(--gold-t);border:1px solid #E8DCBE;border-radius:999px;padding:1px 9px;opacity:.85;white-space:nowrap}
+.a-body.glossary h3 a.g-term:hover{color:var(--gold-t)}
+
+/* 용어 개별 페이지 */
+.a-body.term h2{font-size:20px;margin:36px 0 12px}
+.a-body.term h2:first-child{margin-top:0}
+.term-tool{display:flex;align-items:center;gap:14px;margin:26px 0 0;background:var(--navy);color:#fff;border-radius:14px;padding:16px 20px;transition:.18s}
+.term-tool:hover{background:var(--navy2);transform:translateY(-2px)}
+.term-tool .ic{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:rgba(197,161,90,.18);color:var(--gold-l);flex:none}
+.term-tool .ic svg{width:21px;height:21px}
+.term-tool b{display:block;font-size:16px}
+.term-tool em{display:block;font-style:normal;font-size:13px;color:#C9D2E1;margin-top:2px}
+.term-tool>svg{width:16px;height:16px;margin-left:auto;color:var(--gold-l);flex:none}
+.term-svc{margin-top:16px;font-size:14.5px !important;color:var(--slate) !important}
+.term-svc a{font-weight:700;color:var(--navy);display:inline-flex;align-items:center;gap:6px}
+.term-svc a svg{width:13px;height:13px}
+.term-svc a:hover{color:var(--gold-t)}
+.a-body ul.term-posts li{padding:0;margin-bottom:8px}
+.a-body ul.term-posts li:before{display:none}
+.term-posts a{display:block;background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 18px;transition:.16s}
+.term-posts a:hover{border-color:#C7CEDA;box-shadow:var(--sh-sm)}
+.term-posts b{display:block;font-size:15.5px;color:var(--navy);line-height:1.45}
+.term-posts span{display:block;font-size:13.5px;color:var(--slate);margin-top:4px;line-height:1.55}
+.term-nav{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:34px;padding-top:22px;border-top:1px solid var(--line)}
+.term-nav a{display:flex;flex-direction:column;gap:2px;border:1px solid var(--line);border-radius:12px;padding:12px 16px;background:#fff;transition:.16s}
+.term-nav a:hover{border-color:var(--gold)}
+.term-nav a.nx{text-align:right}
+.term-nav span{font-size:12px;color:var(--slate2)}
+.term-nav b{font-size:15px;color:var(--navy)}
+
+/* 계산기 */
+.tool-grid,.gd-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.tool-card,.gd-card{display:flex;flex-direction:column;gap:6px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 22px 20px;transition:.18s}
+.tool-card:hover,.gd-card:hover{transform:translateY(-3px);box-shadow:var(--sh);border-color:#D3D8E0}
+.tool-card .ic,.gd-card .ic{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:var(--gold-soft);color:var(--gold-t);margin-bottom:8px}
+.tool-card .ic svg,.gd-card .ic svg{width:22px;height:22px}
+.tool-card b,.gd-card b{font-size:17px;color:var(--navy);line-height:1.4}
+.tool-card>span:not(.ic),.gd-card>span:not(.ic){font-size:14px;color:var(--slate);line-height:1.6}
+.tool-card em,.gd-card em{font-style:normal;font-size:13px;font-weight:700;color:var(--gold-t);display:inline-flex;align-items:center;gap:6px;margin-top:auto;padding-top:10px}
+.tool-card em svg,.gd-card em svg{width:13px;height:13px}
+.calc{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:22px;align-items:start}
+.calc-form{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px 26px 12px;box-shadow:var(--sh-sm)}
+.calc .cf{margin-bottom:16px;border:0;min-width:0}
+.calc .cf label,.calc .cf legend{display:block;font-size:13.5px;font-weight:700;color:var(--ink);margin-bottom:7px;padding:0}
+.calc .cf .in{display:flex;align-items:center;border:1.5px solid var(--line2);border-radius:10px;background:#fff;transition:.16s;overflow:hidden}
+.calc .cf .in:focus-within{border-color:var(--gold);box-shadow:0 0 0 3px rgba(197,161,90,.16)}
+.calc .cf .in input,.calc .cf .in select{flex:1;min-width:0;border:0;outline:0;background:transparent;font-family:var(--sans);font-size:16px;font-weight:600;color:var(--ink);padding:12px 14px;text-align:right;font-variant-numeric:tabular-nums}
+.calc .cf .in select{text-align:left;font-weight:600;cursor:pointer}
+.calc .cf .in span{flex:none;padding:0 14px 0 2px;font-size:14px;color:var(--slate2);font-weight:600}
+.calc .cf small{display:block;font-size:12.5px;color:var(--slate2);margin-top:5px;line-height:1.5}
+.calc .cf small.echo{color:var(--gold-t);font-weight:700;min-height:1.5em}
+.calc .cf2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.calc .cf-sep{font-size:12.5px;font-weight:800;color:var(--gold-t);letter-spacing:.04em;margin:8px 0 14px;padding-top:16px;border-top:1px dashed var(--line2)}
+.calc .seg>div{display:flex;flex-wrap:wrap;gap:8px}
+.calc .seg label{margin:0;cursor:pointer}
+.calc .seg input{position:absolute;opacity:0;pointer-events:none}
+.calc .seg span{display:block;font-size:14px;font-weight:700;color:var(--slate);border:1.5px solid var(--line2);border-radius:999px;padding:8px 15px;background:#fff;transition:.14s}
+.calc .seg input:checked+span{background:var(--navy);border-color:var(--navy);color:#fff}
+.calc .seg input:focus-visible+span{box-shadow:0 0 0 3px rgba(197,161,90,.3)}
+.calc-out{background:var(--navy);color:#fff;border-radius:16px;padding:26px;position:sticky;top:96px}
+.calc-out .co-main span{display:block;font-size:13.5px;color:#C9D2E1;font-weight:600}
+.calc-out .co-main b{display:block;font-size:clamp(28px,3.4vw,38px);font-weight:800;color:var(--gold-l);line-height:1.25;margin-top:6px;font-variant-numeric:tabular-nums;word-break:keep-all}
+.calc-out .co-main em{display:block;font-style:normal;font-size:13.5px;color:#DCE3EF;margin-top:6px;line-height:1.5}
+.calc-out dl{margin-top:20px;border-top:1px solid rgba(255,255,255,.14)}
+.calc-out dl>div{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:14.5px}
+.calc-out dl>div[hidden]{display:none}
+.calc-out dt{color:#C9D2E1;flex:none}
+.calc-out dd{font-weight:700;text-align:right;font-variant-numeric:tabular-nums}
+.calc-out .co-note{font-size:13px;color:#DCE3EF;line-height:1.6;margin-top:14px;background:rgba(255,255,255,.07);border-radius:10px;padding:11px 14px}
+.calc-out .co-note[hidden]{display:none}
+.calc-out.is-over .co-main em{color:#F3C9B5}
+.calc-out.is-in .co-main em{color:#CFE6C9}
+.co-table{width:100%;border-collapse:collapse;margin-top:18px;font-size:14px}
+.co-table th{text-align:left;font-size:12.5px;color:#C9D2E1;font-weight:700;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.18)}
+.co-table td{padding:9px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+.co-table td:last-child,.co-table th:last-child{text-align:right;white-space:nowrap;font-weight:700}
+.co-table td.y{color:#CFE6C9}
+.co-table td.n{color:#F3C9B5}
+.calc-foot{font-size:13px;color:var(--slate2);margin-top:16px;line-height:1.6}
+
+/* 길잡이 */
+.gd-step{scroll-margin-top:96px}
+.a-body.guide .gd-step h2{margin-top:44px}
+.a-body.guide .gd-step:first-child h2{margin-top:0}
+.a-body ul.gd-links{margin:4px 0 0}
+.a-body ul.gd-links li{padding:0;margin-bottom:8px}
+.a-body ul.gd-links li:before{display:none}
+.gd-links a{display:grid;grid-template-columns:auto 1fr;column-gap:12px;align-items:baseline;background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 18px;transition:.16s}
+.gd-links a:hover{border-color:#C7CEDA;box-shadow:var(--sh-sm)}
+.gd-links em{font-style:normal;font-size:11.5px;font-weight:800;color:var(--gold-t);background:var(--gold-soft);border-radius:6px;padding:2px 8px;white-space:nowrap}
+.gd-links b{font-size:15.5px;color:var(--navy);line-height:1.45}
+.gd-links span{grid-column:2;font-size:13.5px;color:var(--slate);line-height:1.55;margin-top:3px}
+
+/* 사이트 검색 */
+.sr-form{display:flex;gap:10px;margin-top:24px;max-width:680px}
+.sr-form input{flex:1;min-width:0;font-family:var(--sans);font-size:17px;padding:14px 18px;border:1.5px solid var(--line2);border-radius:12px;background:#fff;color:var(--ink);transition:.16s}
+.sr-form input:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(197,161,90,.16)}
+.sr-hints{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:16px;font-size:13.5px}
+.sr-hints[hidden]{display:none}
+.sr-hints span{color:var(--slate2);font-weight:700;margin-right:4px}
+.sr-hints a{color:var(--slate);border:1px solid var(--line);border-radius:999px;padding:4px 12px;background:#fff}
+.sr-hints a:hover{color:var(--navy);border-color:#C7CEDA}
+.sr-tabs{display:flex;flex-wrap:wrap;gap:8px}
+.sr-tabs[hidden]{display:none}
+.sr-tabs button{font-family:var(--sans);font-size:14px;font-weight:700;color:var(--slate);border:1.5px solid var(--line2);background:#fff;border-radius:999px;padding:7px 14px;cursor:pointer;transition:.14s}
+.sr-tabs button span{font-weight:600;opacity:.7;margin-left:2px}
+.sr-tabs button.on{background:var(--navy);border-color:var(--navy);color:#fff}
+.sr-count{font-size:14.5px;color:var(--slate);margin:16px 0 14px;min-height:1.5em}
+.sr-list{display:grid;gap:10px}
+.sr-item{display:block;background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 20px;transition:.16s}
+.sr-item:hover{border-color:#C7CEDA;box-shadow:var(--sh-sm)}
+.sr-item .k{display:inline-block;font-style:normal;font-size:11.5px;font-weight:800;color:var(--gold-t);background:var(--gold-soft);border-radius:6px;padding:2px 8px}
+.sr-item .k-3{color:var(--navy3);background:#EDF1F7}
+.sr-item .k-4{color:#2F6F6A;background:#E9F3F1}
+.sr-item .k-5{color:#6B5A8A;background:#F1EEF6}
+.sr-item .k-6{color:var(--slate);background:var(--soft)}
+.sr-item b{display:block;font-size:16.5px;color:var(--navy);margin-top:7px;line-height:1.45}
+.sr-item span{display:block;font-size:14px;color:var(--slate);margin-top:4px;line-height:1.6}
+.sr-item mark{background:#FBF0CF;color:inherit;border-radius:3px;padding:0 1px}
+
+/* 홈 · 실무 도구 구역 */
+.kit-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:30px}
+.kit{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px 24px 22px}
+.kit .ic{display:grid;place-items:center;width:46px;height:46px;border-radius:12px;background:var(--navy);color:var(--gold-l);margin-bottom:14px}
+.kit .ic svg{width:22px;height:22px}
+.kit h3{font-size:19px;font-weight:800;color:var(--navy)}
+.kit p{font-size:14.5px;color:var(--slate);margin-top:8px;line-height:1.65}
+.kit ul{list-style:none;margin:14px 0 0;padding:14px 0 0;border-top:1px solid var(--line)}
+.kit li a{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:14.5px;font-weight:600;color:var(--ink);padding:6px 0}
+.kit li a:hover{color:var(--gold-t)}
+.kit li a svg{width:13px;height:13px;color:var(--gold-t);flex:none}
+.kit .more{display:inline-flex;align-items:center;gap:6px;margin-top:auto;padding-top:14px;font-size:14px;font-weight:800;color:var(--navy)}
+.kit .more svg{width:14px;height:14px}
+.kit .more:hover{color:var(--gold-t)}
+
+@media(max-width:1080px){
+  .tool-grid,.gd-grid,.kit-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .calc{grid-template-columns:1fr}
+  .calc-out{position:static}
+}
+@media(max-width:640px){
+  .tool-grid,.gd-grid,.kit-grid{grid-template-columns:1fr}
+  .calc-form{padding:20px 18px 6px}
+  .calc-out{padding:22px 20px}
+  .calc .cf2{grid-template-columns:1fr;gap:0}
+  .calc-out dl>div{flex-direction:column;gap:2px}
+  .calc-out dd{text-align:left}
+  .sr-form{flex-direction:column}
+  .sr-form .btn{justify-content:center}
+  .term-nav{grid-template-columns:1fr}
+  .term-nav a.nx{text-align:left}
+  .gd-links a{grid-template-columns:1fr}
+  .gd-links span{grid-column:1}
+  .gd-links em{justify-self:start;margin-bottom:5px}
+}
+@media print{.nav-search,.calc-foot,.term-nav{display:none}}
+/* 본문 링크 기본 밑줄이 카드형 링크에 걸리지 않게 */
+.a-body .chips a,.a-body .a-tools a,.a-body .term-posts a,.a-body .gd-links a,.a-body .term-nav a,.a-body a.term-tool,.a-body .term-svc a,.a-body.glossary h3 a.g-term,.a-terms .chips a,.a-tools a{text-decoration:none}
+.a-body a.gl{font-weight:inherit}
+.a-body a.term-tool{color:#fff;font-weight:600}
+.a-body .chips a{font-weight:600}
+.calc [hidden]{display:none !important}
+.calc .seg span{white-space:nowrap}
+.a-body a.term-tool em{background:none}

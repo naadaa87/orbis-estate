@@ -1,5 +1,39 @@
 # 오르비스중개법인 robots.txt
+# 검색엔진과 AI 검색·답변 서비스의 수집을 허용합니다. 관리자 화면과 내부 API만 제외합니다.
+
 User-agent: *
+Allow: /
+Allow: /api/media/
+Disallow: /api/
+Disallow: /admin/
+Disallow: /cdn-cgi/
+Disallow: /r/
+
+# 주요 검색엔진 (네이버 Yeti · 구글 · 빙 · 다음 · 덕덕고 · 애플)
+User-agent: Yeti
+User-agent: Googlebot
+User-agent: Bingbot
+User-agent: Daum
+User-agent: Daumoa
+User-agent: DuckDuckBot
+User-agent: Applebot
+Allow: /
+Allow: /api/media/
+Disallow: /api/
+Disallow: /admin/
+Disallow: /cdn-cgi/
+Disallow: /r/
+
+# AI 검색·답변 서비스 (검색 색인, 이용자가 물었을 때의 열람)
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: DuckAssistBot
+User-agent: MistralAI-User
+User-agent: Meta-WebIndexer
 Allow: /
 Allow: /api/media/
 Disallow: /api/
@@ -10,4 +44,5 @@ Disallow: /r/
 Sitemap: https://orbis-estate.com/sitemap.xml
 Sitemap: https://orbis-estate.com/sitemap-listings.xml
 
+# AI 서비스용 사이트 요약: https://orbis-estate.com/llms.txt · https://orbis-estate.com/llms-full.txt
 # 다음(Daum) 웹마스터도구 인증 줄은 이 아래에 붙여 넣으세요. 예) #DaumWebMasterTool:발급받은코드

@@ -1,6 +1,6 @@
 // 오르비스 관리자 화면 — 글·매물·설정 관리 (저장하면 깃허브 → 자동 발행 → Cloudflare 배포)
-import * as G from './sitegen.mjs?v=20261026';
-import { createKpi } from './kpi.js?v=20261124';
+import * as G from './sitegen.mjs?v=20261127';
+import { createKpi } from './kpi.js?v=20261127';
 import { createListings } from './listings.js?v=20261124';
 import { createGeo } from './geo.js?v=20261124';
 
@@ -385,27 +385,15 @@ async function viewSettings() {
   };
 }
 
-// ---------------------------------------------------------------- 검색노출 점검
+// ---------------------------------------------------------------- 검색노출 점검 (admin/seo.js)
+let seoMod = null;
 async function viewSeo() {
-  shell('seo', '<div class="empty">불러오는 중…</div>');
-  try { await loadPosts(true); } catch (e) { return fail(e); }
-  const pub = state.posts.filter((p) => p.status === 'published');
-  const issues = state.posts.filter((p) => (p.warnings || []).length || (p.errors || []).length);
-  const cats = G.CATEGORY_KEYS.map((k) => [k, pub.filter((p) => p.category === k).length]);
-  const last7 = pub.filter((p) => p.date && new Date(p.date) > new Date(Date.now() - 7 * 864e5)).length;
-  $('#view').innerHTML = `<div class="topline"><div><h2>검색노출 점검</h2><p>글마다 제목·설명 길이, 키워드, 내부 링크, 출처를 자동으로 확인합니다.</p></div></div>
-  <div class="grid g4"><div class="card kpi"><b>${pub.length}</b><span>공개 글</span></div><div class="card kpi"><b>${last7}</b><span>최근 7일 발행</span></div><div class="card kpi"><b>${issues.length}</b><span>알림이 있는 글</span></div><div class="card kpi"><b>${cats.filter(([, n]) => n).length}/6</b><span>글이 있는 분야</span></div></div>
-  <div class="grid g2" style="margin-top:16px">
-    <div class="card"><h3>분야별 글 수</h3><div class="list">${cats.map(([k, n]) => `<div class="row"><span class="t">${G.CATEGORIES[k].title}</span><b>${n}편</b><a class="btn btn-line btn-sm" href="/insights/topics/${k}" target="_blank" rel="noopener">보기</a></div>`).join('')}</div></div>
-    <div class="card"><h3>검색엔진 등록 확인</h3><div class="list">
-      <div class="row"><span class="t">사이트맵 (구글·네이버에 제출)</span><a class="btn btn-line btn-sm" href="/sitemap.xml" target="_blank" rel="noopener">열기</a></div>
-      <div class="row"><span class="t">RSS (네이버 서치어드바이저에 제출)</span><a class="btn btn-line btn-sm" href="/rss.xml" target="_blank" rel="noopener">열기</a></div>
-      <div class="row"><span class="t">네이버 서치어드바이저 — 수집 현황·웹 페이지 수집 요청</span><a class="btn btn-line btn-sm" href="https://searchadvisor.naver.com/console/board" target="_blank" rel="noopener">이동</a></div>
-      <div class="row"><span class="t">구글 서치 콘솔 — 색인 생성·검색 실적</span><a class="btn btn-line btn-sm" href="https://search.google.com/search-console" target="_blank" rel="noopener">이동</a></div>
-      <div class="row"><span class="t">새 글 자동 알림 (IndexNow: 네이버·빙)</span><span class="pill ok">발행 때 자동</span></div>
-    </div></div>
-  </div>
-  <div class="card" style="margin-top:16px"><h3>알림이 있는 글</h3>${issues.length ? `<div class="list">${issues.map((p) => `<div class="row" style="align-items:flex-start"><span class="t" style="white-space:normal"><a href="#/edit/${p.slug}"><b>${E(p.title)}</b></a><br><span style="color:var(--slate);font-size:12.5px">${[...(p.errors || []), ...(p.warnings || [])].map(E).join(' · ')}</span></span>${pill(p.status)}</div>`).join('')}</div>` : '<p class="empty">모든 글이 기준을 통과했습니다.</p>'}</div>`;
+  if (!seoMod) {
+    shell('seo', '<div class="empty">불러오는 중…</div>');
+    const m = await import('./seo.js?v=20261127');
+    seoMod = m.createSeo({ shell, $, E, state, loadPosts, G, pill });
+  }
+  return seoMod.view();
 }
 
 // ---------------------------------------------------------------- 사용 안내

@@ -275,6 +275,54 @@ export function mdToHtml(md, opts = {}) {
   return { html: out.join('\n'), toc };
 }
 
+// ---------------------------------------------------------------- 용어 자동 링크
+// terms: [{ slug, base, names: [본문에서 찾을 말...], auto, strict }] — 글마다 용어 하나에 링크 하나, 최대 max개
+const HANGUL = /[가-힣]/; const ALNUM = /[A-Za-z0-9]/;
+const PARTICLE = '을를이가은는의와과도에로만';
+function termBoundary(text, idx, name, strict) {
+  const prev = idx > 0 ? text[idx - 1] : ''; const next = text[idx + name.length] || '';
+  if (prev && (HANGUL.test(prev) || ALNUM.test(prev))) return false;
+  if (ALNUM.test(name[name.length - 1]) && next && ALNUM.test(next)) return false;
+  if (strict && next && HANGUL.test(next) && !PARTICLE.includes(next)) return false;
+  return true;
+}
+export function linkTerms(html, terms, { max = 8, skipSlug = '' } = {}) {
+  const cands = [];
+  for (const t of terms || []) { if (t.auto === false || t.slug === skipSlug) continue; for (const n of t.names || []) if (n) cands.push({ n, t }); }
+  cands.sort((a, b) => b.n.length - a.n.length);
+  const used = []; const seen = new Set();
+  if (!cands.length) return { html, used };
+  const parts = String(html).split(/(<[^>]+>)/);
+  const SKIP = /^(a|h[1-6]|code|summary|th|button|script|style)$/; let depth = 0;
+  for (let i = 0; i < parts.length; i++) {
+    const p = parts[i];
+    if (p.startsWith('<')) {
+      const m = p.match(/^<(\/?)([a-z0-9]+)/i); if (!m) continue;
+      const tag = m[2].toLowerCase(); if (!SKIP.test(tag)) continue;
+      if (m[1]) { if (depth) depth--; } else if (!p.endsWith('/>')) depth++;
+      continue;
+    }
+    if (depth || !p.trim()) continue;
+    let text = p; let out = '';
+    for (;;) {
+      let best = null;
+      for (const c of cands) {
+        if (seen.has(c.t.slug)) continue;
+        let idx = -1; let from = 0;
+        for (;;) { idx = text.indexOf(c.n, from); if (idx < 0 || termBoundary(text, idx, c.n, c.t.strict)) break; from = idx + 1; }
+        if (idx >= 0 && (!best || idx < best.idx || (idx === best.idx && c.n.length > best.c.n.length))) best = { idx, c };
+      }
+      if (!best) break;
+      seen.add(best.c.t.slug); used.push(best.c.t);
+      const linked = used.length <= max;
+      out += text.slice(0, best.idx) + (linked ? `<a class="gl" href="/glossary/${best.c.t.slug}" title="${esc(best.c.t.base)} 뜻 보기">${best.c.n}</a>` : best.c.n);
+      text = text.slice(best.idx + best.c.n.length);
+    }
+    parts[i] = out + text;
+  }
+  return { html: parts.join(''), used };
+}
+
 export function textLength(md) {
   return String(md || '').replace(/^#+\s.*$/gm, '').replace(/[>|*`#\-\[\]()]/g, '').replace(/https?:\/\/\S+/g, '').replace(/\s+/g, ' ').trim().length;
 }
@@ -387,6 +435,7 @@ export function headHtml({ title, description, path, ogType = 'website', image, 
 <meta property="og:image" content="${img}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="${esc(title)}">
 ${art}
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#ffffff">
@@ -440,7 +489,11 @@ export function postCard(p, { reveal = false, headingLevel = 3 } = {}) {
 export function renderArticle(p, ctx) {
   const { layout, posts = [] } = ctx;
   const cat = CATEGORIES[p.category];
-  const { html, toc } = mdToHtml(p.body);
+  const md = mdToHtml(p.body); const toc = md.toc;
+  const lk = ctx.terms ? linkTerms(md.html, ctx.terms, { max: 8 }) : { html: md.html, used: [] };
+  const html = lk.html; const usedTerms = lk.used;
+  const plain = `${p.title} ${p.keywords.join(' ')} ${p.body}`;
+  const toolPick = (ctx.tools || []).map((t) => ({ t, n: (plain.match(new RegExp(t.match, 'g')) || []).length })).filter((x) => x.n >= (x.t.min || 2)).sort((a, b) => b.n - a.n).slice(0, 2).map((x) => x.t);
   const published = isoKst(p.date);
   const modified = p.updated && p.updated > p.date ? isoKst(p.updated) : null;
   const title = `${p.seoTitle} | ${BRAND}`;
@@ -449,7 +502,10 @@ export function renderArticle(p, ctx) {
     crumbLd([['홈', '/'], ['인사이트', '/insights'], [cat.name, `/insights/topics/${p.category}`], [p.title, p.url]]),
     jsonld({ '@context': 'https://schema.org', '@type': 'BlogPosting', headline: p.title, description: p.description, datePublished: published, dateModified: modified || published,
       author: ORG_REF, publisher: { ...ORG_REF, logo: { '@type': 'ImageObject', url: `${SITE}/assets/logo-full.png` } },
-      mainEntityOfPage: `${SITE}${p.url}`, image: `${SITE}${image}`, keywords: p.keywords.join(', '), articleSection: cat.name, inLanguage: 'ko-KR', wordCount: textLength(p.body) }),
+      mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE}${p.url}` }, url: `${SITE}${p.url}`, image: { '@type': 'ImageObject', url: `${SITE}${image}`, width: 1200, height: 630 }, keywords: p.keywords.join(', '), articleSection: cat.name, inLanguage: 'ko-KR', wordCount: textLength(p.body), isAccessibleForFree: true,
+      isPartOf: { '@type': 'Blog', '@id': `${SITE}/insights#blog`, name: `${BRAND} 인사이트`, url: `${SITE}/insights` },
+      ...(usedTerms.length ? { about: usedTerms.slice(0, 6).map((t) => ({ '@type': 'DefinedTerm', name: t.base, url: `${SITE}/glossary/${t.slug}` })) } : {}),
+      ...(p.sources.length ? { citation: p.sources.filter((x) => x.url).slice(0, 8).map((x) => ({ '@type': 'CreativeWork', name: String(x.title), url: safeUrl(x.url) })) } : {}) }),
     p.faq.length ? jsonld({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: p.faq.map((f) => ({ '@type': 'Question', name: String(f.q), acceptedAnswer: { '@type': 'Answer', text: String(f.a) } })) }) : '',
   ].join('');
   const head = headHtml({ title, description: p.description, path: p.url, ogType: 'article', image, extra: ld, layout,
@@ -458,6 +514,8 @@ export function renderArticle(p, ctx) {
   const tocHtml = toc.length >= 3 ? `<div class="toc"><b>CONTENTS</b><ol>${toc.map((t) => `<li><a href="#${t.id}">${inline(t.text)}</a></li>`).join('')}</ol></div>` : '';
   const meta = `<div class="a-meta"><span>작성 <b>${BRAND}</b></span><span>발행 <b><time datetime="${published}">${dotDate(p.date)}</time></b></span>${modified ? `<span>수정 <b><time datetime="${modified}">${dotDate(p.updated)}</time></b></span>` : ''}<span>분야 <b><a href="/insights/topics/${p.category}">${cat.name}</a></b></span><span>읽기 <b>약 ${p.readMin}분</b></span></div>`;
   const kw = p.keywords.length ? `<div class="a-tags">${p.keywords.map((k) => `<span>#${esc(k)}</span>`).join('')}</div>` : '';
+  const termsHtml = usedTerms.length ? `<section class="a-terms" aria-labelledby="terms-h"><h2 id="terms-h">이 글에 나온 용어</h2><div class="chips">${usedTerms.slice(0, 12).map((t) => `<a href="/glossary/${t.slug}">${esc(t.base)}</a>`).join('')}<a class="all" href="/glossary">용어사전 전체 ${ARROW}</a></div></section>` : '';
+  const toolsHtml = toolPick.length ? `<aside class="a-tools" aria-label="관련 계산기"><b>직접 계산해 보기</b><div>${toolPick.map((t) => `<a href="/tools/${t.slug}" data-track="cta_click" data-label="article_tool_${t.slug}"><strong>${esc(t.name)}</strong><span>${esc(t.short)}</span></a>`).join('')}</div></aside>` : '';
   const faq = p.faq.length ? `<section class="a-faq" aria-labelledby="faq-h"><h2 id="faq-h">자주 묻는 질문</h2>${p.faq.map((f) => `<details><summary>${esc(f.q)}</summary><p>${inline(String(f.a))}</p></details>`).join('')}</section>` : '';
   const src = p.sources.length ? `<section class="a-sources" aria-labelledby="src-h"><h2 id="src-h">참고 자료</h2><ul>${p.sources.map((s) => `<li>${s.url ? `<a href="${escAttr(safeUrl(s.url))}" target="_blank" rel="noopener">${esc(s.title)}</a>` : esc(s.title)}${s.date ? ` <span>(${esc(s.date)} 확인)</span>` : ''}</li>`).join('')}</ul><p class="a-src-note">출처의 수치와 법령은 위 기준 시점의 것입니다. 이후 개정·발표로 달라질 수 있습니다.</p></section>` : '';
   // 관련 글: 지정한 글 → 같은 분야 최신 글 순
@@ -477,7 +535,9 @@ export function renderArticle(p, ctx) {
 </div></section>
 <section class="section tight"><div class="article"><article class="a-body">
 ${html}
+${toolsHtml}
 ${faq}
+${termsHtml}
 ${src}
 <div class="a-disclaimer"><b>안내</b><p>${DISCLAIMER}</p></div>
 ${kw}
@@ -538,14 +598,16 @@ export function renderTopic(key, ctx) {
 
 // ---------------------------------------------------------------- 용어사전 · FAQ 페이지
 export function renderGlossary(doc, ctx) {
-  const { layout } = ctx; const { meta, body } = parseDoc(doc);
-  const { html } = mdToHtml(body, { numbered: false, headingIds: 'text' });
+  const { layout } = ctx; const { meta, body } = parseDoc(doc); const path0 = '/glossary';
+  const slugMap = new Map((ctx.terms || []).map((t) => [t.name, t.slug])); const slugOf = (n) => slugMap.get(n) || '';
+  let { html } = mdToHtml(body, { numbered: false, headingIds: 'text' });
+  if (slugMap.size) html = html.replace(/<h3 id="([^"]*)">([\s\S]*?)<\/h3>/g, (m, id, inner) => { const name = inner.replace(/<[^>]+>/g, '').replace(/&amp;/g, '&'); const sl = slugOf(name); return sl ? `<h3 id="${id}"><a class="g-term" href="${path0}/${sl}">${inner}<span>자세히</span></a></h3>` : m; });
   const groups = []; const terms = [];
   body.split('\n').forEach((l) => { const g = l.match(/^##\s+(.*)$/); const t = l.match(/^###\s+(.*)$/); if (g) groups.push(g[1].trim()); if (t) terms.push(t[1].trim()); });
   const path = '/glossary';
   const ld = crumbLd([['홈', '/'], ['인사이트', '/insights'], ['부동산 용어사전', path]]) + jsonld({ '@context': 'https://schema.org', '@type': 'DefinedTermSet', name: meta.title || '부동산 용어사전', url: `${SITE}${path}`,
-    hasDefinedTerm: terms.map((t) => ({ '@type': 'DefinedTerm', name: t.replace(/\s*\(.*\)$/, ''), url: `${SITE}${path}#${termId(t)}` })) });
-  const head = headHtml({ title: `${meta.seoTitle || meta.title} | ${BRAND}`, description: meta.description || '', path, layout, extra: ld });
+    hasDefinedTerm: terms.map((t) => ({ '@type': 'DefinedTerm', name: t.replace(/\s*\(.*\)$/, ''), url: slugOf(t) ? `${SITE}${path}/${slugOf(t)}` : `${SITE}${path}#${termId(t)}` })) });
+  const head = headHtml({ title: `${meta.seoTitle || meta.title} | ${BRAND}`, description: meta.description || '', path, layout, extra: ld, image: '/assets/og-glossary.jpg' });
   const nav = `<div class="g-nav">${groups.map((g, i) => `<a href="#s${i + 1}">${esc(g)}</a>`).join('')}</div>`;
   const main = `<section class="phero"><div class="ring pr1"></div><div class="ring pr2"></div><div class="article" style="padding-top:0">
   <nav class="crumb" aria-label="현재 위치"><a href="/">홈</a> / <a href="/insights">인사이트</a> / 부동산 용어사전</nav>
@@ -585,8 +647,9 @@ ${groups.map((x, i) => `<h2 id="g${i + 1}">${esc(x.name)}</h2>${x.items.map((it)
 
 // ---------------------------------------------------------------- sitemap · RSS
 export function renderSitemap(entries) {
-  const rows = entries.map((e) => `  <url><loc>${esc(e.loc)}</loc>${e.lastmod ? `<lastmod>${e.lastmod}</lastmod>` : ''}${e.changefreq ? `<changefreq>${e.changefreq}</changefreq>` : ''}${e.priority ? `<priority>${e.priority}</priority>` : ''}</url>`);
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${rows.join('\n')}\n</urlset>\n`;
+  const hasImg = entries.some((e) => e.image);
+  const rows = entries.map((e) => `  <url><loc>${esc(e.loc)}</loc>${e.lastmod ? `<lastmod>${e.lastmod}</lastmod>` : ''}${e.changefreq ? `<changefreq>${e.changefreq}</changefreq>` : ''}${e.priority ? `<priority>${e.priority}</priority>` : ''}${e.image ? `<image:image><image:loc>${esc(e.image)}</image:loc></image:image>` : ''}</url>`);
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"${hasImg ? ' xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"' : ''}>\n${rows.join('\n')}\n</urlset>\n`;
 }
 export function renderRss(items, now) {
   const body = items.map((it) => `    <item>

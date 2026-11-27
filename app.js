@@ -193,6 +193,7 @@ function track(ev, params){
 })();
 
 /* ---------- click / video tracking ---------- */
+document.addEventListener('orbis:track',function(e){ var d=e.detail||{}; if(d.ev) track(d.ev,{label:d.label||''}); });
 document.addEventListener('click',function(e){
   var t=e.target.closest('[data-track]'); if(!t) return;
   track(t.getAttribute('data-track'),{label:t.getAttribute('data-label')||t.textContent.trim().slice(0,40)});

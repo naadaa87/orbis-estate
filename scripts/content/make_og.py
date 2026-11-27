@@ -2,6 +2,7 @@
 """인사이트 글 대표 이미지(1200×630) 만들기 — 검색·공유 미리보기용
 
 사용법: python3 scripts/content/make_og.py <slug> [<slug> ...]   (모든 글: --all)
+        python3 scripts/content/make_og.py --page <파일이름> <꼬리표> <제목>   (고정 페이지용: assets/<파일이름>.jpg)
 결과:   assets/insights/<slug>.jpg  (글 머리말에 cover: /assets/insights/<slug>.jpg 를 적어 주세요)
 필요:   Playwright(파이썬) + Chromium. 글꼴은 scripts/content/fonts 안의 Pretendard를 씁니다.
 """
@@ -27,6 +28,8 @@ def meta_of(slug):
 
 def page(meta):
     name, color = CATS.get(meta["category"], ("인사이트", "#C5A15A"))
+    if meta.get("label"): name, color = meta["label"], "#14243E"
+    foot = meta.get("foot", "인사이트")
     t = html.escape(meta["title"])
     size = 64 if len(meta["title"]) <= 22 else 58 if len(meta["title"]) <= 30 else 52
     return f"""<!DOCTYPE html><html><head><meta charset="utf-8"><style>
@@ -46,7 +49,7 @@ h1{{font-size:{size}px;font-weight:800;line-height:1.3;letter-spacing:-.02em;mar
 .foot span{{margin-left:auto;font-size:21px;color:#866829;font-weight:700}}
 </style></head><body><div class="ring r1"></div><div class="ring r2"></div><div class="bar"></div>
 <div class="wrap"><div class="cat">{name}</div><h1>{t}</h1>
-<div class="foot"><img src="file://{LOGO}" alt=""><b>오르비스중개법인</b> 인사이트<span>orbis-estate.com</span></div></div>
+<div class="foot"><img src="file://{LOGO}" alt=""><b>오르비스중개법인</b> {foot}<span>orbis-estate.com</span></div></div>
 </body></html>"""
 
 
@@ -72,6 +75,19 @@ def main(slugs):
 
 if __name__ == "__main__":
     args = sys.argv[1:]
+    if args[:1] == ["--page"] and len(args) == 4:
+        from playwright.sync_api import sync_playwright
+        from PIL import Image
+        with sync_playwright() as p:
+            b = p.chromium.launch(); pg = b.new_page(viewport={"width": 1200, "height": 630}, device_scale_factor=1)
+            with tempfile.NamedTemporaryFile("w", suffix=".html", delete=False, encoding="utf-8") as f:
+                f.write(page({"title": args[3], "category": "", "label": args[2], "foot": ""})); tmp = f.name
+            pg.goto("file://" + tmp); pg.evaluate("document.fonts.ready"); pg.wait_for_timeout(250)
+            png = tmp.replace(".html", ".png"); pg.screenshot(path=png)
+            out = os.path.join(ROOT, "assets", args[1] + ".jpg")
+            Image.open(png).convert("RGB").save(out, quality=86, optimize=True, progressive=True)
+            os.unlink(tmp); os.unlink(png); b.close(); print("만듦:", os.path.relpath(out, ROOT))
+        sys.exit(0)
     if args == ["--all"]:
         args = sorted(f[:-3] for f in os.listdir(os.path.join(ROOT, "content/insights")) if f.endswith(".md"))
     if not args:

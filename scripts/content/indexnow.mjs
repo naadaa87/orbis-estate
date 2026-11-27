@@ -6,6 +6,7 @@ import fs from 'node:fs';
 import { execSync } from 'node:child_process';
 const KEY = '849e717d7a8c7b57c5bb3e1b2b1bebda';
 const HOST = 'orbis-estate.com';
+const SKIP_PAGES = new Set(['404', 'listing', 'search']);
 const file = new URL('./.out/changed-urls.json', import.meta.url);
 let urls = fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, 'utf8')) : [];
 // 사이트 파일까지 함께 올린 커밋이면(빌드 결과가 이미 저장소에 있음) 이번 push에서 바뀐 원고로 주소를 만듭니다
@@ -22,9 +23,12 @@ if (!urls.length && process.env.DIFF_BASE && !/^0+$/.test(process.env.DIFF_BASE)
       if (m && fs.existsSync(`insights/${m[1]}.html`)) set.add(`https://${HOST}/insights/${m[1]}`);
       m = n.match(/^content\/pages\/(faq|glossary)\.md$/);
       if (m) set.add(`https://${HOST}/${m[1]}`);
+      // 고정 페이지·길잡이·계산기·용어 페이지가 바뀐 경우
+      m = n.match(/^((?:glossary|tools|guides)\/[a-z0-9-]+|[a-z0-9-]+)\.html$/);
+      if (m && !SKIP_PAGES.has(m[1])) set.add(`https://${HOST}/${m[1] === 'index' ? '' : m[1]}`);
     }
     if (set.size) set.add(`https://${HOST}/insights`);
-    urls = [...set];
+    urls = [...set].slice(0, 500);
   } catch (e) { console.log('바뀐 원고 목록을 읽지 못했습니다:', e.message); }
 }
 if (!urls.length) { console.log('알릴 주소가 없습니다.'); process.exit(0); }

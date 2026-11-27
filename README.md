@@ -179,6 +179,29 @@ window.ORBIS = {
 
 ---
 
+## 검색 노출 (SEO · AI 검색) 구조 (2026-11-27)
+
+글과 페이지가 네이버·구글·빙·다음 검색과 ChatGPT·퍼플렉시티 같은 AI 답변에 잘 잡히도록 만든 장치입니다. 모두 `node scripts/content/build.mjs` 한 번으로 다시 만들어집니다.
+
+| 주소 | 무엇 | 원본 |
+|---|---|---|
+| `/glossary/<주소>` (70개) | 용어마다 뜻·계산 예시·확인할 점·관련 글·관련 질문을 모은 개별 페이지 | `content/pages/glossary.md` + `glossary-extra.json` |
+| `/tools`, `/tools/<주소>` (7개) | 중개보수·환산보증금·수익률·평수/전용률·취득 비용·실효임대료·임대료 인상 계산기 | `scripts/content/extra-data.mjs`(글) + `tools.js`(계산) |
+| `/guides`, `/guides/<주소>` (7개) | 매각·매입·임대차·사무실·출점·공실·상권분석 단계별 길잡이. 단계마다 인사이트 글을 묶음 | `scripts/content/extra-data.mjs` |
+| `/search` | 글·용어·질문·계산기·길잡이·페이지를 한 번에 찾는 사이트 안 검색 | `search.js` + 빌드가 만드는 `search-index.json` |
+| `/llms.txt`, `/llms-full.txt` | AI 서비스용 사이트 요약 (빌드 때 자동 갱신) | `scripts/content/extra.mjs` |
+| `/sitemap.xml` | 전체 페이지 + 글 대표 이미지 | 빌드 |
+
+- **본문 자동 링크**: 인사이트 글에 용어사전의 용어가 나오면 처음 한 번 용어 페이지로 연결합니다(글마다 최대 8개). 글 끝에는 '이 글에 나온 용어'와 관련 계산기가 붙습니다.
+- **용어를 추가할 때**: `glossary.md`에 `### 용어`와 설명을 쓰고, `glossary-extra.json`에 같은 이름으로 `slug`(영문 주소)를 넣습니다. 둘 중 하나만 있으면 빌드 점검에서 알려 줍니다.
+- **요율·기준 금액이 바뀌면**: `tools.js`의 숫자와 `extra-data.mjs`의 설명(`AS_OF` 포함), `glossary-extra.json`의 해당 문장을 함께 고칩니다.
+- **robots.txt**: 검색엔진과 AI 검색 로봇(OAI-SearchBot, PerplexityBot, Claude-SearchBot 등)을 명시해 허용합니다. Cloudflare의 'AI Crawler and Agent access policies'가 켜져 있으면 Cloudflare가 파일 앞에 AI 학습 로봇 차단 규칙을 덧붙입니다(관리자 → 검색노출 점검에서 현재 상태 확인).
+- **IndexNow**: 글뿐 아니라 고정 페이지·용어·계산기·길잡이가 바뀌어도 네이버 서치어드바이저와 빙에 자동으로 알립니다(`scripts/content/indexnow.mjs`).
+- **관리자 → 검색노출 점검**: 로봇 접근 진단, 색인 확인 링크, 전체 페이지 점검(제목·설명·대표 주소·구조화 데이터), 목표 검색어 표.
+- 검색어만 바꾼 비슷한 페이지를 대량으로 늘리지 않습니다. 구글은 이를 스팸(대량 생성 콘텐츠)으로 봅니다.
+
+---
+
 ## 방문 통계와 KPI 현황
 
 관리자 화면 → **KPI 현황**에서 방문자·페이지뷰·머문 시간·유입 경로·인기 페이지·클릭·문의 전환·회원(구독자·문의 고객)을 기간별로 봅니다. 따로 설정할 것은 없고, 상담 접수와 같은 D1(`DB`)을 씁니다.
