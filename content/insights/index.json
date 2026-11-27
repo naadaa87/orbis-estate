@@ -1,6 +1,26 @@
 {
-  "generatedAt": "2026-11-26T11:01:00+09:00",
+  "generatedAt": "2026-11-27T09:52:00+09:00",
   "posts": [
+    {
+      "slug": "cafe-startup-retail-space-building-check",
+      "title": "카페 창업 상가, 계약 전에 건물에서 확인할 6가지",
+      "category": "brand",
+      "status": "scheduled",
+      "url": "/insights/cafe-startup-retail-space-building-check",
+      "date": "2026-11-27T11:00:00+09:00",
+      "updated": null,
+      "description": "카페 창업 상가를 계약하기 전에 건물에서 확인할 것을 정리했습니다. 건축물대장의 용도와 면적 기준, 다중이용업소 해당 여부, 전기 용량, 급배수와 정화조, 배기 덕트, 영업신고 서류까지 계약 전 점검표로 담았습니다.",
+      "keywords": [
+        "카페 창업 상가",
+        "카페 창업 건축물 용도",
+        "휴게음식점 영업신고",
+        "카페 전기 용량",
+        "카페 상가 계약 전 확인"
+      ],
+      "readMin": 8,
+      "warnings": [],
+      "errors": []
+    },
     {
       "slug": "commercial-auction-rights-analysis",
       "title": "상가 경매 전에 확인할 권리분석 기초",
