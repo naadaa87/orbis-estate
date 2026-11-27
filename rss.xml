@@ -5,8 +5,16 @@
     <link>https://orbis-estate.com/</link>
     <description>강남 부동산 중개법인 오르비스의 부동산 시장동향·투자·상권분석·점포개발·계약/법률·자산관리 가이드</description>
     <language>ko</language>
-    <lastBuildDate>Thu, 26 Nov 2026 11:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 27 Nov 2026 11:00:00 +0900</lastBuildDate>
     <atom:link href="https://orbis-estate.com/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>카페 창업 상가, 계약 전에 건물에서 확인할 6가지</title>
+      <link>https://orbis-estate.com/insights/cafe-startup-retail-space-building-check</link>
+      <guid isPermaLink="true">https://orbis-estate.com/insights/cafe-startup-retail-space-building-check</guid>
+      <pubDate>Fri, 27 Nov 2026 11:00:00 +0900</pubDate>
+      <category>브랜드·출점</category>
+      <description>카페 창업 상가를 계약하기 전에 건물에서 확인할 것을 정리했습니다. 건축물대장의 용도와 면적 기준, 다중이용업소 해당 여부, 전기 용량, 급배수와 정화조, 배기 덕트, 영업신고 서류까지 계약 전 점검표로 담았습니다.</description>
+    </item>
     <item>
       <title>상가 경매 전에 확인할 권리분석 기초</title>
       <link>https://orbis-estate.com/insights/commercial-auction-rights-analysis</link>
@@ -318,14 +326,6 @@
       <pubDate>Mon, 26 Oct 2026 19:30:00 +0900</pubDate>
       <category>투자전략</category>
       <description>꼬마빌딩 매입 전 빌딩 실사에서 볼 12가지를 권리·공법·임대·물리·재무로 나눠 확인 자료와 받는 곳, 위험 신호를 표로 정리했습니다. 렌트롤 검증법과 비주택 취득세 기준(2026년 10월)도 함께 담았습니다.</description>
-    </item>
-    <item>
-      <title>1층 상가 입지 고르는 법: 가시성·동선·전면을 숫자로 보기</title>
-      <link>https://orbis-estate.com/insights/first-floor-retail-location</link>
-      <guid isPermaLink="true">https://orbis-estate.com/insights/first-floor-retail-location</guid>
-      <pubDate>Mon, 26 Oct 2026 19:20:00 +0900</pubDate>
-      <category>상권분석</category>
-      <description>1층 상가 입지를 고를 때 가시성(전면 폭·간판·시야 차단물), 동선(주동선·횡단보도·출구 방향), 접근성, 코너 자리의 장단점을 숫자로 기록하는 방법과 업종별 조건표, 시간대별 현장 관찰 양식을 정리했습니다.</description>
     </item>
   </channel>
 </rss>

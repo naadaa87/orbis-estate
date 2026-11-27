@@ -49,13 +49,14 @@
 
 ## 읽을거리
 
-- [인사이트](https://orbis-estate.com/insights): 시장 동향·투자·상권분석·계약·법률 실무 글 49편, 매일 새 글.
+- [인사이트](https://orbis-estate.com/insights): 시장 동향·투자·상권분석·계약·법률 실무 글 50편, 매일 새 글.
 - [부동산 용어사전](https://orbis-estate.com/glossary): 임대차·투자·상권·등기 용어 70개, 용어마다 개별 페이지.
 - [자주 묻는 질문](https://orbis-estate.com/faq)
 - [회사 소개](https://orbis-estate.com/about) · [대표 소개](https://orbis-estate.com/leadership)
 
 ### 최근 글
 
+- [카페 창업 상가, 계약 전에 건물에서 확인할 6가지](https://orbis-estate.com/insights/cafe-startup-retail-space-building-check): 카페 창업 상가를 계약하기 전에 건물에서 확인할 것을 정리했습니다. 건축물대장의 용도와 면적 기준, 다중이용업소 해당 여부, 전기 용량, 급배수와 정화조, 배기…
 - [상가 경매 전에 확인할 권리분석 기초](https://orbis-estate.com/insights/commercial-auction-rights-analysis): 상가 경매에 들어가기 전 말소기준권리를 찾는 순서, 상가 임차인의 대항력과 보증금 인수 여부, 소액임차인 최우선변제 기준, 등기부에 나오지 않는…
 - [상가 보증금을 못 돌려받을 때, 임차권등기명령 요건과 절차](https://orbis-estate.com/insights/commercial-lease-registration-order): 상가 계약이 끝났는데 보증금을 돌려받지 못했을 때 쓰는 임차권등기명령의 신청 요건, 첨부서류, 등기까지의 순서, 등기 뒤의 효과를 상가건물 임대차보호법 제6조…
 - [상가 임장 체크리스트, 요일·시간대별로 나눠 보는 법](https://orbis-estate.com/insights/retail-site-visit-checklist): 상가 임장은 한 번 가서 분위기를 보는 일이 아니라 요일과 시간대를 나눠 같은 항목을 반복해 기록하는 일입니다.
@@ -67,7 +68,6 @@
 - [건물주가 바뀌면 상가 임차인의 권리는 어떻게 되나](https://orbis-estate.com/insights/landlord-change-commercial-tenant-rights): 상가 건물주가 바뀌었을 때 계약이 그대로 이어지는 조건, 보증금을 누구에게 돌려받는지, 밀린 월세와 따로 맺은 약정이 어떻게 되는지를 상가건물 임대차보호법…
 - [경쟁점 분석, 거리·규모·가격대·대기 줄을 기록하는 법](https://orbis-estate.com/insights/competitor-store-analysis): 경쟁점 분석은 주변 가게 수를 세는 데서 끝나면 판단에 쓰기 어렵습니다. 직접·간접 경쟁점을 나누는 기준, 거리·규모·가격대·대기 줄을 같은 양식으로 적는 법,…
 - [서울 상권변화지표 해석법, LL·LH·HL·HH가 말해 주는 것](https://orbis-estate.com/insights/seoul-trade-area-change-index): 서울시 상권분석서비스의 상권변화지표를 업종 선택과 임대 전략에 쓰는 법을 정리했습니다.
-- [상권 범위 설정, 반경 대신 실제 생활권으로 자르는 법](https://orbis-estate.com/insights/trade-area-boundary-setting): 상권 범위 설정을 반경 원 하나로 끝내면 숫자가 틀어집니다. 큰길·경사·하천·철도·횡단보도 같은 단절 요소로 실제 생활권을 자르는 순서, 서울시 상권분석서비스의…
 
 ## 파트너
 
