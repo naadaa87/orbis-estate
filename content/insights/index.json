@@ -1,6 +1,26 @@
 {
-  "generatedAt": "2026-11-27T11:01:00+09:00",
+  "generatedAt": "2026-11-28T09:56:00+09:00",
   "posts": [
+    {
+      "slug": "commercial-rent-increase-procedure",
+      "title": "상가 임대료 인상, 건물주가 지켜야 할 절차와 5% 상한",
+      "category": "asset",
+      "status": "scheduled",
+      "url": "/insights/commercial-rent-increase-procedure",
+      "date": "2026-11-28T11:00:00+09:00",
+      "updated": null,
+      "description": "상가 임대료 인상을 앞둔 건물주가 확인할 것을 정리했습니다. 5% 증액 상한과 1년 제한, 환산보증금 초과 임대차의 기준, 만료 6개월 전 통지 일정, 보증금 월세 전환 한도 계산 예시(가정), 합의가 안 될 때의 분쟁조정까지 담았습니다.",
+      "keywords": [
+        "상가 임대료 인상",
+        "상가 월세 인상 5%",
+        "차임 증액 청구",
+        "임대료 인상 통지",
+        "보증금 월세 전환"
+      ],
+      "readMin": 7,
+      "warnings": [],
+      "errors": []
+    },
     {
       "slug": "cafe-startup-retail-space-building-check",
       "title": "카페 창업 상가, 계약 전에 건물에서 확인할 6가지",
