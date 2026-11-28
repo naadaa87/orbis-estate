@@ -81,7 +81,7 @@
 - [ ] 브랜드가 임대차 협상에서 쓸 수 있는 조건들 | 프랜차이즈 임대차 협상 | 렌트프리·TI·업종 독점 조항
 
 ## asset · 공실·자산관리 (토)
-- [ ] 건물주가 임대료를 올릴 때 지켜야 할 절차 | 상가 임대료 인상 | 5% 상한과 1년 제한, 통지 방법, 합의가 안 될 때. /tools/rent-increase 연결
+- [x] 건물주가 임대료를 올릴 때 지켜야 할 절차 | 상가 임대료 인상 | 5% 상한과 1년 제한, 통지 방법, 합의가 안 될 때. /tools/rent-increase 연결 → commercial-rent-increase-procedure
 - [x] 관리비 구조와 정산, 분쟁을 줄이는 법 | 상가 관리비 정산 | 항목 구성, 정산서 공개 → commercial-maintenance-fee-settlement
 - [x] 노후 건물, 어디부터 고칠까 | 노후 건물 리모델링 | 안전·임대 영향·비용 순서 → old-building-renovation-priority
 - [x] 공실 층 단기 활용: 팝업·공유오피스·스튜디오 | 공실 활용 방법 | 계약 형태와 위험 → vacant-floor-short-term-use
